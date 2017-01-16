@@ -39,8 +39,10 @@ gulp.task('tslint-app', function () {
 
 function lintTs(files) {
     return gulp.src(files)
-        .pipe(tslint())
-        .pipe(tslint.report('prose', {
+        .pipe(tslint({
+			formatter: "prose"
+		}))
+        .pipe(tslint.report({
           summarizeFailureOutput: true
         }));
 }
@@ -55,13 +57,15 @@ function compileTs(files, watchMode) {
             base: config.src,
             outDir: config.tmp
         })
-        .pipe(tslint())
-        .pipe(tslint.report('prose', {
+        .pipe(tslint({
+			formatter: "prose"
+		}))
+        .pipe(tslint.report({
             summarizeFailureOutput: true,
             emitError: !watchMode
         }))
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject))
+        .pipe(tsProject())
         .on('error', function () {
             if (watchMode) {
                 return;

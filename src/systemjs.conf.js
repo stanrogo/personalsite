@@ -20,7 +20,7 @@
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app': {defaultExtension: 'js'},
-        'rxjs': {defaultExtension: 'js', main: 'bundles/Rx.umd.js'},
+        'rxjs': {defaultExtension: 'js', main: 'Rx.js'},
 	    'firebase': {defaultExtension: 'js', main: 'firebase.js'},
 	    'angularfire2': {defaultExtension: 'js', main: 'bundles/angularFire2.umd.js'}
     };

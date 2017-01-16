@@ -1,0 +1,26 @@
+<div class="col-xs-12" *ngFor="let skill of skills | async; let i = index">
+    <form [attr.id]="'skills-form'+i" class="material-card form-wrapper">
+
+        <div class="form-group">
+            <label [attr.for]="'skill-input'+i">Name</label>
+            <input type="text" class="js-form-control form-control" [attr.id]="'skill-input'+i" required
+                      [(ngModel)]="skill.title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label [attr.for]="'skill-input'+i">Skill Text</label>
+            <textarea class="js-form-control form-control" [attr.id]="'skill-input'+i" required
+                   [(ngModel)]="skill.text" rows="5" name="text"></textarea>
+        </div>
+
+        <div class="form-group clearfix">
+            <label [attr.for]="'skill-input'+i">Icon</label>
+            <input type="file" multiple="" [attr.id]="'skill-input'+i" (change)="fileChanged($event, i)">
+            <img class="skill-icon float-left" [attr.src]="skillsArray[i].imageURL">
+        </div>
+
+        <button class="btn btn-primary" (click)="updateItem('/skills', i, $event)">Save Changes</button>
+        <button class="btn btn-danger" (click)="deleteItem('/skills', i)">Delete this record</button>
+        <span class="saved js-saved-state">&#x2714; Changes saved</span>
+    </form>
+</div>

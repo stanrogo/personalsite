@@ -1,0 +1,21 @@
+#blog-hero{
+  padding: 2rem 0 5rem;
+  background-color: $color--accent;
+
+  .hero-image{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 50%;
+
+    @include breakpoint('tablet'){
+      width: 15%;
+    }
+  }
+
+  .hero-title{
+    color: $color--white;
+    text-align: center;
+  }
+}
+

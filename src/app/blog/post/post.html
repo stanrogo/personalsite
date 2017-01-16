@@ -1,0 +1,16 @@
+<div id="blog-post" class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="cover-image--wrapper">
+                <img src="{{articleData?.imageURL}}"/>
+                <div class="cover-image--overlay"></div>
+                <h1 class="cover-image--text">{{articleData?.name}}</h1>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="material-card post-wrapper" [innerHTML]="articleData?.html"></div>
+        </div>
+    </div>
+</div>
+
+

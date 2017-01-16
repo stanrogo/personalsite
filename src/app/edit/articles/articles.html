@@ -1,0 +1,11 @@
+<div class="col-xs-12">
+    <div class="material-card form-wrapper">
+        <ul>
+            <li *ngFor="let post of posts | async; let i = index" class="clearfix article-item">
+                <span class="float-left article-name">{{post.name}}</span>
+                <button class="button button--rounded float-right" routerLink="/edit/articles/{{postsArray[i].$key}}">Edit</button>
+                <button class="btn btn-danger float-right button--delete" (click)="deleteItem('/posts', postsArray[i].$key)">Delete this record</button>
+            </li>
+        </ul>
+    </div>
+</div>

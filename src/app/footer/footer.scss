@@ -1,0 +1,18 @@
+#footer{
+  position: relative;
+  margin-top: 2rem;
+  background-color: #1d1e1b;
+  border-top: 10px solid transparent;
+  border-image: url(../images/skyline.png) fill 35 0 repeat;
+  background-clip: content-box;
+  z-index: 25;
+
+  .footer-container{
+    padding-bottom: 2rem;
+  }
+
+  .links--title{
+    color: $color--white;
+    font-size: 1.5rem;
+  }
+}

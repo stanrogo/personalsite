@@ -1,0 +1,38 @@
+<div id="nav-bar" class="js-header">
+    <header class="nav-bar--inner container clearfix">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="title float-left font--white" routerLink="">stanrogo</h1>
+                <span [class.hidden]="hideBlog" class="sub-title" routerLink="/blog">&nbsp; / Blog</span>
+                <nav class="float-right">
+                    <ul>
+                        <li class="nav-link hidden-xs" [routerLinkActive]="['is-active']" routerLink="/home">
+                            Home
+                        </li>
+                        <li class="nav-link hidden-xs" [routerLinkActive]="['is-active']" routerLink="/blog">
+                            Blog
+                        </li>
+                        <li class="hamburger visible-xs">
+                            <button class="toggle-button icon-menu" (click)="toggleMenu()"></button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div id="off-canvas-menu" class="js-menu-mobile" (click)="toggleMenu()">
+    <div class="off-canvas-wrapper">
+        <div class="clearfix">
+            <div class="menu-text">Menu</div>
+            <button class="toggle-button" (click)="toggleMenu()" data-icon="&#xe9bd;"></button>
+        </div>
+        <div>
+            <div class="menu-element" routerLink="">Home</div>
+            <div class="menu-element" routerLink="/blog">Blog</div>
+            <a class="menu-element" href="https://www.linkedin.com/in/stanleyclark" target="_blank">LinkedIn</a>
+            <a class="menu-element"  href="mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!" target="_blank">Email</a>
+        </div>
+    </div>
+</div>

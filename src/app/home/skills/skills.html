@@ -1,0 +1,15 @@
+<section class="row" id="skills">
+    <div class="col-xs-12">
+        <div class="module-title--wrapper">
+            <h1 class="module-title--text">SKILLS</h1>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 skill--separator" *ngFor="let skill of skills">
+        <div class="material-card skill--flex">
+            <div class="skill--icon">
+                <img class="skill--image" src="{{skill.imageURL}}">
+            </div>
+            <p class="skill--content">{{skill.text}}</p>
+        </div>
+    </div>
+</section>

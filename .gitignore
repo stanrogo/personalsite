@@ -1,0 +1,9 @@
+build
+node_modules
+typings
+tmp
+.idea
+npm_debug.log
+src/tmp
+src/assets/styles/main.css
+

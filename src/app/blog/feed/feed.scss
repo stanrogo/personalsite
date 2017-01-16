@@ -1,0 +1,33 @@
+#feed{
+	.post-card-wrapper:first-child{
+		margin-top: -5rem;
+	}
+
+	.post-preview-card{
+		margin: 1rem 0;
+		padding: 2rem;
+		transition: all 0.1s;
+		cursor: pointer;
+
+		&:hover{
+			box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+		}
+	}
+
+	.post-summary{
+		margin-bottom: 2rem;
+	}
+
+	.quick-fact{
+		padding-right: 1rem;
+
+		&:before{
+			padding-right: 0.5rem;
+		}
+	}
+
+	.button--block{
+		display: block;
+		margin-top: 2rem;
+	}
+}

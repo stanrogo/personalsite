@@ -22,12 +22,12 @@
         'app': {defaultExtension: 'js'},
         'rxjs': {defaultExtension: 'js', main: 'Rx.js'},
 	    'firebase': {defaultExtension: 'js', main: 'firebase.js'},
-	    'angularfire2': {defaultExtension: 'js', main: 'bundles/angularFire2.umd.js'}
+	    'angularfire2': {defaultExtension: 'js', main: 'bundles/angularfire2.umd.js'}
     };
 
     // Add package entries for angular packages
     var ngPackageNames = [
-        'common',
+        // 'common',
         'compiler',
         'core',
         'http',

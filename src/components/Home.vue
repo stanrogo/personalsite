@@ -20,7 +20,7 @@
     }
 </script>
 
-<style rel="stylesheet/scss" lang="sass">
+<style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
 

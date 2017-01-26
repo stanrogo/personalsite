@@ -47,13 +47,16 @@
     body {
         margin: 0;
         padding: 0;
-        min-width: 320px;
+        margin-left: 3rem;
+        min-width: calc(320px - 3rem);
         background-image: url("../assets/crossword.png");
+
+        @include breakpoint(tablet){
+            margin-left: $nav-width;
+        }
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 400;
-    }
+    h1, h2, h3, h4, h5, h6 {font-weight: 400;}
 
     ul {
         margin: 0;
@@ -61,20 +64,21 @@
         list-style: none;
     }
 
-    img {
-        max-width: 100%;
-    }
+    img{max-width: 100%;}
 
     // Helpers
 
     .material-card {
+        padding: 1rem;
         background-color: $color--white;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        @include breakpoint(tablet){
+            padding: 2rem;
+        }
     }
 
-    .clearfix{
-        overflow: auto;
-    }
+    .clearfix{overflow: auto;}
 
     .text-center{text-align: center;}
     .text-right{text-align: right;}
@@ -121,13 +125,12 @@
         position: relative;
         width: calc(100% - 2rem);
         max-width: 1040px;
-        margin: 0 1rem;
-        padding: 0 1rem;
+        margin: 0 1rem 1rem;
         @include flexbox();
 
-        @include breakpoint(desktop){
-            width: 100%;
-            margin: 0 auto;
+        @include breakpoint(tablet){
+            width: calc(100% - 4rem);
+            margin: 0 auto 2rem 2rem;
         }
     }
 </style>

@@ -63,12 +63,7 @@
 
     #feed{
         .material-card{
-            padding: 1rem;
-            margin-bottom: 1rem;
-
-            &:first-child{
-                margin-top: 1rem;
-            }
+            margin-top: 2rem;
         }
 
         .button{

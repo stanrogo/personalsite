@@ -107,9 +107,6 @@
 
     #skills{
         @include flex-direction(column);
-        padding: 2rem;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
 
         .module-title{
             font-size: 2rem;
@@ -118,9 +115,8 @@
         .skill--content{
             display: inline-block;
             margin: 0;
-            padding-right: 2rem;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop){
                 width: calc(100% - #{$imageWidth} - 10px);
             }
         }
@@ -135,7 +131,7 @@
             top: 0;
             right: 0;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop){
                 position: relative;
                 width: $imageWidth;
             }

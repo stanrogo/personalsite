@@ -17,6 +17,9 @@ $second-floor: 50;
 $third-floor: 75;
 $fourth-floor: 100;
 
+$nav-width: 300px;
+$hero-height: 400px;
+
 @mixin breakpoint($point) {
     @if $point == desktop {
         @media (min-width: 1200px) {

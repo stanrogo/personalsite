@@ -1,7 +1,7 @@
 <template>
     <div id="filters">
         <div class="filter-column is-collapsed">
-            <h3>Filter By Tag</h3>
+            <h3 class="filter-title">Filter By Tag</h3>
 
             <fieldset class="filter-section">
                 <label class="filter-label" v-for="filter in filterNames">
@@ -38,7 +38,11 @@
 
     #filters{
         @include flex(0 0 200px);
-        margin-right: 2rem;
+        margin: 2rem 0 0 2rem;
+
+        .filter-title{
+            margin-top: 0;
+        }
 
         .filter-label{
             display: block;

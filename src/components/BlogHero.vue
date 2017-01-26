@@ -6,8 +6,6 @@
 </template>
 
 <script>
-
-
     export default {
         name: 'blog-hero',
         data () {
@@ -23,7 +21,7 @@
 
     #blog-hero{
         padding: 2rem 0 2rem;
-        margin-top: 70px;
+        height: $hero-height;
         background-color: $color--grey-medium;
 
         .hero-image{

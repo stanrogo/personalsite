@@ -1,22 +1,26 @@
 <template>
-    <div id="work" class="grid-container">
-        <h2 class="module-title--text">CURRENT ENDEAVOURS</h2>
+    <div id="work">
 
-        <section class="material-card current-card" v-for="endeavour in current">
-            <div class="work-dates">{{endeavour.started}}</div>
-            <h1 class="work-company">{{endeavour.title}}</h1>
-            <p>{{endeavour.description}}</p>
-            <img :src="imgUrl(endeavour.imageURL)" class="work-image">
-        </section>
+        <div class="work-background"></div>
+        <div class="grid-container">
+            <h2 class="module-title--text">CURRENT ENDEAVOURS</h2>
 
-        <h2 class="module-title--text">RECENT EXPERIENCE</h2>
+            <section class="material-card current-card" v-for="endeavour in current">
+                <div class="work-dates">{{endeavour.started}}</div>
+                <h1 class="work-company">{{endeavour.title}}</h1>
+                <p>{{endeavour.description}}</p>
+                <img :src="imgUrl(endeavour.imageURL)" class="work-image">
+            </section>
 
-        <section class="material-card work-card" v-for="experience in experiences">
-            <div class="work-dates">{{experience.dates}}</div>
-            <h1 class="work-company">{{experience.title}}</h1>
-            <h2 class="work-position">{{experience.position}}</h2>
-            <p>{{experience.description}}</p>
-        </section>
+            <h2 class="module-title--text">RECENT EXPERIENCE</h2>
+
+            <section class="material-card work-card" v-for="experience in experiences">
+                <div class="work-dates">{{experience.dates}}</div>
+                <h1 class="work-company">{{experience.title}}</h1>
+                <h2 class="work-position">{{experience.position}}</h2>
+                <p>{{experience.description}}</p>
+            </section>
+        </div>
     </div>
 </template>
 
@@ -101,23 +105,38 @@
     @import '../styles/general';
 
     #work{
-        margin-top: 100px;
-        @include flex-wrap(wrap);
-        @include flex-direction(row);
+        .work-background{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: $hero-height;
+            background: $color--white url("../assets/500632732.jpg");
+            background-size: contain;
+        }
+
+        .grid-container{
+            margin-top: 2rem;
+            @include flex-wrap(wrap);
+            @include flex-direction(row);
+        }
 
         .module-title--text{
+            color: $color--white;
             @include flex(0 0 100%);
         }
 
         .material-card{
-            padding: 2rem;
             margin-bottom: 1rem;
 
             @include breakpoint(tablet){
-                @include flex(0 0 calc(50% - 0.5rem));
+                margin-bottom: 2rem;
+            }
 
-                &:nth-of-type(2n - 1){
-                    margin-right: 1rem;
+            @include breakpoint(laptop){
+                @include flex(0 0 calc(50% - 1rem));
+
+                &:nth-of-type(2n){
+                    margin-right: 2rem;
                 }
             }
         }

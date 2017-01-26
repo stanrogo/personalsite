@@ -2,8 +2,8 @@
     <div id="blog">
         <blog-hero></blog-hero>
         <div class="grid-container">
-            <filters></filters>
             <feed></feed>
+            <filters></filters>
         </div>
     </div>
 </template>

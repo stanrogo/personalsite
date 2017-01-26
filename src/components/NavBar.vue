@@ -47,6 +47,11 @@
                 }
 
                 this.links[index].isActive = true;
+
+                if(this.hamburgerActive){
+
+                    this.toggleMenu();
+                }
             }
         }
     }
@@ -68,9 +73,17 @@
         text-align: right;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
+        @include breakpoint(phablet){
+            width: 260px;
+        }
+
         &.is-hidden-mobile{
             left: calc(-1 * #{$nav-width} + 3rem);
             padding-right: 3rem;
+
+            @include breakpoint(phablet){
+                left: calc(-260px + 3rem);
+            }
 
             @include breakpoint(tablet){
                 left: 0;
@@ -83,6 +96,12 @@
                 right: 0;
                 width: 3rem;
                 text-align: center;
+
+                @include breakpoint(tablet){
+                    position: relative;
+                    padding: 0 1rem 0 0;
+                    width: auto;
+                }
             }
 
             .hamburger{

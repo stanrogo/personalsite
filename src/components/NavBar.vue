@@ -65,7 +65,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: $nav-width;
+        width: 260px;
         bottom: 0;
         z-index: $fourth-floor;
         background: $color--text-primary;
@@ -74,15 +74,15 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
         @include breakpoint(phablet){
-            width: 260px;
+            width: $nav-width;
         }
 
         &.is-hidden-mobile{
-            left: calc(-1 * #{$nav-width} + 3rem);
+            left: calc(-260px + 3rem);
             padding-right: 3rem;
 
             @include breakpoint(phablet){
-                left: calc(-260px + 3rem);
+                left: calc(-1 * #{$nav-width} + 3rem);
             }
 
             @include breakpoint(tablet){

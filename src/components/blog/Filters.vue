@@ -34,7 +34,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    @import '../styles/general';
+    @import '../../styles/general';
 
     #filters{
         @include flex(0 0 200px);

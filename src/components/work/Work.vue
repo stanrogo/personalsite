@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    var images = require.context('../assets/', false);
+    var images = require.context('../../assets/', false);
 
     export default {
         name: 'work',
@@ -102,7 +102,7 @@
 
 <style rel="stylesheet/scss" lang="scss">
 
-    @import '../styles/general';
+    @import '../../styles/general';
 
     #work{
         .work-background{
@@ -110,7 +110,7 @@
             top: 0;
             width: 100%;
             height: $hero-height;
-            background: $color--white url("../assets/500632732.jpg");
+            background: $color--white url("../../assets/500632732.jpg");
             background-size: contain;
         }
 

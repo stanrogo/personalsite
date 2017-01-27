@@ -19,6 +19,11 @@
 
                 // Re-render the git hub view on route change
 
+                if(!ready){
+
+                    return;
+                }
+
                 ready(start);
             });
         }
@@ -26,5 +31,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    @import '../styles/general';
+    @import '../../styles/general';
 </style>

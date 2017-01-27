@@ -59,7 +59,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    @import '../styles/general';
+    @import '../../styles/general';
 
     #feed{
         .material-card{

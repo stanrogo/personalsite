@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    var images = require.context('../assets/', false);
+    var images = require.context('../../assets/', false);
 
     export default {
         name: 'skills',
@@ -101,7 +101,7 @@
 
 <style rel="stylesheet/scss" lang="scss">
 
-    @import '../styles/general';
+    @import '../../styles/general';
 
     $imageWidth: 100px;
 

@@ -20,7 +20,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    @import '../styles/general';
+    @import '../../styles/general';
 
     #git-hub{
         @include flex-direction(row);

@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './components/App.vue'
-import Home from './components/Home.vue'
-import Work from './components/Work.vue'
-import Blog from './components/Blog.vue'
+import Home from './components/home/Home.vue'
+import Work from './components/work/Work.vue'
+import Blog from './components/blog/Blog.vue'
 
 Vue.use(VueRouter);
 

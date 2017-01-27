@@ -1,6 +1,6 @@
 <template>
     <div id="blog-hero">
-        <img class="hero-image" src="../assets/bloghero.jpg">
+        <img class="hero-image" src="../../assets/bloghero.jpg">
         <h1 class="hero-title">The Journal</h1>
     </div>
 </template>
@@ -17,7 +17,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    @import '../styles/general';
+    @import '../../styles/general';
 
     #blog-hero{
         padding: 2rem 0 2rem;

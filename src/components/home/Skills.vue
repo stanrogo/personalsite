@@ -108,8 +108,8 @@
     #skills{
         @include flex-direction(column);
 
-        .module-title{
-            font-size: 2rem;
+        .skill--name{
+            font-size: 1.3rem;
         }
 
         .skill--content{

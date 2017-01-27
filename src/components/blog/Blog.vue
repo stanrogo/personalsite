@@ -15,11 +15,6 @@
 
     export default {
         name: 'blog',
-        data () {
-            return {
-                msg: 'Welcome to Your Vue.js App'
-            }
-        },
         components: {Filters, Feed, BlogHero}
     }
 </script>

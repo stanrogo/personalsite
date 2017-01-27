@@ -83,7 +83,7 @@
 
     #hero{
         position: relative;
-        overflow: auto;
+        overflow: hidden;
 
         .hero-background{
             position: fixed;

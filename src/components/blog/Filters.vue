@@ -2,13 +2,14 @@
     <div id="filters">
         <div class="filter-column is-collapsed">
             <fieldset class="filter-section">
+                {{sharedState.counter}}
                 <h3 class="filter-title">Filter By Tag</h3>
 
                 <div class="filter-toggle-link" v-on:click="filtersOpen = !filtersOpen">{{filterSelectionText}}</div>
 
                 <label class="filter-label" v-for="(isChecked, filterName) in filterStatus" :class="{'hidden':!filtersOpen}">
-                    <input class="filter-checkbox js-tag-checkbox" :data-name="filterName" name="tag-checkbox"
-                           type="checkbox" v-on:change="filterChanged($event)">
+                    <input class="filter-checkbox js-tag-checkbox" name="tag-checkbox"
+                           type="checkbox" v-on:change="filterChanged(filterName)">
                     {{filterName}}
                 </label>
             </fieldset>
@@ -18,10 +19,15 @@
 
 <script>
 
+    import stateStore from './stateStore.js';
+
     export default {
         name: 'filters',
-        data () {
+        data(){
             return {
+                defaultFilterText: 'Select a tag',
+                filterSelectionText: 'Select a tag',
+                filtersOpen: false,
                 filterStatus: {
                     'StudyPortals': false,
                     'Sleep': false,
@@ -31,36 +37,40 @@
                     'Experimental': false,
                     'Travel': false
                 },
-                filterSelectionText: 'Select a tag',
-                filtersOpen: false,
-                filterChanged(event){
+                sharedState: stateStore.state
+            }
+        },
+        methods: {
+            filterChanged: function(filterName){
 
-                    const filterName = event.target.getAttribute('data-name');
-                    this.filterStatus[filterName] = !this.filterStatus[filterName];
+                this.filterStatus[filterName] = ! this.filterStatus[filterName];
 
-                    const selectedFilters = [];
+                const selectedFilters = [];
 
-                    for (const filterName in this.filterStatus){
+                for (const filterName in this.filterStatus){
 
-                        if(!this.filterStatus.hasOwnProperty(filterName)){
+                    if(!this.filterStatus.hasOwnProperty(filterName)){
 
-                            return;
-                        }
-
-                        if(this.filterStatus[filterName] === true){
-
-                            selectedFilters.push(filterName);
-                        }
-                    }
-
-                    if(selectedFilters.length == 0){
-
-                        this.filterSelectionText = 'Select a tag';
                         return;
                     }
 
+                    if(this.filterStatus[filterName] === true){
+
+                        selectedFilters.push(filterName);
+                    }
+                }
+
+                if(selectedFilters.length == 0){
+
+                    this.filterSelectionText = this.defaultFilterText;
+                }
+                else{
+
                     this.filterSelectionText = selectedFilters.join(', ');
                 }
+
+                this.sharedState.activeFilters = selectedFilters;
+                this.sharedState.bus.$emit('filtersUpdated')
             }
         }
     }

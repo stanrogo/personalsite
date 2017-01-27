@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    var images = require.context('../../assets/', false);
+    var images = require.context('../../images/', false);
 
     export default {
         name: 'skills',

@@ -12,7 +12,7 @@
 
             <div class="material-card">
                 <section class="intro-wrapper">
-                    <img class="profile-image" src="../../assets/me3.jpg">
+                    <img class="profile-image" src="../../images/me3.jpg">
                     <div class="intro-text-wrapper">
                         <h1 class="about-me--title">ABOUT ME</h1>
                         <p class="hero-text">
@@ -90,7 +90,7 @@
             top: 0;
             width: 100%;
             height: $hero-height;
-            background: $color--white url("../../assets/diagonal.jpg") center;
+            background: $color--white url("../../images/diagonal.jpg") center;
         }
 
         .grid-container{

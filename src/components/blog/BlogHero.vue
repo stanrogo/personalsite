@@ -20,24 +20,20 @@
     @import '../../styles/general';
 
     #blog-hero{
-        padding: 2rem 0 2rem;
+        @include flexbox();
+        @include flex-direction(column);
+        @include align-items(center);
+        @include justify-content(center);
         height: $hero-height;
         background-color: $color--grey-medium;
 
         .hero-image{
-            display: block;
-            margin: 0 auto;
-            width: 50%;
-            border-radius: 50%;
-
-            @include breakpoint('tablet'){
-                width: 15%;
-            }
+            width: 200px;
+            border-radius: 100px;
         }
 
         .hero-title{
             color: $color--white;
-            text-align: center;
         }
     }
 

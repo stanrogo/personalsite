@@ -27,5 +27,13 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../../styles/general';
 
+    #blog{
+        .grid-container{
+            @include flex-direction(column-reverse);
 
+            @include breakpoint(laptop){
+                @include flex-direction(row);
+            }
+        }
+    }
 </style>

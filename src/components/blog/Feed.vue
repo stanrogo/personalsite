@@ -62,6 +62,8 @@
     @import '../../styles/general';
 
     #feed{
+        @include flex(1);
+
         .material-card{
             margin-top: 2rem;
         }

@@ -35,13 +35,7 @@
         padding: 0;
         font-size: 16px;
         color: $color--text-primary;
-
-        * {
-            font-family: 'Cormorant Garamond', serif;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
+        font-family: 'Cormorant Garamond', serif;
     }
 
     body {

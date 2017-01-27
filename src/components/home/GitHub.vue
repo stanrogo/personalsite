@@ -25,6 +25,7 @@
     #git-hub{
         @include flex-direction(row);
         @include flex-wrap(wrap);
+        @include borderbox();
 
         .git-title{
             width: 100%;

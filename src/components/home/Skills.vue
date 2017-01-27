@@ -1,4 +1,4 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
 
     <section id="skills" class="grid-container material-card">
 
@@ -107,6 +107,7 @@
 
     #skills{
         @include flex-direction(column);
+        @include borderbox();
 
         .skill--name{
             font-size: 1.3rem;

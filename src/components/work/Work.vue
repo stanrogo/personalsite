@@ -126,6 +126,7 @@
         }
 
         .material-card{
+            @include borderbox();
             margin-bottom: 1rem;
 
             @include breakpoint(tablet){

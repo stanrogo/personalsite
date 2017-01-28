@@ -13,9 +13,15 @@
     import Feed from './Feed.vue';
     import BlogHero from './BlogHero.vue';
 
+    import store from '../../vuex/index.js';
+
     export default {
         name: 'blog',
-        components: {Filters, Feed, BlogHero}
+        components: {Filters, Feed, BlogHero},
+        created(){
+
+            store.dispatch('FETCH_LIST');
+        }
     }
 </script>
 

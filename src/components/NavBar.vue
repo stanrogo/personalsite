@@ -1,6 +1,6 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
-    <nav id="nav-bar" v-bind:class="{ 'is-hidden-mobile': !hamburgerActive}" v-on:click.stop="toggleMenu">
+    <nav id="nav-bar" v-bind:class="{ 'is-hidden-mobile': !sidebarOpen}" v-on:click.stop="toggleMenu">
         <div class="title">
             STANROGO
         </div>
@@ -12,13 +12,16 @@
             </li>
         </ul>
         <button class="hamburger"
-                v-bind:class="{ 'fontawesome-remove': hamburgerActive, 'fontawesome-reorder': !hamburgerActive}"
+                v-bind:class="{ 'fontawesome-remove': sidebarOpen, 'fontawesome-reorder': !sidebarOpen}"
                 v-on:click.stop="toggleMenu"
         ></button>
     </nav>
 </template>
 
 <script>
+
+    import store from '../vuex/index.js';
+
     export default {
         name: 'nav-bar',
         data () {
@@ -30,14 +33,18 @@
                     {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', isActive: false, icon: 'fa-linkedin'},
                     {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', isActive: false, icon: ' fa-cloud'},
                     {name: 'Twitter', route: 'https://www.twitter.com', isActive: false, icon: 'fa-twitter'}
-                ],
-                hamburgerActive: false
+                ]
+            }
+        },
+        computed: {
+            sidebarOpen(){
+                return store.state.sidebarOpen;
             }
         },
         methods: {
             toggleMenu: function() {
 
-                this.hamburgerActive = !this.hamburgerActive;
+                store.commit('TOGGLE_SIDEBAR');
             },
             goTo: function(index){
 
@@ -48,7 +55,7 @@
 
                 this.links[index].isActive = true;
 
-                if(this.hamburgerActive){
+                if(this.sidebarOpen){
 
                     this.toggleMenu();
                 }

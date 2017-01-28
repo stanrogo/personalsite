@@ -24,12 +24,12 @@
         data () {
             return {
                 links: [
-                    {name: 'Intro', route: '#/', isActive: true, icon: 'fontawesome-user'},
-                    {name: 'Work', route: '#/work', isActive: false, icon: 'fontawesome-desktop'},
-                    {name: 'Blog', route: '#/blog', isActive: false, icon: 'fontawesome-edit'},
-                    {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', isActive: false, icon: 'fontawesome-linkedin'},
-                    {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', isActive: false, icon: 'fontawesome-file-alt'},
-                    {name: 'Twitter', route: 'https://www.twitter.com', isActive: false, icon: 'fontawesome-twitter'}
+                    {name: 'Intro', route: '#/', isActive: true, icon: 'fa-user'},
+                    {name: 'Work', route: '#/work', isActive: false, icon: 'fa-desktop'},
+                    {name: 'Blog', route: '#/blog', isActive: false, icon: 'fa-edit'},
+                    {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', isActive: false, icon: 'fa-linkedin'},
+                    {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', isActive: false, icon: ' fa-cloud'},
+                    {name: 'Twitter', route: 'https://www.twitter.com', isActive: false, icon: 'fa-twitter'}
                 ],
                 hamburgerActive: false
             }

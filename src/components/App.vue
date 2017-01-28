@@ -26,7 +26,7 @@
 
     // Fonts
 
-    [class*="fontawesome-"]:before {
+    [class*="fa-"]:before {
         font-family: 'FontAwesome', sans-serif;
     }
 

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'general-cache-0-0-1';
+var CACHE_NAME = 'general-cache-0-0-2';
 
 // Files that we want to cache
 
@@ -6,15 +6,15 @@ var urlsToCache = [
     './',
     './index.html',
     './manifest.json',
-    './favicon.ico',
-    './favicon-16x16.png',
-    './favicon-32x32.png',
-    './homescreen48.png',
-    './homescreen72.png',
-    './homescreen96.png',
-    './homescreen144.png',
-    './homescreen168.png',
-    './homescreen192.png',
+    './icons/favicon.ico',
+    './icons/favicon-16x16.png',
+    './icons/favicon-32x32.png',
+    './icons/homescreen48.png',
+    './icons/homescreen72.png',
+    './icons/homescreen96.png',
+    './icons/homescreen144.png',
+    './icons/homescreen168.png',
+    './icons/homescreen192.png',
     './dist/build.js',
 ];
 

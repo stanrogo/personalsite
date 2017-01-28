@@ -75,11 +75,7 @@
 
             this.$http.get('https://api.github.com/users/stanrogo/repos').then(response => {
 
-                // get body data
-
                 const gitData = response.body;
-                console.log(gitData);
-
                 gitData.forEach(repo => {
 
                     this.repositories.push({

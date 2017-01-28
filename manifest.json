@@ -41,8 +41,8 @@
   "start_url": ".",
   "display": "standalone",
   "orientation": "potrait",
-  "theme_color": "#bcc9be",
-  "background_color": "#bcc9be",
+  "theme_color": "#212121",
+  "background_color": "#ffffff",
   "description": "Thoughts, events and other things from a computer science student in Eindhoven.",
   "related_applications": [{
     "platform": "web"

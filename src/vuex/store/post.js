@@ -5,7 +5,8 @@ export default {
         list: [],
         categories: [],
         filteredPosts: [],
-        activeFilters: []
+        activeFilters: [],
+        current: {}
     },
     mutations: {
         /**
@@ -71,15 +72,26 @@ export default {
         ADD_FILTER (state, filterName){
 
             state.activeFilters.push(filterName);
-        }
+        },
+        SET_CURRENT_POST (state, postHTMLTitle){
+
+            state.list.forEach(post => {
+
+                if(post.htmlTitle === postHTMLTitle){
+
+                    state.current = post;
+                }
+            });
+        },
     },
     actions: {
         /**
          * Fetch the list of posts that we have from the lists.json document
          *
          * @param commit
+         * @param goToPost
          */
-        FETCH_LIST({commit}){
+        FETCH_LIST({commit}, goToPost = false){
 
             let url = window.location.origin + "/API/lists.json";
 
@@ -96,6 +108,11 @@ export default {
                             commit('POST_LIST_UPDATE_ALL', json);
                             commit('POST_FILTER_CATEGORIES');
                             commit('POST_LIST_FILTER');
+
+                            if(goToPost !== false){
+
+                                commit('SET_CURRENT_POST', goToPost);
+                            }
                         })
                     }
                 })
@@ -106,6 +123,11 @@ export default {
                 commit('POST_LIST_UPDATE_ALL', res);
                 commit('POST_FILTER_CATEGORIES');
                 commit('POST_LIST_FILTER');
+
+                if(goToPost !== false){
+
+                    commit('SET_CURRENT_POST', goToPost);
+                }
             });
         },
         REMOVE_FILTER ({state, commit}, filterName){

@@ -4,20 +4,23 @@
     "name": "Let's Go! Get the Go Lang",
     "summary": "The Go programming language is an exciting new language that you should have learned a year ago already (including me). It's a language featuring native concurrency, static typing and standards driven development. Let's dive in for a look at some of the cool things that you can be doing.",
     "date": "1st January 2017",
-    "tags": ["Web Development"]
+    "tags": ["Web Development"],
+    "htmlTitle": "get-the-go-lang.html"
   },
   {
     "id": 1,
     "name": "My Polyphasic Sleep Experience: Almost an Everyman",
     "summary": "It's Christmas Day. Last night was the most tired night in a long while, and yet that very same morning all my stress was gone. Worries of not making it on time were unfounded. I had all the time in the world and I was loving it. So despite getting ill, feeling the stress of having such a nap rhythm, it's beginning to look a lot like success.",
     "date": "25th December 2015",
-    "tags": ["Sleep", "Experimental"]
+    "tags": ["Sleep", "Experimental"],
+    "htmlTitle": "my-polyphasic-sleep-experience-almost.html"
   },
   {
     "id": 2,
     "name": "Visual Regression Testing At StudyPortals",
     "summary": "Testing is a very important part of web development, but on the front-end with a lot of dom operations and not so much computational logic, it is a bit redundant to write unit tests when other test methodologies bring more value. Enter Visual Regression Testing, which aims to find differences between screenshots of different versions of the code.",
     "date": "25th December 2015",
-    "tags": ["Testing", "Web Development", "StudyPortals"]
+    "tags": ["Testing", "Web Development", "StudyPortals"],
+    "htmlTitle": "visual-regression-testing-at-studyportals.html"
   }
 ]

@@ -5,10 +5,11 @@
             STANROGO
         </div>
         <ul class="nav-links">
-            <li v-for="(link, index) in links" class="nav-link" v-bind:class="{ 'is-active': links[index].isActive}">
-                <a :href="link.route" v-on:click.stop="goTo(index)"
-                    :class="link.icon"
-                >{{link.name}}</a>
+            <li v-for="link in links" class="nav-link">
+                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace exact>{{link.name}}</router-link>
+            </li>
+            <li v-for="link in externalLinks" class="nav-link">
+                <a class="nav-link-inner" :class="link.icon" :href="link.route" target="_blank">{{link.name}}</a>
             </li>
         </ul>
         <button class="hamburger"
@@ -27,37 +28,36 @@
         data () {
             return {
                 links: [
-                    {name: 'Intro', route: '#/', isActive: true, icon: 'fa-user'},
-                    {name: 'Work', route: '#/work', isActive: false, icon: 'fa-desktop'},
-                    {name: 'Blog', route: '#/blog', isActive: false, icon: 'fa-edit'},
-                    {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', isActive: false, icon: 'fa-linkedin'},
-                    {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', isActive: false, icon: ' fa-cloud'},
-                    {name: 'Twitter', route: 'https://www.twitter.com', isActive: false, icon: 'fa-twitter'}
+                    {name: 'Intro', route: '/', icon: 'fa-user'},
+                    {name: 'Work', route: '/work', icon: 'fa-desktop'},
+                    {name: 'Blog', route: '/blog', icon: 'fa-edit'},
+                ],
+                externalLinks: [
+                    {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', icon: 'fa-linkedin'},
+                    {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', icon: ' fa-cloud'},
+                    {name: 'Twitter', route: 'https://www.twitter.com', icon: 'fa-twitter'}
                 ]
             }
         },
         computed: {
             sidebarOpen(){
-                return store.state.sidebarOpen;
+                return store.state.ui.sidebarOpen;
             }
         },
         methods: {
-            toggleMenu: function() {
+            toggleMenu: function(event) {
 
-                store.commit('TOGGLE_SIDEBAR');
-            },
-            goTo: function(index){
+                const isRouterLink = event.target.classList.contains('nav-link-inner');
 
-                for (const link of this.links) {
+                if(!isRouterLink){
 
-                    link.isActive = false;
+                    store.commit('TOGGLE_SIDEBAR');
+                    return
                 }
-
-                this.links[index].isActive = true;
 
                 if(this.sidebarOpen){
 
-                    this.toggleMenu();
+                    store.commit('TOGGLE_SIDEBAR');
                 }
             }
         }
@@ -163,7 +163,7 @@
             }
         }
 
-        .nav-link.is-active a{
+        .router-link-active{
             background-color: #1d1d1d ;
         }
 

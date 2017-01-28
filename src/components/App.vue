@@ -24,7 +24,7 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
-    @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,500|Noto+Sans:400,700');
+    @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,500');
     @import url('//use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css');
     /* FONT PATH
      * -------------------------- */
@@ -72,6 +72,15 @@
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    a{
+        color: #1976D2;
+        text-decoration: none;
+
+        &:visited{
+            color: #1976D2;
+        }
     }
 
     img{max-width: 100%;}

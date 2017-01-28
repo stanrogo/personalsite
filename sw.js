@@ -1,6 +1,7 @@
-var CACHE_NAME = 'simple-pwa-v2';
+var CACHE_NAME = 'general-cache';
 
-// File want to cache
+// Files that we want to cache
+
 var urlsToCache = [
     './',
     './index.html',
@@ -18,70 +19,82 @@ var urlsToCache = [
 ];
 
 
-// Set the callback for the install step
-self.oninstall = function (e) {
-    console.log('[serviceWorker]: Installing...');
-    // perform install steps
-    e.waitUntil(
+// On install, we want to add all urls we want to cache, to the cache
+
+self.addEventListener('install', function(event){
+    event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function (cache) {
-                console.log('[serviceWorker]: Cache All');
                 return cache.addAll(urlsToCache);
             })
-            .then(function () {
-                console.log('[serviceWorker]: Intalled And Skip Waiting on Install');
-                return self.skipWaiting();
+    );
+});
+
+// On activate, we clean out any old caches that have not been white listed
+
+self.addEventListener('activate', function(event){
+    console.log('Service Worker Activated');
+
+    var whiteList = ['general-cache'];
+
+    event.waitUntil(
+        caches.keys()
+            .then(function (cacheNames) {
+                return Promise.all(
+                    cacheNames.map(function (cacheName) {
+                        if (whiteList.indexOf(cacheName) === -1) {
+                            return caches.delete(cacheName);
+                        }
+                    })
+                )
             })
     );
-};
 
+});
 
-self.onfetch = function (e) {
+self.addEventListener("fetch", function (event) {
+    event.respondWith(
+        caches.match(event.request)
+            .then(function (response) {
 
-    console.log('[serviceWorker]: Fetching ' + e.request.url);
-    var raceUrl = 'API/';
-    if(e.request.url.indexOf(raceUrl) > -1){
-        e.respondWith(
-            caches.open(CACHE_NAME).then(function (cache) {
-                return fetch(e.request).then(function (res) {
-                    cache.put(e.request.url, res.clone());
-                    return res;
-                }).catch(err => {
-                    console.log('[serviceWorker]: Fetch Error ' + err);
-                });
-            })
-        );
-    }
-    else {
-        e.respondWith(
-            caches.match(e.request).then(function (res) {
-                return res || fetch(e.request)
-            })
-        );
-    }
+                // We have a copy of the response in our cache, so return it
+                // No network request is necessary :)
 
-};
+                if (response) {
 
+                    console.log('Woot! Resource has been fetched!');
+                    return response;
+                }
 
-self.onactivate = function (e) {
+                var fetchRequest = event.request.clone();
 
-    console.log('[serviceWorker]: Actived');
+                // If not then we handle the response accordingly
 
-    var whiteList = ['simple-pwa-v2'];
+                return fetch(fetchRequest).then(
 
-    e.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    if (whiteList.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
+                    function (response) {
+
+                        var shouldCache = false;
+
+                        if (response.type === "basic" && response.status === 200) {
+
+                            shouldCache = CACHE_NAME;
+                        }
+
+                        if (shouldCache) {
+
+                            var responseToCache = response.clone();
+
+                            caches.open(shouldCache)
+                                .then(function (cache) {
+                                    var cacheRequest = event.request.clone();
+                                    cache.put(cacheRequest, responseToCache);
+                                });
+                        }
+
+                        return response;
                     }
-                })
-            )
-        }).then(function () {
-            console.log('[serviceWorker]: Clients Claims');
-            return self.clients.claim();
-        })
+                );
+            })
     );
-
-};
+});

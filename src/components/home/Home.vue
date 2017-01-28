@@ -19,7 +19,7 @@
 
                 // Re-render the git hub view on route change
 
-                if(!ready){
+                if(typeof ready == 'undefined'){
 
                     return;
                 }

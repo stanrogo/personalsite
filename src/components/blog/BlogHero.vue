@@ -1,16 +1,24 @@
 <template>
     <div id="blog-hero">
-        <img class="hero-image" src="../../images/bloghero.jpg">
+        <img class="hero-image" :src="imgUrl('bloghero_a5equg.jpg')">
         <h1 class="hero-title">The Journal</h1>
     </div>
 </template>
 
 <script>
+
+    import variables from '../variables.js';
+
     export default {
         name: 'blog-hero',
         data () {
             return {
                 msg: 'Welcome to Your Vue.js App'
+            }
+        },
+        methods:{
+            imgUrl(path) {
+                return variables.imageBaseURL5 + path
             }
         }
     }

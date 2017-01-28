@@ -43,7 +43,7 @@
         padding: 0;
         margin-left: 3rem;
         min-width: calc(320px - 3rem);
-        background-image: url("../images/crossword.png");
+        background-image: url("#{$image-base-url}5/crossword_tggzxa.png");
 
         @include breakpoint(tablet){
             margin-left: $nav-width;

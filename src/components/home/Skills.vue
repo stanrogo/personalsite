@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    var images = require.context('../../images/', false);
+    import variables from '../variables.js';
 
     export default {
         name: 'skills',
@@ -32,7 +32,7 @@
                             and through attempting to reconstruct ES6 statements using ES5 that leads me into the more
                             intrinsic works of JavaScript.
                         `,
-                        imageURL: './javascript.svg'
+                        imageURL: '5/javascript_jw6rmc.svg'
                     },
                     {
                         name: 'Front End Tools',
@@ -44,7 +44,7 @@
                             in order to grasp the whole landscape of this field. I am an early adopter of ES6 and use npm,
                             and webpack extensively for my project setup, as well as advocating
                             these technologies at my workplace.`,
-                        imageURL: './es6.svg'
+                        imageURL: '5/es6_iw6urd.svg'
                     },
                     {
                         name: 'Search',
@@ -57,7 +57,7 @@
                             insights into the best way to increase search relevancy for studies and allow a user centric
                             build upon our current systems.
                         `,
-                        imageURL: './search.svg'
+                        imageURL: '6/search_lndh2x.svg'
                     },
                     {
                         name: 'Testing',
@@ -70,7 +70,7 @@
                             type of testing to run since it requires a lot of analysis around what your measurements should
                             be, rather than the complexity of the code itself.
                         `,
-                        imageURL: './karma.png'
+                        imageURL: '5/karma_igqiaq.png'
                     },
                     {
                         name: 'Agile',
@@ -81,7 +81,7 @@
                             development after seeing jsut how well this technique can be used in companies to
                             accelerate growth of development teams and the products that they build.
                         `,
-                        imageURL: './agile.svg'
+                        imageURL: '4/agile_lrwslq.svg'
                     }
                 ]
             }
@@ -93,7 +93,7 @@
              * @returns {*}
              */
             imgUrl: function (path) {
-                return images(path)
+                return variables.imageBaseURL + path
             }
         }
     }

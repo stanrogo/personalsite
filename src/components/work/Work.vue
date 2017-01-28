@@ -25,7 +25,8 @@
 </template>
 
 <script>
-    var images = require.context('../../images/', false);
+
+    import variables from '../variables.js';
 
     export default {
         name: 'work',
@@ -44,7 +45,7 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: './tue.png'
+                        imageURL: '9/tue_wsqs2z.png'
                     },
                 ],
                 experiences: [
@@ -94,7 +95,7 @@
              * @returns {*}
              */
             imgUrl: function (path) {
-                return images(path)
+                return variables.imageBaseURL + path
             }
         }
     }
@@ -110,7 +111,7 @@
             top: 0;
             width: 100%;
             height: $hero-height;
-            background: $color--white url("../../images/500632732.jpg");
+            background: $color--white url("#{$image-base-url}5/500632732_bfbaio.jpg");
             background-size: contain;
         }
 

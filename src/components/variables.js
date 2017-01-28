@@ -5,4 +5,5 @@ export default {
     imageBaseURL7: 'http://res.cloudinary.com/stanrogo/image/upload/v1485563097/',
     imageBaseURL9: 'http://res.cloudinary.com/stanrogo/image/upload/v1485563099/',
     imageBaseURL: 'http://res.cloudinary.com/stanrogo/image/upload/v148556309',
+    imageBaseURLStripped:'http://res.cloudinary.com/stanrogo/image/upload/'
 }

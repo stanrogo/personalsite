@@ -24,7 +24,21 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
-    @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,500');
+    @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,500|Noto+Sans:400,700');
+    @import url('//use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css');
+    /* FONT PATH
+     * -------------------------- */
+    @font-face {
+        font-family: 'FontAwesome';
+        src: url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot');
+        src: url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+        url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),
+        url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff') format('woff'),
+        url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.ttf') format('truetype'),
+        url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
 
     // Fonts
 
@@ -45,7 +59,7 @@
         padding: 0;
         margin-left: 3rem;
         min-width: calc(320px - 3rem);
-        background-image: url("#{$image-base-url}5/crossword_tggzxa.png");
+        background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
 
         @include breakpoint(tablet){
             margin-left: $nav-width;

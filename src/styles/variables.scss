@@ -21,6 +21,7 @@ $nav-width: 300px;
 $hero-height: 400px;
 
 $image-base-url: 'http://res.cloudinary.com/stanrogo/image/upload/v148556309';
+$image-base-url-stripped: 'http://res.cloudinary.com/stanrogo/image/upload/';
 
 @mixin breakpoint($point) {
     @if $point == desktop {

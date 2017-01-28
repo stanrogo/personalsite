@@ -1,5 +1,3 @@
-importScripts('service-worker-cache-polyfill.js');
-
 var CACHE_NAME = 'simple-pwa-v2';
 
 // File want to cache
@@ -7,7 +5,6 @@ var urlsToCache = [
     './',
     './index.html',
     './manifest.json',
-    './service-worker-cache-polyfill.js',
     './favicon.ico',
     './favicon-16x16.png',
     './favicon-32x32.png',

@@ -1,5 +1,5 @@
 {
-  "name": "StanRogo",
+  "name": "The StanRogo App",
   "short_name": "StanRogo",
   "icons": [
     {
@@ -40,12 +40,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "orientation": "potrait",
   "theme_color": "#212121",
   "background_color": "#ffffff",
   "description": "Thoughts, events and other things from a computer science student in Eindhoven.",
-  "related_applications": [{
-    "platform": "web"
-  }],
   "lang": "en-GB"
 }

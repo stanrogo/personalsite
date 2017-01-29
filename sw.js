@@ -1,4 +1,4 @@
-var CACHE_NAME = 'general-cache-0-0-2';
+var CACHE_NAME = 'general-cache-0-0-3';
 
 // Files that we want to cache
 

@@ -12,7 +12,7 @@
 
             <div class="material-card">
                 <section class="intro-wrapper">
-                    <img class="profile-image" :src="imgUrl('v1485569921/me3_ordpoa.jpg')">
+                    <img class="profile-image" :src="imgUrl('v1485703729/me_kx1jli.jpg')">
                     <div class="intro-text-wrapper">
                         <h1 class="about-me--title">ABOUT ME</h1>
                         <p class="hero-text">
@@ -96,7 +96,7 @@
             top: 0;
             width: 100%;
             height: $hero-height;
-            background: $color--white url("#{$image-base-url-stripped}v1485567026/diagonal_yfuyql.jpg") center;
+            background: $color--white url("#{$image-base-url-stripped}v1485703729/weaved-black_xomuog.png") center;
         }
 
         .grid-container{
@@ -127,7 +127,7 @@
         }
 
         .profile-image{
-            width: 50%;
+            width: 200px;
             margin: 0 auto;
             display: block;
             border-radius: 50%;
@@ -143,9 +143,11 @@
 
         .hero-title{
             margin-bottom: 0;
+            color: white;
         }
 
         .hero-subtitle{
+            color: white;
             margin-top: 0;
         }
 

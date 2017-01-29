@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
 import App from './components/App.vue'
+import Landing from './components/Landing.vue'
 import Home from './components/home/Home.vue'
 import Work from './components/work/Work.vue'
 import Blog from './components/blog/Blog.vue'
@@ -14,6 +15,10 @@ Vue.use(VueResource);
 const routes = [
     {
         path: '/',
+        component: Landing
+    },
+    {
+        path: '/intro',
         component: Home
     },
     {

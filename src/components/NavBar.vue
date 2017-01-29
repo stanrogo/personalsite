@@ -1,12 +1,12 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
     <nav id="nav-bar" v-bind:class="{ 'is-hidden-mobile': !sidebarOpen}" v-on:click.stop="toggleMenu">
-        <div class="title">
-            STANROGO
+        <div class="title nav-link">
+            <router-link v-on:click="toggleMenu" to="/">STANROGO</router-link>
         </div>
         <ul class="nav-links">
             <li v-for="link in links" class="nav-link">
-                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace exact>{{link.name}}</router-link>
+                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace>{{link.name}}</router-link>
             </li>
             <li v-for="link in externalLinks" class="nav-link">
                 <a class="nav-link-inner" :class="link.icon" :href="link.route" target="_blank">{{link.name}}</a>
@@ -28,7 +28,7 @@
         data () {
             return {
                 links: [
-                    {name: 'Intro', route: '/', icon: 'fa-user'},
+                    {name: 'Intro', route: '/intro', icon: 'fa-user'},
                     {name: 'Work', route: '/work', icon: 'fa-desktop'},
                     {name: 'Blog', route: '/blog', icon: 'fa-edit'},
                 ],
@@ -80,6 +80,7 @@
         color: $color--white;
         text-align: right;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transition: left 0.3s ease;
 
         @include breakpoint(phablet){
             width: $nav-width;
@@ -124,7 +125,7 @@
 
         .title {
             margin: 0;
-            padding: 2rem;
+            padding: 2rem 0;
             font-size: 2rem;
             cursor: pointer;
         }
@@ -140,6 +141,10 @@
         .nav-links {
             display: block;
             @include align-self(center);
+
+            .router-link-active{
+                background-color: #1d1d1d ;
+            }
         }
 
         .nav-link a{
@@ -161,10 +166,6 @@
                 box-sizing: border-box;
                 padding-right: 1rem;
             }
-        }
-
-        .router-link-active{
-            background-color: #1d1d1d ;
         }
 
         .hamburger {

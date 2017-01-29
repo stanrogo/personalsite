@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
     <footer id="footer">
-        <img class="border-image" :src="imgUrl('footer-border_o1wzae.png')">
+        <img class="border-image" :src="imgUrl('footer-border_o1wzae.png')" alt="Footer Border Image">
     </footer>
 
 </template>

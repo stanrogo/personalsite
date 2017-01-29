@@ -5,7 +5,7 @@
     <header id="landing">
         <h1 class="hero-title"><strong>STANLEY CLARK</strong></h1>
         <h2 class="hero-subtitle">Front end developer and student, Eindhoven</h2>
-        <img class="profile-image" :src="imgUrl('v1485706163/me_z8wlij.jpg')">
+        <img class="profile-image" :src="imgUrl('v1485706163/me_z8wlij.jpg')" alt="Picture of Stanley Clark">
 
         <ul>
             <li class="header-link" v-for="link in links">

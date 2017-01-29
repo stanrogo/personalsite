@@ -1,14 +1,14 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div id="feed">
-            <div class="material-card clearfix"  v-for="post in filteredPosts">
-                <h1>{{post.name}}</h1>
-                <p class="post-summary">{{post.summary}}</p>
-                <span class="fontawesome-user quick-fact">Stanley Clark</span>
-                <span class="fontawesome-calendar quick-fact">{{post.date}}</span>
-                <span class="fontawesome-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
+        <section class="material-card clearfix"  v-for="post in filteredPosts">
+            <h1>{{post.name}}</h1>
+            <p class="post-summary">{{post.summary}}</p>
+            <span class="fontawesome-user quick-fact">Stanley Clark</span>
+            <span class="fontawesome-calendar quick-fact">{{post.date}}</span>
+            <span class="fontawesome-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
 
-                <button class="button button--block font--white" v-on:click="goToPost(post.htmlTitle)">Read more</button>
-            </div>
+            <button class="button button--block font--white" v-on:click="goToPost(post.htmlTitle)">Read more</button>
+        </section>
     </div>
 </template>
 

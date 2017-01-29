@@ -12,7 +12,7 @@
 
             <div class="material-card">
                 <section class="intro-wrapper">
-                    <img class="profile-image" :src="imgUrl('v1485706163/me_z8wlij.jpg')">
+                    <img class="profile-image" :src="imgUrl('v1485706163/me_z8wlij.jpg')" alt="Picture of Stanley Clark">
                     <div class="intro-text-wrapper">
                         <h1 class="about-me--title">ABOUT ME</h1>
                         <p class="hero-text">

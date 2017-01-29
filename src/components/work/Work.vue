@@ -9,7 +9,7 @@
                 <div class="work-dates">{{endeavour.started}}</div>
                 <h1 class="work-company">{{endeavour.title}}</h1>
                 <p>{{endeavour.description}}</p>
-                <img :src="imgUrl(endeavour.imageURL)" class="work-image">
+                <img :src="imgUrl(endeavour.imageURL)" class="work-image" :alt="endeavour.altText">
             </section>
 
             <h2 class="module-title--text">RECENT EXPERIENCE</h2>
@@ -45,7 +45,8 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: '9/tue_wsqs2z.png'
+                        imageURL: '9/tue_wsqs2z.png',
+                        altText: 'TUe logo on top of building'
                     },
                 ],
                 experiences: [

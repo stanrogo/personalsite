@@ -1,8 +1,8 @@
 <template>
-    <div id="blog-hero">
-        <img class="hero-image" :src="imgUrl('bloghero_a5equg.jpg')">
+    <section id="blog-hero">
+        <img class="hero-image" :src="imgUrl('bloghero_a5equg.jpg')" alt="Paper around computer 2d graphic">
         <h1 class="hero-title">The Journal</h1>
-    </div>
+    </section>
 </template>
 
 <script>

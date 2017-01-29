@@ -7,7 +7,7 @@
         <div class="skill--separator" v-for="skill in skills">
             <h2 class="skill--name">{{skill.name}}</h2>
             <p class="skill--content">{{skill.text}}</p>
-            <img :src="imgUrl(skill.imageURL)" class="skill--image">
+            <img :src="imgUrl(skill.imageURL)" class="skill--image" :alt="skill.altText">
         </div>
     </section>
 
@@ -32,7 +32,8 @@
                             and through attempting to reconstruct ES6 statements using ES5 that leads me into the more
                             intrinsic works of JavaScript.
                         `,
-                        imageURL: '5/javascript_jw6rmc.svg'
+                        imageURL: '5/javascript_jw6rmc.svg',
+                        altText: 'JavaScript logo'
                     },
                     {
                         name: 'Front End Tools',
@@ -44,7 +45,8 @@
                             in order to grasp the whole landscape of this field. I am an early adopter of ES6 and use npm,
                             and webpack extensively for my project setup, as well as advocating
                             these technologies at my workplace.`,
-                        imageURL: '5/es6_iw6urd.svg'
+                        imageURL: '5/es6_iw6urd.svg',
+                        altText: 'EcmaScript 6 logo'
                     },
                     {
                         name: 'Search',
@@ -57,7 +59,8 @@
                             insights into the best way to increase search relevancy for studies and allow a user centric
                             build upon our current systems.
                         `,
-                        imageURL: '6/search_lndh2x.svg'
+                        imageURL: '6/search_lndh2x.svg',
+                        altText: 'Search magnifying glass icon'
                     },
                     {
                         name: 'Testing',
@@ -70,7 +73,8 @@
                             type of testing to run since it requires a lot of analysis around what your measurements should
                             be, rather than the complexity of the code itself.
                         `,
-                        imageURL: '5/karma_igqiaq.png'
+                        imageURL: '5/karma_igqiaq.png',
+                        altText: 'Karma test runner logo'
                     },
                     {
                         name: 'Agile',
@@ -81,7 +85,8 @@
                             development after seeing jsut how well this technique can be used in companies to
                             accelerate growth of development teams and the products that they build.
                         `,
-                        imageURL: '4/agile_lrwslq.svg'
+                        imageURL: '4/agile_lrwslq.svg',
+                        altText: 'Agile process cycle graphic'
                     }
                 ]
             }

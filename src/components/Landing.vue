@@ -84,6 +84,12 @@
     #landing ~ #footer{
         position: fixed;
         bottom: 0;
+        left: 3rem;
+        right: 0;
+
+        @include breakpoint(tablet){
+            left: 300px;
+        }
     }
 
 </style>

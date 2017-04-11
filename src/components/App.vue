@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <div class="material-background"></div>
         <nav-bar></nav-bar>
         <router-view></router-view>
         <app-footer></app-footer>
@@ -39,13 +40,12 @@
     body {
         margin: 0;
         padding: 0;
-        margin-left: 3rem;
-        min-width: calc(320px - 3rem);
+        min-width: 320px;
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
+    }
 
-        @include breakpoint(tablet){
-            margin-left: $nav-width;
-        }
+    button{
+        font-family: 'Cormorant Garamond', serif;
     }
 
     h1, h2, h3, h4, h5, h6 {font-weight: 400;}
@@ -67,9 +67,18 @@
 
     img{max-width: 100%;}
 
+    .material-background{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: $hero-height;
+        background: $color--white url("#{$image-base-url-stripped}v1485703729/weaved-black_xomuog.png") center;
+    }
+
     // Helpers
 
     .material-card {
+        box-sizing: border-box;
         padding: 1rem;
         background-color: $color--white;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -124,14 +133,25 @@
 
     .grid-container{
         position: relative;
+        @include flexbox();
         width: calc(100% - 2rem);
         max-width: 1040px;
-        margin: 0 1rem 1rem;
-        @include flexbox();
+        margin: 1rem;
 
         @include breakpoint(tablet){
             width: calc(100% - 4rem);
-            margin: 0 auto 2rem 2rem;
+            margin: 2rem auto;
+        }
+    }
+
+    .card-image{
+        margin-left: -1rem;
+        width: calc(100% + 2rem);
+        max-width: none;
+
+        @include breakpoint(tablet){
+            margin-left: -2rem;
+            width: calc(100% + 4rem);
         }
     }
 </style>

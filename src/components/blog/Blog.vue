@@ -1,7 +1,6 @@
 <template>
     <div id="blog">
-        <blog-hero></blog-hero>
-        <div class="grid-container">
+        <div class="grid-container blog-section-container">
             <feed></feed>
             <filters></filters>
         </div>
@@ -11,13 +10,12 @@
 <script>
     import Filters from './Filters.vue';
     import Feed from './Feed.vue';
-    import BlogHero from './BlogHero.vue';
 
     import store from '../../vuex/index.js';
 
     export default {
         name: 'blog',
-        components: {Filters, Feed, BlogHero},
+        components: {Filters, Feed},
         created(){
 
             store.dispatch('FETCH_LIST');
@@ -29,7 +27,7 @@
     @import '../../styles/general';
 
     #blog{
-        .grid-container{
+        .blog-section-container{
             @include flex-direction(column-reverse);
 
             @include breakpoint(laptop){

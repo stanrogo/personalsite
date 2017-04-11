@@ -1,11 +1,10 @@
 export default {
     state: {
-        sidebarOpen: false
+        sidebarOpen: false,
+        currentRouteName: ''
     },
     mutations: {
         TOGGLE_SIDEBAR (state, toClose = false) {
-
-            console.log(toClose);
 
             if(toClose === true){
 
@@ -14,6 +13,10 @@ export default {
             }
 
             state.sidebarOpen = !state.sidebarOpen
+        },
+        STORE_ROUTE (state, route) {
+
+            state.currentRouteName = route.name;
         }
     }
 }

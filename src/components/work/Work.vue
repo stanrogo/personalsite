@@ -1,15 +1,15 @@
 <template>
     <div id="work">
-
-        <div class="work-background"></div>
         <div class="grid-container">
             <h2 class="module-title--text">CURRENT ENDEAVOURS</h2>
 
             <section class="material-card current-card" v-for="endeavour in current">
                 <div class="work-dates">{{endeavour.started}}</div>
                 <h1 class="work-company">{{endeavour.title}}</h1>
+                <figure class="work--figure">
+                    <img :src="imgUrl(endeavour.imageURL)" class="work--image" :alt="endeavour.altText">
+                </figure>
                 <p>{{endeavour.description}}</p>
-                <img :src="imgUrl(endeavour.imageURL)" class="work-image" :alt="endeavour.altText">
             </section>
 
             <h2 class="module-title--text">RECENT EXPERIENCE</h2>
@@ -18,6 +18,9 @@
                 <div class="work-dates">{{experience.dates}}</div>
                 <h1 class="work-company">{{experience.title}}</h1>
                 <h2 class="work-position">{{experience.position}}</h2>
+                <figure class="work--figure">
+                    <img :src="imgUrl(experience.imageURL)" class="work--image" :alt="experience.altText">
+                </figure>
                 <p>{{experience.description}}</p>
             </section>
         </div>
@@ -45,7 +48,7 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: '9/tue_wsqs2z.png',
+                        imageURL: 'v1491936881/metaforum_az2von.jpg',
                         altText: 'TUe logo on top of building'
                     },
                 ],
@@ -62,7 +65,9 @@
                             visual regression tests and implementing ES6 and module loading in our organisation.
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
-                        `
+                        `,
+                        imageURL: 'v1485563099/studyportalscover_i0xeph.jpg',
+                        altText: 'StudyPortals Conference'
                     },
                     {
                         dates: 'July 2015 - October 2015',
@@ -73,7 +78,9 @@
                            must be taken, along with responsive design for the campaigns that are targeted at a host
                            of devices and form factors. Facebook marketing, along with building campaigns for clients
                            on a strict time schedule has helped me to be more organised and responsive to client needs.
-                        `
+                        `,
+                        imageURL: 'v1491940335/Cliq_puumgs.jpg',
+                        altText: 'Cliq Digital Logo'
                     },
                     {
                         dates: 'July 2013 - August 2013',
@@ -96,7 +103,7 @@
              * @returns {*}
              */
             imgUrl: function (path) {
-                return variables.imageBaseURL + path
+                return variables.imageBaseURLStripped + path
             }
         }
     }
@@ -107,17 +114,8 @@
     @import '../../styles/general';
 
     #work{
-        .work-background{
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: $hero-height;
-            background: $color--white url("#{$image-base-url}5/500632732_bfbaio.jpg");
-            background-size: contain;
-        }
 
         .grid-container{
-            margin-top: 2rem;
             @include flex-wrap(wrap);
             @include flex-direction(row);
         }
@@ -148,11 +146,19 @@
             @include flex(0 0 100%);
         }
 
-        .work-image{
-            width: 100%;
+        .work--figure{
+            position: relative;
+            margin: 0 -2rem;
+            height: 200px;
+            overflow: hidden;
 
-            @include breakpoint(phablet){
-               width: 50%;
+            @include breakpoint(tablet){
+                height: 300px;
+            }
+
+            .work--image{
+                width: 100%;
+                @include position-center();
             }
         }
     }

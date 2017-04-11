@@ -1,13 +1,15 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div id="feed">
-        <section class="material-card clearfix"  v-for="post in filteredPosts">
-            <h1>{{post.name}}</h1>
+        <section class="material-card grid-container post-container"  v-for="post in filteredPosts">
+            <div class="post-heading">
+                <span class="fa-user quick-fact">By Stanley Clark</span>
+                <h1>{{post.name}}</h1>
+                <span class="fa-calendar quick-fact">Posted on {{post.date}}</span>
+                <span class="fa-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
+            </div>
+            <img class="card-image" :src="post.imageURL">
             <p class="post-summary">{{post.summary}}</p>
-            <span class="fontawesome-user quick-fact">Stanley Clark</span>
-            <span class="fontawesome-calendar quick-fact">{{post.date}}</span>
-            <span class="fontawesome-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
-
-            <button class="button button--block font--white" v-on:click="goToPost(post.htmlTitle)">Read more</button>
+            <button class="button button--read-more" v-on:click="goToPost(post.htmlTitle)">Read more</button>
         </section>
     </div>
 </template>
@@ -28,7 +30,7 @@
             goToPost: function(postID){
 
                 const currPath = this.$router.currentRoute.path;
-                const goPath = currPath + '/' + postID
+                const goPath = currPath + '/' + postID;
 
                 console.log(goPath);
 
@@ -44,17 +46,26 @@
     #feed{
         @include flex(1);
 
-        .material-card{
-            margin-top: 2rem;
+        .post-container{
+            @include flex-direction(column);
+            @include justify-content(center);
         }
 
-        .button{
-            margin-top: 1rem;
-            float: right;
+        .post-heading{
+            padding: 0 1rem 2rem;
+            text-align: center;
+        }
+
+        .button--read-more{
+            display: block;
+            margin: 0 auto;
+            background-color: $color--accent;
+            color: $color--white;
         }
 
         .quick-fact{
             margin-right: 1rem;
+            text-transform: uppercase;
 
             &:before{
                 margin-right: 0.3rem;

@@ -4,18 +4,18 @@
         <div class="title nav-link">
             <router-link v-on:click="toggleMenu" to="/">STANROGO</router-link>
         </div>
-        <ul class="nav-links">
+        <button class="hamburger"
+                v-bind:class="{ 'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}"
+                v-on:click.stop="toggleMenu"
+        >{{routeName}}</button>
+        <ul class="nav-links grid-container" v-bind:class="{'nav-links--hidden': !sidebarOpen}">
             <li v-for="link in links" class="nav-link">
-                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace>{{link.name}}</router-link>
+                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace exact>{{link.name}}</router-link>
             </li>
             <li v-for="link in externalLinks" class="nav-link">
                 <a class="nav-link-inner" :class="link.icon" :href="link.route" target="_blank">{{link.name}}</a>
             </li>
         </ul>
-        <button class="hamburger"
-                v-bind:class="{ 'fontawesome-remove': sidebarOpen, 'fontawesome-reorder': !sidebarOpen}"
-                v-on:click.stop="toggleMenu"
-        ></button>
     </nav>
 </template>
 
@@ -28,7 +28,7 @@
         data () {
             return {
                 links: [
-                    {name: 'Intro', route: '/intro', icon: 'fa-user'},
+                    {name: 'Home', route: '/', icon: 'fa-user'},
                     {name: 'Work', route: '/work', icon: 'fa-desktop'},
                     {name: 'Blog', route: '/blog', icon: 'fa-edit'},
                 ],
@@ -42,6 +42,9 @@
         computed: {
             sidebarOpen(){
                 return store.state.ui.sidebarOpen;
+            },
+            routeName(){
+                return store.state.ui.currentRouteName;
             }
         },
         methods: {
@@ -69,81 +72,46 @@
     @import '../styles/general';
 
     #nav-bar {
-        @include borderbox();
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 260px;
-        bottom: 0;
-        z-index: $fourth-floor;
-        background: $color--text-primary;
-        color: $color--white;
-        text-align: right;
+        @include flexbox();
+        @include flex-direction(column);
+        position: relative;
+        margin-bottom: 2rem;
+        background: $color--white;
+        color: $color--text-primary;
+        text-align: center;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         transition: left 0.3s ease;
+        z-index: $third-floor;
 
-        @include breakpoint(phablet){
-            width: $nav-width;
-        }
-
-        &.is-hidden-mobile{
-            left: calc(-260px + 3rem);
-            padding-right: 3rem;
-
-            @include breakpoint(phablet){
-                left: calc(-1 * #{$nav-width} + 3rem);
-            }
-
-            @include breakpoint(tablet){
-                left: 0;
-                padding-right: 0;
-            }
-
-            .nav-link a:before{
-                position: absolute;
-                padding-left: 1rem;
-                right: 0;
-                width: 3rem;
-                text-align: center;
-
-                @include breakpoint(tablet){
-                    position: relative;
-                    padding: 0 1rem 0 0;
-                    width: auto;
-                }
-            }
-
-            .hamburger{
-                right: 0;
-                left: initial;
-            }
-        }
-
-        .grid-container {
-            @include justify-content(space-between);
+        @include breakpoint(tablet){
+            margin-bottom: 3rem;
         }
 
         .title {
-            margin: 0;
-            padding: 2rem 0;
+            padding: 2rem 0 0;
             font-size: 2rem;
-            cursor: pointer;
-        }
 
-        .sub-title {
-            padding: 1rem 1rem 1rem 0;
-            color: $color--white;
-            float: left;
-            font-size: 1.4rem;
-            cursor: pointer;
+            @include breakpoint(tablet){
+                padding-bottom: 2rem;
+            }
         }
 
         .nav-links {
-            display: block;
-            @include align-self(center);
+            @include flexbox();
+            @include justify-content(space-between);
+            @include flex-wrap(wrap);
 
             .router-link-active{
-                background-color: #1d1d1d ;
+                background-color: $color--accent ;
+                color: $color--white;
+            }
+
+            &.nav-links--hidden{
+                display: none;
+
+                @include breakpoint(tablet){
+                    @include flexbox();
+                }
             }
         }
 
@@ -152,11 +120,7 @@
             cursor: pointer;
             padding: 1rem 2rem;
             text-decoration: none;
-            color: $color--white;
-
-            &:visited{
-                color: $color--white;
-            }
+            color: $color--text-primary;
 
             &:hover{
                 text-decoration: none;
@@ -169,13 +133,11 @@
         }
 
         .hamburger {
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 1rem 1rem;
+            padding: 1rem;
             background: transparent;
             border: none;
             cursor: pointer;
+            width: 100%;
             @include align-self(center);
 
             @include breakpoint(tablet){
@@ -183,8 +145,10 @@
             }
 
             &:before{
-                color: $color--white;
+                padding-right: 1rem;
                 font-size: 1.2rem;
+                line-height: 0.8rem;
+                vertical-align: sub;
             }
         }
     }

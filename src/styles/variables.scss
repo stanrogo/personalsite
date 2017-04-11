@@ -179,3 +179,10 @@ $image-base-url-stripped: 'https://res.cloudinary.com/stanrogo/image/upload/';
     }
     align-self: $value;
 }
+
+@mixin position-center(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

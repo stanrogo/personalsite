@@ -5,11 +5,12 @@ import VueResource from 'vue-resource'
 import WebFont from 'webfontloader';
 
 import App from './components/App.vue'
-import Landing from './components/Landing.vue'
 import Home from './components/home/Home.vue'
 import Work from './components/work/Work.vue'
 import Blog from './components/blog/Blog.vue'
 import Post from './components/blog/Post.vue'
+
+import store from './vuex/index.js';
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -17,19 +18,18 @@ Vue.use(VueResource);
 const routes = [
     {
         path: '/',
-        component: Landing
-    },
-    {
-        path: '/intro',
-        component: Home
+        component: Home,
+        name: 'Home'
     },
     {
         path: '/work',
-        component: Work
+        component: Work,
+        name: 'Work'
     },
     {
         path: '/blog',
-        component: Blog
+        component: Blog,
+        name: 'Blog'
     },
     {
         path: '/blog/:htmlTitle',
@@ -44,6 +44,13 @@ const router = new VueRouter({
 router.afterEach(() => {
 
     window.scrollTo(0, 0);
+});
+
+router.beforeEach((to, from, next) => {
+
+    console.log(to.name);
+    store.commit('STORE_ROUTE', to);
+    next();
 });
 
 const vue = new Vue({

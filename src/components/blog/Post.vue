@@ -1,8 +1,16 @@
-<template>
-    <div id="post">
-        Hey! This is your first post!
-        {{post.name}}
-    </div>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <article id="post">
+        <div class="cover-wrapper">
+            <img class="cover" src="../../images/go.png">
+        </div>
+        <button class="fa-arrow-left button" v-on:click="goBack">Back</button>
+
+        <div class="post-content grid-container">
+            <h1>{{post.name}}</h1>
+
+            <div v-html="post.htmlContent"></div>
+        </div>
+    </article>
 </template>
 
 <script>
@@ -19,10 +27,30 @@
                 return store.state.post.current;
             }
         },
+        methods: {
+            goBack: function(){
+
+                this.navigateBack ? this.$router.go(-1) : this.$router.replace('/blog');
+            }
+        },
         beforeRouteEnter: (to, from, next) => {
 
+            let navigateBack = true;
+
+            if(from.path === '/'){
+
+                // We have probably come from an external source
+
+                navigateBack = false;
+            }
+
+            console.log(from);
+
             store.dispatch('FETCH_LIST', to.params.htmlTitle);
-            next();
+            next(vm => {
+
+                vm.navigateBack = navigateBack;
+            });
         }
     };
 </script>
@@ -31,6 +59,46 @@
     @import '../../styles/general';
 
     #post{
+        position: relative;
 
+        // resets
+
+        ul{
+            list-style-type:disc;
+            margin-left: 1rem;
+        }
+
+        .cover-wrapper{
+            height: 150px;
+            overflow: hidden;
+
+            @include breakpoint(tablet){
+                height: $hero-height;
+            }
+
+            .cover{
+                width: 100%;
+            }
+        }
+
+        .button {
+            position: absolute;
+            padding: 0.5rem 1rem;
+            top: 0;
+
+            &:before {
+                padding-right: 0.5rem;
+            }
+        }
+
+        .grid-container{
+            @include flex-direction(column);
+        }
+
+        .lead-letter{
+            float: left;
+            font-size: 3rem;
+            padding-right: 1rem;
+        }
     }
 </style>

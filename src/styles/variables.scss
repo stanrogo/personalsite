@@ -17,10 +17,8 @@ $second-floor: 50;
 $third-floor: 75;
 $fourth-floor: 100;
 
-$nav-width: 300px;
 $hero-height: 400px;
 
-$image-base-url: 'https://res.cloudinary.com/stanrogo/image/upload/v148556309';
 $image-base-url-stripped: 'https://res.cloudinary.com/stanrogo/image/upload/';
 
 @mixin breakpoint($point) {
@@ -185,4 +183,8 @@ $image-base-url-stripped: 'https://res.cloudinary.com/stanrogo/image/upload/';
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@mixin material-shadow(){
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

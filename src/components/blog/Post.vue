@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <article id="post">
         <div class="cover-wrapper">
-            <img class="cover" src="../../images/go.png">
+            <img class="cover" :src="post.imageURL">
         </div>
         <button class="fa-arrow-left button" v-on:click="goBack">Back</button>
 
@@ -69,6 +69,7 @@
         }
 
         .cover-wrapper{
+            position: relative;
             height: 150px;
             overflow: hidden;
 
@@ -78,6 +79,8 @@
 
             .cover{
                 width: 100%;
+                @include position-center();
+                top: 0;
             }
         }
 

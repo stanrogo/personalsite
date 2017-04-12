@@ -55,9 +55,6 @@
     @import '../../styles/general';
 
     #filters{
-        width: 100%;
-        margin-top: 2rem;
-
         @include breakpoint(laptop){
             width: 200px;
             margin: 2rem 0 0 2rem;
@@ -75,6 +72,10 @@
             &:hover{
                 text-decoration: underline;
             }
+        }
+
+        .filter-section{
+            background: $color--white;
         }
 
         .filter-label{

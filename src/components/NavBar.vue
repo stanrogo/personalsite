@@ -4,13 +4,24 @@
         <div class="title nav-link">
             <router-link v-on:click="toggleMenu" to="/">STANROGO</router-link>
         </div>
+
         <button class="hamburger"
                 v-bind:class="{ 'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}"
                 v-on:click.stop="toggleMenu"
-        >{{routeName}}</button>
+        >
+            {{routeName}}
+        </button>
+
         <ul class="nav-links grid-container" v-bind:class="{'nav-links--hidden': !sidebarOpen}">
             <li v-for="link in links" class="nav-link">
-                <router-link v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon" v-bind:to="link.route" replace exact>{{link.name}}</router-link>
+
+                <router-link
+                        v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon"
+                        v-bind:to="link.route" replace exact
+                >
+                    {{link.name}}
+                </router-link>
+
             </li>
             <li v-for="link in externalLinks" class="nav-link">
                 <a class="nav-link-inner" :class="link.icon" :href="link.route" target="_blank">{{link.name}}</a>
@@ -33,9 +44,21 @@
                     {name: 'Blog', route: '/blog', icon: 'fa-edit'},
                 ],
                 externalLinks: [
-                    {name: 'LinkedIn', route: 'https://www.linkedin.com/in/stanleyclark', icon: 'fa-linkedin'},
-                    {name: 'Email', route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!', icon: ' fa-cloud'},
-                    {name: 'Twitter', route: 'https://www.twitter.com', icon: 'fa-twitter'}
+                    {
+                        name: 'LinkedIn',
+                        route: 'https://www.linkedin.com/in/stanleyclark',
+                        icon: 'fa-linkedin'
+                    },
+                    {
+                        name: 'Email',
+                        route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!',
+                        icon: ' fa-cloud'
+                    },
+                    {
+                        name: 'Twitter',
+                        route: 'https://www.twitter.com',
+                        icon: 'fa-twitter'
+                    }
                 ]
             }
         },
@@ -75,21 +98,14 @@
         @include flexbox();
         @include flex-direction(column);
         position: relative;
-        margin-bottom: 2rem;
         background: $color--white;
-        color: $color--text-primary;
-        text-align: center;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        transition: left 0.3s ease;
-        z-index: $third-floor;
-
-        @include breakpoint(tablet){
-            margin-bottom: 3rem;
-        }
+        @include material-shadow();
+        z-index: $first-floor;
 
         .title {
             padding: 2rem 0 0;
             font-size: 2rem;
+            margin: 0 auto;
 
             @include breakpoint(tablet){
                 padding-bottom: 2rem;
@@ -122,8 +138,9 @@
             text-decoration: none;
             color: $color--text-primary;
 
-            &:hover{
+            &:hover:not(.router-link-active){
                 text-decoration: none;
+                color: $color--accent;
             }
 
             &:before{
@@ -148,7 +165,7 @@
                 padding-right: 1rem;
                 font-size: 1.2rem;
                 line-height: 0.8rem;
-                vertical-align: sub;
+                vertical-align: middle;
             }
         }
     }

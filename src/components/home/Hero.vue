@@ -1,28 +1,23 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 
-    <section id="hero" class="grid-container">
-        <header>
-            <h1 class="hero-title">HI, I'M <strong>STANLEY CLARK</strong></h1>
-            <h2 class="hero-subtitle">Front end developer and student, Eindhoven</h2>
-        </header>
+    <section id="hero" class="material-card">
+        <figure class="profile-figure">
+            <img class="profile-image" src="src/images/me.jpg">
+        </figure>
 
-        <div class="material-card">
-            <section class="intro-wrapper">
-                <img class="profile-image" :src="imgUrl('v1485706163/me_z8wlij.jpg')" alt="Picture of Stanley Clark">
-                <div class="intro-text-wrapper">
-                    <h1 class="about-me--title">ABOUT ME</h1>
-                    <p class="hero-text">
-                        I'm Stanley Clark. I love to focus on the expanding frontier of
-                        web development. I'm interested in all things front end, including
-                        using webpack, angular2, react, npm, and lots more. Not limiting
-                        myself to just pure technologies I see the importance of proper
-                        SEO for web sites and the importance of conversion rates vs
-                        user satisfaction balance on any website.
-                    </p>
-                </div>
-            </section>
-            <section class="about-wrapper">
-                <h1 class="about-section-title">CURRENT FOCUS</h1>
+        <div class="hero-content-wrapper">
+            <h1 class="hero-title">I'm <strong>STANLEY CLARK</strong></h1>
+            <h2 class="hero-subtitle">Front end developer and student, Eindhoven</h2>
+            <button class="button button--resume-download button--resume-download-mobile">Download My Resume!</button>
+            <div class="intro-wrapper">
+                <p>
+                    I'm Stanley Clark. I love to focus on the expanding frontier of
+                    web development. I'm interested in all things front end, including
+                    using webpack, angular2, react, npm, and lots more. Not limiting
+                    myself to just pure technologies I see the importance of proper
+                    SEO for web sites and the importance of conversion rates vs
+                    user satisfaction balance on any website.
+                </p>
                 <p>
                     Currently I am busy with expanding my knowledge by participating
                     in a master's degree at the Eindhoven University of Technology in
@@ -34,12 +29,14 @@
                 <p>
                     This area of focus is a great advantage in my work as a front end
                     web developer for StudyPortals. I work on a high traffic website
-                    in a search team as a scrum master, thus I always enhance my
-                    knowledge with the help of my team mates and can implement important
+                    in a search team and used to be a scrum master before starting my studies again,
+                    thus I have always enhanced my knowledge with the help of my team mates
+                    and continue to do so. Here I can also implement important
                     enhancements, most recently a visual regression test setup as part
                     of our continuous deployment process.
                 </p>
-            </section>
+            </div>
+            <button class="button button--resume-download button--resume-download-desktop">Download My Resume!</button>
         </div>
     </section>
 
@@ -77,92 +74,72 @@
     @import '../../styles/general';
 
     #hero{
+        @include flexbox();
+        @include align-items(center);
         @include flex-direction(column);
+        padding: 0;
 
-        // TODO: why does all this styling have to be so weird?
+        @include breakpoint(tablet){
+            @include flex-direction(row);
+        }
 
-        .intro-wrapper{
-            @include flexbox();
-            @include flex-direction(column);
-            @include justify-content(center);
-            @include align-items(flex-start);
+        .hero-content-wrapper{
+            @include borderbox();
+            padding: 1rem;
 
-            @include breakpoint(phablet){
-                @include flex-direction(row);
-            }
-
-            @include breakpoint(laptop){
-                @include align-items(center);
+            @include breakpoint(tablet){
+                width: 50%;
+                padding: 2rem;
             }
         }
 
-        .intro-text-wrapper{
-            @include breakpoint(laptop){
-                @include flex(1);
-                margin-left: 2rem;
+        .profile-figure{
+            position: relative;
+            margin: 0;
+            overflow: hidden;
+            height: 200px;
+            width: 100%;
+
+            @include breakpoint(tablet){
+                height: 600px;
+                width: 50%;
             }
         }
 
         .profile-image{
-            width: 200px;
-            margin: 0 auto;
-            display: block;
-            border-radius: 50%;
-
-            @include breakpoint(phablet){
-                width: 130px;
-            }
-
-            @include breakpoint(laptop){
-                width: 200px;
-            }
+            @include position-center();
         }
 
         .hero-title{
-            color: $color--white;
+            font-size: 4rem;
         }
 
         .hero-subtitle{
+            font-size: 2rem;
+        }
+
+        .hero-title, .hero-subtitle{
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .button--resume-download{
+            margin: 1rem 0;
+            background: $color--accent;
             color: $color--white;
-        }
 
-        .about-me--title{
-            @include breakpoint(phablet){
-                margin: 0 0 0 1rem;
-                line-height: 130px;
+            &.button--resume-download-mobile{
+                @include breakpoint(tablet){
+                    display: none;
+                }
             }
 
-            @include breakpoint(laptop){
-                margin: 1rem 0;
-                line-height: 1;
-            }
-        }
+            &.button--resume-download-desktop{
+                display: none;
 
-        .hero-text{
-            @include breakpoint(phablet){
-                margin-left: -130px;
-                margin-top: 1rem;
-            }
-
-            @include breakpoint(laptop){
-                margin-left: 0;
-                margin-top: 1rem;
-            }
-        }
-
-        .hero-content-wrapper{
-            @include flex(0 0 100%);
-
-            @include breakpoint('phablet'){
-                @include flex(3);
-            }
-        }
-
-        .contact-link{
-            display: inline-block;
-
-            &:not(:first-child){
-                padding-right: 0.5rem;
+                @include breakpoint(tablet){
+                    display: block;
+                }
             }
         }
     }

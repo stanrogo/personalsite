@@ -1,6 +1,6 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div id="feed">
-        <section class="material-card grid-container post-container"  v-for="post in filteredPosts">
+        <section class="material-card post-container"  v-for="post in filteredPosts">
             <div class="post-heading">
                 <span class="fa-user quick-fact">By Stanley Clark</span>
                 <h1>{{post.name}}</h1>
@@ -47,8 +47,14 @@
         @include flex(1);
 
         .post-container{
+            @include flexbox();
             @include flex-direction(column);
             @include justify-content(center);
+            margin: 1rem 0;
+
+            @include breakpoint(tablet){
+                margin: 2rem 0;
+            }
         }
 
         .post-heading{

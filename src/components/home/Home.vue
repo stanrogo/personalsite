@@ -1,7 +1,6 @@
 <template>
     <div id="home">
         <hero></hero>
-        <git-hub></git-hub>
         <skills></skills>
     </div>
 </template>
@@ -9,11 +8,10 @@
 <script>
     import Hero from './Hero.vue';
     import Skills from './Skills.vue';
-    import GitHub from './GitHub.vue';
 
     export default {
         name: 'home',
-        components: {Hero, GitHub, Skills},
+        components: {Hero, Skills},
         created() {
             this.$nextTick(() => {
 

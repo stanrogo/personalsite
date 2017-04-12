@@ -121,7 +121,6 @@
         }
 
         .module-title--text{
-            color: $color--white;
             @include flex(0 0 100%);
         }
 

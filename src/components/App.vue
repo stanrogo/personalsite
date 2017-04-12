@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        <div class="material-background"></div>
         <nav-bar></nav-bar>
         <router-view></router-view>
         <app-footer></app-footer>
@@ -13,11 +12,6 @@
 
     export default {
         name: 'app',
-        data () {
-            return {
-                msg: 'Welcome to Your Vue.js App'
-            }
-        },
         components: {NavBar, AppFooter}
     }
 </script>
@@ -25,9 +19,13 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
+    // Activate font awesome classes
+
     [class*="fa-"]:before {
         font-family: 'FontAwesome', sans-serif;
     }
+
+    // default reset styling
 
     html {
         margin: 0;
@@ -44,9 +42,7 @@
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
     }
 
-    button{
-        font-family: 'Cormorant Garamond', serif;
-    }
+    button {font-family: 'Cormorant Garamond', serif;}
 
     h1, h2, h3, h4, h5, h6 {font-weight: 400;}
 
@@ -67,21 +63,13 @@
 
     img{max-width: 100%;}
 
-    .material-background{
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: $hero-height;
-        background: $color--white url("#{$image-base-url-stripped}v1485703729/weaved-black_xomuog.png") center;
-    }
-
     // Helpers
 
     .material-card {
         box-sizing: border-box;
         padding: 1rem;
         background-color: $color--white;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        @include material-shadow();
 
         @include breakpoint(tablet){
             padding: 2rem;
@@ -105,30 +93,21 @@
 
     .hidden{display: none !important;}
 
-    .module{
-        position: relative;
-        display: block;
-        margin-bottom: 2rem;
-    }
-
     .button{
         padding: 0.5rem 2rem;
         background-color: $color--white;
         color: $color--text-primary;
         font-size: 1rem;
         border: 0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        @include material-shadow();
         transition: all 0.1s;
         text-transform: uppercase;
         cursor: pointer;
 
         &:hover{
             box-shadow: 0 3px 5px rgba(0,0,0,0.13), 0 3px 4px rgba(0,0,0,0.22);
+            color: $color--accent;
         }
-    }
-
-    .btn:hover{
-        box-shadow: 0 14px 28px rgba(0,0,0,0.13), 0 10px 10px rgba(0,0,0,0.22);
     }
 
     .grid-container{

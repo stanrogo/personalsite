@@ -2,7 +2,7 @@
 
     <section id="hero" class="material-card">
         <figure class="profile-figure">
-            <img class="profile-image" src="src/images/me.jpg">
+            <img class="profile-image" :src="imgUrl('v1492008891/me_zzydtk.jpg')">
         </figure>
 
         <div class="hero-content-wrapper">

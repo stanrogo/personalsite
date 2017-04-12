@@ -17,7 +17,7 @@
 
                 <router-link
                         v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon"
-                        v-bind:to="link.route" replace exact
+                        v-bind:to="link.route" replace :exact="link.exact"
                 >
                     {{link.name}}
                 </router-link>
@@ -39,9 +39,9 @@
         data () {
             return {
                 links: [
-                    {name: 'Home', route: '/', icon: 'fa-user'},
-                    {name: 'Work', route: '/work', icon: 'fa-desktop'},
-                    {name: 'Blog', route: '/blog', icon: 'fa-edit'},
+                    {name: 'Home', route: '/', icon: 'fa-user', exact: true},
+                    {name: 'Work', route: '/work', icon: 'fa-desktop', exact: true},
+                    {name: 'Blog', route: '/blog', icon: 'fa-edit', exact: false},
                 ],
                 externalLinks: [
                     {

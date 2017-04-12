@@ -22,8 +22,6 @@
         computed: {
             post: function(){
 
-                console.log(store.state.post.current);
-
                 return store.state.post.current;
             }
         },
@@ -43,8 +41,6 @@
 
                 navigateBack = false;
             }
-
-            console.log(from);
 
             store.dispatch('FETCH_LIST', to.params.htmlTitle);
             next(vm => {

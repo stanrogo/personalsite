@@ -32,8 +32,6 @@
                 const currPath = this.$router.currentRoute.path;
                 const goPath = currPath + '/' + postID;
 
-                console.log(goPath);
-
                 this.$router.push(goPath);
             }
         }
@@ -70,8 +68,10 @@
         }
 
         .quick-fact{
+            display: inline-block;
             margin-right: 1rem;
             text-transform: uppercase;
+            line-height: 1.5;
 
             &:before{
                 margin-right: 0.3rem;

@@ -101,8 +101,6 @@ export default {
 
                     if(res) {
 
-                        console.log('THERE\'S CACHES!');
-
                         res.json().then(function (json) {
 
                             commit('POST_LIST_UPDATE_ALL', json);

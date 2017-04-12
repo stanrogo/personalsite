@@ -48,7 +48,6 @@ router.afterEach(() => {
 
 router.beforeEach((to, from, next) => {
 
-    console.log(to.name);
     store.commit('STORE_ROUTE', to);
     next();
 });

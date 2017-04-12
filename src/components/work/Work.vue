@@ -1,29 +1,15 @@
 <template>
-    <div id="work">
-        <div class="grid-container">
-            <h2 class="module-title--text">CURRENT ENDEAVOURS</h2>
+    <div id="work" class="grid-container">
 
-            <section class="material-card current-card" v-for="endeavour in current">
-                <div class="work-dates">{{endeavour.started}}</div>
-                <h1 class="work-company">{{endeavour.title}}</h1>
-                <figure class="work--figure">
-                    <img :src="imgUrl(endeavour.imageURL)" class="work--image" :alt="endeavour.altText">
-                </figure>
-                <p>{{endeavour.description}}</p>
-            </section>
-
-            <h2 class="module-title--text">RECENT EXPERIENCE</h2>
-
-            <section class="material-card work-card" v-for="experience in experiences">
-                <div class="work-dates">{{experience.dates}}</div>
-                <h1 class="work-company">{{experience.title}}</h1>
-                <h2 class="work-position">{{experience.position}}</h2>
-                <figure class="work--figure">
-                    <img :src="imgUrl(experience.imageURL)" class="work--image" :alt="experience.altText">
-                </figure>
-                <p>{{experience.description}}</p>
-            </section>
-        </div>
+        <section class="material-card work-card" v-for="experience in experiences" :class="experience.classText">
+            <div class="work-dates">{{experience.dates}}</div>
+            <h1 class="work-company">{{experience.title}}</h1>
+            <h2 class="work-position">{{experience.position}}</h2>
+            <figure class="work--figure" v-if="experience.imageURL">
+                <img :src="imgUrl(experience.imageURL)" class="work--image" :alt="experience.altText">
+            </figure>
+            <p>{{experience.description}}</p>
+        </section>
     </div>
 </template>
 
@@ -35,10 +21,11 @@
         name: 'work',
         data () {
             return {
-                current: [
+                experiences: [
                     {
-                        started: 'February 2017',
+                        dates: 'February 2017',
                         title: 'Computer Science and Engineering M.Sc.',
+                        position: 'Student',
                         description: `
                             Working as part of a dynamic and young company with over 100 employees.
                             We have 5 scrum teams, and my team is responsible for content consumption on our portals.
@@ -49,10 +36,9 @@
                             to improve my skills upon.
                         `,
                         imageURL: 'v1491936881/metaforum_az2von.jpg',
-                        altText: 'TUe logo on top of building'
+                        altText: 'TUe logo on top of building',
+                        classText: 'current-card'
                     },
-                ],
-                experiences: [
                     {
                         dates: 'November 2015 - present',
                         title: 'StudyPortals',
@@ -66,8 +52,9 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: 'v1485563099/studyportalscover_i0xeph.jpg',
-                        altText: 'StudyPortals Conference'
+                        imageURL: 'c_crop,h_400,w_829/v1485563099/studyportalscover_i0xeph.jpg',
+                        altText: 'StudyPortals Conference',
+                        classText: ''
                     },
                     {
                         dates: 'July 2015 - October 2015',
@@ -79,8 +66,9 @@
                            of devices and form factors. Facebook marketing, along with building campaigns for clients
                            on a strict time schedule has helped me to be more organised and responsive to client needs.
                         `,
-                        imageURL: 'v1491940335/Cliq_puumgs.jpg',
-                        altText: 'Cliq Digital Logo'
+                        imageURL: 'e_art:incognito/v1491940335/Cliq_puumgs.jpg',
+                        altText: 'Cliq Digital Logo',
+                        classText: ''
                     },
                     {
                         dates: 'July 2013 - August 2013',
@@ -91,7 +79,8 @@
                           Here I began work on the new Alert system using for the first time Angular JS 1.
                           I worked as part of a team with two other back end developers and was heavily involved
                           in the initial design stages during this 2 month internship.
-                        `
+                        `,
+                        classText: 'current-card'
                     }
                 ]
             }
@@ -114,34 +103,16 @@
     @import '../../styles/general';
 
     #work{
-
-        .grid-container{
-            @include flex-wrap(wrap);
-            @include flex-direction(row);
-        }
-
-        .module-title--text{
-            @include flex(0 0 100%);
-        }
+        @include flex-wrap(wrap);
+        @include flex-direction(row);
 
         .material-card{
-            @include borderbox();
-            margin-bottom: 1rem;
-
-            @include breakpoint(tablet){
-                margin-bottom: 2rem;
-            }
-
             @include breakpoint(laptop){
-                @include flex(0 0 calc(50% - 1rem));
-
-                &:nth-of-type(2n){
-                    margin-right: 2rem;
-                }
+                @include flex(0 0 50%);
             }
         }
 
-        .current-card{
+        .module-title--text, .current-card{
             @include flex(0 0 100%);
         }
 

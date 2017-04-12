@@ -70,6 +70,7 @@
         padding: 1rem;
         background-color: $color--white;
         @include material-shadow();
+        @include borderbox();
 
         @include breakpoint(tablet){
             padding: 2rem;

@@ -1,5 +1,14 @@
 [
   {
+    "id": 3,
+    "name": "Hogwarts - The Adaptive Web Based Information System",
+    "summary": "",
+    "date": "14th April 2017",
+    "tags": ["University", "Web Development"],
+    "htmlTitle": "hogwarts-adaptive-web-information-system",
+    "imageURL": "src/images/hogwarts.jpg"
+  },
+  {
     "id": 0,
     "name": "Let's Go! Get the Go Lang",
     "summary": "The Go programming language is an exciting new language that you should have learned a year ago already (including me). It's a language featuring native concurrency, static typing and standards driven development. Let's dive in for a look at some of the cool things that you can be doing.",
@@ -25,14 +34,5 @@
     "date": "25th December 2015",
     "tags": ["Testing", "Web Development", "StudyPortals"],
     "htmlTitle": "visual-regression-testing-at-studyportals.html"
-  },
-  {
-    "id": 3,
-    "name": "Hogwarts - The Adaptive Web Based Information System",
-    "summary": "",
-    "date": "14th April 2017",
-    "tags": ["University", "Web Development"],
-    "htmlTitle": "hogwarts-adaptive-web-information-system",
-    "imageURL": "src/images/hogwarts.jpg"
   }
 ]

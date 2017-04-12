@@ -33,7 +33,6 @@ self.addEventListener('install', function(event){
 // On activate, we clean out any old caches that have not been white listed
 
 self.addEventListener('activate', function(event){
-    console.log('Service Worker Activated');
 
     var whiteList = ['general-cache'];
 
@@ -62,7 +61,6 @@ self.addEventListener("fetch", function (event) {
 
                 if (response) {
 
-                    console.log('Woot! Resource has been fetched!');
                     return response;
                 }
 

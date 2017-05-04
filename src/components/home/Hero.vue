@@ -108,6 +108,7 @@
 
         .profile-image{
             @include position-center();
+            width: 100%;
         }
 
         .hero-title{

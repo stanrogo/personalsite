@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <article id="post">
         <div class="cover-wrapper">
-            <img class="cover" :src="post.imageURL">
+            <img class="cover" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
         </div>
         <button class="fa-arrow-left button" v-on:click="goBack">Back</button>
 
@@ -16,6 +16,7 @@
 <script>
 
     import store from '../../vuex/index.js';
+    import variables from '../variables.js';
 
     export default {
         name: 'post',
@@ -29,6 +30,10 @@
             goBack: function(){
 
                 this.navigateBack ? this.$router.go(-1) : this.$router.replace('/blog');
+            },
+            imgUrl: function(image){
+
+                return variables.imageBaseURLStripped + image;
             }
         },
         beforeRouteEnter: (to, from, next) => {

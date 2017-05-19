@@ -1,14 +1,15 @@
 <template>
-    <div id="work" class="grid-container">
-
-        <section class="material-card work-card" v-for="experience in experiences" :class="experience.classText">
-            <div class="work-dates">{{experience.dates}}</div>
-            <h1 class="work-company">{{experience.title}}</h1>
-            <h2 class="work-position">{{experience.position}}</h2>
+    <div id="work">
+        <section class="work-card" v-for="experience in experiences" :class="experience.classText">
             <figure class="work--figure" v-if="experience.imageURL">
                 <img :src="imgUrl(experience.imageURL)" class="work--image" :alt="experience.altText">
             </figure>
-            <p>{{experience.description}}</p>
+            <div class="work--content">
+                <div class="work-dates">{{experience.dates}}</div>
+                <h1 class="work-company">{{experience.title}}</h1>
+                <h2 class="work-position">{{experience.position}}</h2>
+                <p>{{experience.description}}</p>
+            </div>
         </section>
     </div>
 </template>
@@ -23,7 +24,7 @@
             return {
                 experiences: [
                     {
-                        dates: 'February 2017',
+                        dates: 'February 2017 - present',
                         title: 'Computer Science and Engineering M.Sc.',
                         position: 'Student',
                         description: `
@@ -52,7 +53,7 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: 'c_crop,h_400,w_829/v1485563099/studyportalscover_i0xeph.jpg',
+                        imageURL: 'c_crop,h_345,w_480/v1485563099/studyportalscover_i0xeph.jpg',
                         altText: 'StudyPortals Conference',
                         classText: ''
                     },
@@ -65,8 +66,12 @@
                            must be taken, along with responsive design for the campaigns that are targeted at a host
                            of devices and form factors. Facebook marketing, along with building campaigns for clients
                            on a strict time schedule has helped me to be more organised and responsive to client needs.
+                           I worked on campaigns for mobile wallpapers, virsu scanners, smileys and ringtones for a
+                           variety of markets, with a variety of compliance requirements based on the country.
+                           I understood the variety of users out there and helped to target campaigns based on
+                           personalised factors.
                         `,
-                        imageURL: 'e_art:incognito/v1491940335/Cliq_puumgs.jpg',
+                        imageURL: 'e_art:incognito,c_fill,h_345,w_480/v1491940335/Cliq_puumgs.jpg',
                         altText: 'Cliq Digital Logo',
                         classText: ''
                     },
@@ -80,6 +85,7 @@
                           I worked as part of a team with two other back end developers and was heavily involved
                           in the initial design stages during this 2 month internship.
                         `,
+                        imageURL: 'v1495226054/placeholder3_qbviea.png',
                         classText: 'current-card'
                     }
                 ]
@@ -103,27 +109,48 @@
     @import '../../styles/general';
 
     #work{
+        @include flexbox();
         @include flex-wrap(wrap);
-        @include flex-direction(row);
-
-        .material-card{
-            @include breakpoint(laptop){
-                @include flex(0 0 50%);
-            }
-        }
+        @include flex-direction(column);
 
         .module-title--text, .current-card{
             @include flex(0 0 100%);
         }
 
+        .work-card{
+            @include flexbox();
+            @include flex-direction(column);
+
+            @include breakpoint(laptop){
+                @include flex-direction(row);
+            }
+
+            &:nth-of-type(2n){
+                @include breakpoint(laptop){
+                    @include flex-direction(row-reverse);
+                }
+            }
+        }
+
+        .work--content{
+            @include flexbox();
+            @include flex-direction(column);
+            padding: 1rem;
+        }
+
+        .work-company, .work-position{
+            margin: 0;
+        }
+
         .work--figure{
             position: relative;
-            margin: 0 -2rem;
-            height: 200px;
+            margin: 0;
             overflow: hidden;
+            height: 200px;
 
-            @include breakpoint(tablet){
-                height: 300px;
+            @include breakpoint(laptop){
+                @include flex(0 0 50%);
+                height: auto;
             }
 
             .work--image{

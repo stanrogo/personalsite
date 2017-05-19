@@ -101,7 +101,7 @@
         @include flex-direction(column-reverse);
         padding: 0;
 
-        @include breakpoint(tablet){
+        @include breakpoint(laptop){
             @include flex-direction(row);
         }
 
@@ -109,7 +109,7 @@
             @include borderbox();
             padding: 1rem;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop){
                 width: 50%;
                 padding: 2rem;
             }
@@ -120,22 +120,26 @@
             }
 
             .skill--image-mobile{
-                @include breakpoint(tablet){
+                @include breakpoint(laptop){
                     display: none;
                 }
             }
         }
 
-        .skill--images{
+        .skill--images {
             display: none;
             @include align-items(center);
             @include justify-content(center);
             width: 50%;
             background-color: #f9d131;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop) {
                 @include flexbox();
             }
+        }
+
+        .skill--image-mobile{
+            width: 100%;
         }
     }
 

@@ -79,7 +79,7 @@
         @include flex-direction(column);
         padding: 0;
 
-        @include breakpoint(tablet){
+        @include breakpoint(laptop){
             @include flex-direction(row);
         }
 
@@ -87,7 +87,7 @@
             @include borderbox();
             padding: 1rem;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop){
                 width: 50%;
                 padding: 2rem;
             }
@@ -100,7 +100,7 @@
             height: 200px;
             width: 100%;
 
-            @include breakpoint(tablet){
+            @include breakpoint(laptop){
                 height: 600px;
                 width: 50%;
             }
@@ -130,7 +130,7 @@
             color: $color--white;
 
             &.button--resume-download-mobile{
-                @include breakpoint(tablet){
+                @include breakpoint(laptop){
                     display: none;
                 }
             }
@@ -138,7 +138,7 @@
             &.button--resume-download-desktop{
                 display: none;
 
-                @include breakpoint(tablet){
+                @include breakpoint(laptop){
                     display: block;
                 }
             }

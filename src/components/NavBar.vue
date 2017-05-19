@@ -102,6 +102,7 @@
         @include material-shadow();
         z-index: $first-floor;
 
+
         .title {
             padding: 2rem 0 0;
             font-size: 2rem;
@@ -114,8 +115,13 @@
 
         .nav-links {
             @include flexbox();
-            @include justify-content(space-between);
+            @include justify-content(space-around);
             @include flex-wrap(wrap);
+            width: calc(100% - 1rem);
+
+            @include breakpoint(tablet){
+                @include justify-content(space-between);
+            }
 
             .router-link-active{
                 background-color: $color--accent ;
@@ -134,7 +140,7 @@
         .nav-link a{
             display: block;
             cursor: pointer;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             text-decoration: none;
             color: $color--text-primary;
 
@@ -145,7 +151,7 @@
 
             &:before{
                 box-sizing: border-box;
-                padding-right: 1rem;
+                padding-right: 0.5rem;
             }
         }
 

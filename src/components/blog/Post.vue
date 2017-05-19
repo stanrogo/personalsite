@@ -33,7 +33,7 @@
             },
             imgUrl: function(image){
 
-                return variables.imageBaseURLStripped + image;
+                return variables.imageBaseURLStripped + 'c_crop,g_auto,h_500,w_1920,x_0,y_0/a_0/' + image;
             }
         },
         beforeRouteEnter: (to, from, next) => {
@@ -81,7 +81,10 @@
             .cover{
                 width: 100%;
                 @include position-center();
-                top: 0;
+
+                @include breakpoint(tablet){
+                    min-width: 1920px;
+                }
             }
         }
 

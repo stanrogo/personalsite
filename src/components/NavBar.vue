@@ -117,7 +117,7 @@
             @include flexbox();
             @include justify-content(space-around);
             @include flex-wrap(wrap);
-            width: calc(100% - 1rem);
+            width: calc(100% - 2rem);
             text-align: center;
             margin: 1rem auto;
 

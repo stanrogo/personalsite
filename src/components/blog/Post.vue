@@ -2,11 +2,16 @@
     <article id="post">
         <div class="cover-wrapper">
             <img class="cover" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
+            <div class="cover--overlay" v-if="post.imageURL"></div>
+            <div class="cover--title">
+                <h1>{{post.name}}</h1>
+                <h2>By Stanley Clark</h2>
+            </div>
         </div>
         <button class="fa-arrow-left button" v-on:click="goBack">Back</button>
 
         <div class="post-content grid-container">
-            <h1>{{post.name}}</h1>
+
 
             <div v-html="post.htmlContent"></div>
         </div>
@@ -23,7 +28,14 @@
         computed: {
             post: function(){
 
-                return store.state.post.current;
+                const post = store.state.post.current;
+
+                if(typeof post.htmlContent === "object"){
+
+                    post.htmlContent = post.htmlContent.join("");
+                }
+
+                return post;
             }
         },
         methods: {
@@ -73,6 +85,7 @@
             position: relative;
             height: 150px;
             overflow: hidden;
+            background-color: $color--grey-light;
 
             @include breakpoint(tablet){
                 height: $hero-height;
@@ -85,6 +98,24 @@
                 @include breakpoint(tablet){
                     min-width: 1920px;
                 }
+            }
+
+            .cover--overlay{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba($color--text-primary, 0.8);
+            }
+
+            .cover--title{
+                @include flexbox();
+                @include flex-direction(column);
+                @include align-items(center);
+                @include position-center();
+                color: $color--white;
+                text-transform: uppercase;
             }
         }
 

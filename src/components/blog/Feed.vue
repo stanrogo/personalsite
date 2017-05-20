@@ -2,12 +2,13 @@
     <div id="feed">
         <section class="material-card post-container"  v-for="post in filteredPosts">
             <div class="post-heading">
-                <span class="fa-user quick-fact">By Stanley Clark</span>
                 <h1>{{post.name}}</h1>
                 <span class="fa-calendar quick-fact">Posted on {{post.date}}</span>
                 <span class="fa-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
             </div>
-            <img class="card-image" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
+            <figure class="card-figure">
+                <img class="card-image" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
+            </figure>
             <p class="post-summary">{{post.summary}}</p>
             <button class="button button--read-more" v-on:click="goToPost(post.htmlTitle)">Read more</button>
         </section>
@@ -24,7 +25,18 @@
         computed: {
             filteredPosts: function(){
 
-                return store.state.post.filteredPosts;
+                const posts = store.state.post.filteredPosts;
+
+                posts.forEach(post => {
+
+                    if(typeof post.summary === "object"){
+
+                        post.summary = post.summary.join("");
+                    }
+                });
+
+
+                return posts;
             }
         },
         methods:{
@@ -80,6 +92,22 @@
 
             &:before{
                 margin-right: 0.3rem;
+            }
+        }
+
+        .card-figure{
+            position: relative;
+            height: 200px;
+            margin: 0 -1rem;
+            padding: 0;
+            overflow: hidden;
+
+            @include breakpoint(tablet){
+                margin: 0 -2rem;
+            }
+
+            .card-image{
+                @include position-center();
             }
         }
     }

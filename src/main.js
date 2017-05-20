@@ -12,8 +12,12 @@ import Post from './components/blog/Post.vue'
 
 import store from './vuex/index.js';
 
+const VueFire = require('vuefire');
+const Firebase = require('firebase');
+
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(VueFire);
 
 const routes = [
     {

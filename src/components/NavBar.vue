@@ -56,7 +56,7 @@
                     },
                     {
                         name: 'Twitter',
-                        route: 'https://www.twitter.com',
+                        route: 'https://www.twitter.com/stanrogo',
                         icon: 'fa-twitter'
                     }
                 ]

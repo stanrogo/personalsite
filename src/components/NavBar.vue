@@ -118,6 +118,8 @@
             @include justify-content(space-around);
             @include flex-wrap(wrap);
             width: calc(100% - 1rem);
+            text-align: center;
+            margin: 1rem auto;
 
             @include breakpoint(tablet){
                 @include justify-content(space-between);
@@ -133,6 +135,14 @@
 
                 @include breakpoint(tablet){
                     @include flexbox();
+                }
+            }
+
+            .nav-link{
+                width: 50%;
+
+                @include breakpoint(tablet){
+                    width: auto;
                 }
             }
         }

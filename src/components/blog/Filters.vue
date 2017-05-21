@@ -18,8 +18,6 @@
 
 <script>
 
-    import store from '../../vuex/index.js';
-
     export default {
         name: 'filters',
         data(){
@@ -30,9 +28,9 @@
             }
         },
         computed: {
-            filterList () {
+            filterList: function() {
 
-                return store.state.post.categories;
+                return this.vuexStore.state.post.categories;
             }
         },
         methods: {
@@ -40,11 +38,11 @@
 
                 if(checkbox.checked === false){
 
-                    store.dispatch('REMOVE_FILTER', filterName);
+                    this.vuexStore.dispatch('REMOVE_FILTER', filterName);
                 }
                 else{
 
-                    store.dispatch('ADD_FILTER', filterName);
+                    this.vuexStore.dispatch('ADD_FILTER', filterName);
                 }
             }
         }

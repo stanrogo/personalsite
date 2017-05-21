@@ -20,14 +20,12 @@
 
 <script>
 
-    import store from '../../vuex/index.js';
-
     export default {
         name: 'post',
         computed: {
             post: function(){
 
-                const post = store.state.post.current;
+                const post = this.vuexStore.state.post.current;
 
                 if(typeof post.htmlContent === "object"){
 
@@ -43,7 +41,7 @@
                 this.navigateBack ? this.$router.go(-1) : this.$router.replace('/blog');
             }
         },
-        beforeRouteEnter: (to, from, next) => {
+        beforeRouteEnter: function(to, from, next) {
 
             let navigateBack = true;
 
@@ -54,7 +52,7 @@
                 navigateBack = false;
             }
 
-            store.dispatch('FETCH_LIST', to.params.htmlTitle);
+            this.vuexStore.dispatch('FETCH_LIST', to.params.htmlTitle);
             next(vm => {
 
                 vm.navigateBack = navigateBack;

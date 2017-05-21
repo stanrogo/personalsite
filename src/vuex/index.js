@@ -6,9 +6,24 @@ import ui from './store/ui.js';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
     modules: {
         post,
         ui
     }
 });
+
+const VuexStore = {
+
+    install(Vue) {
+        Vue.mixin({
+            data(){
+                return {
+                    vuexStore: store
+                }
+            }
+        });
+    }
+};
+
+export default VuexStore;

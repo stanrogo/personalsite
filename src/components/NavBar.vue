@@ -32,8 +32,6 @@
 
 <script>
 
-    import store from '../vuex/index.js';
-
     export default {
         name: 'nav-bar',
         data () {
@@ -63,11 +61,11 @@
             }
         },
         computed: {
-            sidebarOpen(){
-                return store.state.ui.sidebarOpen;
+            sidebarOpen: function(){
+                return this.vuexStore.state.ui.sidebarOpen;
             },
-            routeName(){
-                return store.state.ui.currentRouteName;
+            routeName: function(){
+                return this.vuexStore.state.ui.currentRouteName;
             }
         },
         methods: {
@@ -77,13 +75,13 @@
 
                 if(!isRouterLink){
 
-                    store.commit('TOGGLE_SIDEBAR');
+                    this.vuexStore.commit('TOGGLE_SIDEBAR');
                     return
                 }
 
                 if(this.sidebarOpen){
 
-                    store.commit('TOGGLE_SIDEBAR');
+                    this.vuexStore.commit('TOGGLE_SIDEBAR');
                 }
             }
         }

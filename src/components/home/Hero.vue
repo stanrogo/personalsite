@@ -19,23 +19,9 @@
 <script>
 
     export default {
-        name: 'hero',
-        data () {
-            return {
-                links: [
-                    {name: 'LinkedIn', href: 'https://www.linkedin.com/in/stanleyclark'},
-                    {name: 'Twitter', href: 'https://www.twitter.com/stanrogo'},
-                    {name: 'Email', href: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!'}
-                ]
-            }
-        },
-        methods: {
-            toggleMenu: function() {
-
-                this.hamburgerActive = !this.hamburgerActive;
-            }
-        }
+        name: 'hero'
     }
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

@@ -11,14 +11,12 @@
     import Filters from './Filters.vue';
     import Feed from './Feed.vue';
 
-    import store from '../../vuex/index.js';
-
     export default {
         name: 'blog',
         components: {Filters, Feed},
-        created(){
+        created: function(){
 
-            store.dispatch('FETCH_LIST');
+            this.vuexStore.dispatch('FETCH_LIST');
         }
     }
 </script>

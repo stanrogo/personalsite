@@ -17,14 +17,12 @@
 
 <script>
 
-    import store from '../../vuex/index.js';
-
     export default {
         name: 'feed',
         computed: {
             filteredPosts: function(){
 
-                const posts = store.state.post.filteredPosts;
+                const posts = this.vuexStore.state.post.filteredPosts;
 
                 posts.forEach(post => {
 

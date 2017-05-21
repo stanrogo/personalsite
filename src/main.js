@@ -5,8 +5,6 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueFire from 'vuefire';
 
-import store from './vuex/index.js';
-
 // Import the main application file
 
 import App from './components/App.vue'
@@ -15,6 +13,7 @@ import App from './components/App.vue'
 
 import Cloudinary from './cloudinary.js';
 import FireBaseHelper from './firebaseHelper.js';
+import VuexStore from './vuex/index.js';
 import routes from './routes.js';
 
 // Bootstrap our application
@@ -24,6 +23,7 @@ Vue.use(VueResource);
 Vue.use(VueFire);
 Vue.use(Cloudinary);
 Vue.use(FireBaseHelper);
+Vue.use(VuexStore);
 
 const router = new VueRouter({routes});
 router.afterEach(() => {
@@ -32,7 +32,7 @@ router.afterEach(() => {
 });
 router.beforeEach((to, from, next) => {
 
-    store.commit('STORE_ROUTE', to);
+
     next();
 });
 

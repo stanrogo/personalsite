@@ -8,9 +8,10 @@ import cloudinary from 'cloudinary-core';
 
 const Cloudinary = {
 
-    install(Vue, options) {
+    install(Vue) {
         Vue.mixin({
             methods:{
+
                 /**
                  * Construct an image url based on the name and properties
                  *

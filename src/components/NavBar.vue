@@ -1,33 +1,30 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
 
-    <nav id="nav-bar" v-bind:class="{ 'is-hidden-mobile': !sidebarOpen}" v-on:click.stop="toggleMenu">
+    <nav id="nav-bar">
         <div class="title nav-link">
-            <router-link v-on:click="toggleMenu" to="/">STANROGO</router-link>
+            <router-link v-on:click="toggleMenu($event, true)" to="/">
+                STANROGO
+            </router-link>
         </div>
 
-        <button class="hamburger"
-                v-bind:class="{ 'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}"
-                v-on:click.stop="toggleMenu"
-        >
+        <button class="hamburger" v-bind:class="{'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}" v-on:click="toggleMenu($event, true)">
             {{routeName}}
         </button>
 
         <ul class="nav-links grid-container" v-bind:class="{'nav-links--hidden': !sidebarOpen}">
-            <li v-for="link in links" class="nav-link">
-
-                <router-link
-                        v-on:click="toggleMenu" class="nav-link-inner" :class="link.icon"
-                        v-bind:to="link.route" replace :exact="link.exact"
-                >
+            <li v-for="link in links" class="nav-link" v-on:click="toggleMenu">
+                <router-link class="nav-link-inner" :class="link.icon"  v-bind:to="link.route" :exact="link.exact" replace>
                     {{link.name}}
                 </router-link>
-
             </li>
-            <li v-for="link in externalLinks" class="nav-link">
-                <a class="nav-link-inner" :class="link.icon" :href="link.route" target="_blank">{{link.name}}</a>
+            <li v-for="link in contact" class="nav-link">
+                <a class="nav-link-inner" :class="link.icon" :href="link.URL" target="_blank">
+                    {{link.name}}
+                </a>
             </li>
         </ul>
     </nav>
+
 </template>
 
 <script>
@@ -40,23 +37,6 @@
                     {name: 'Home', route: '/', icon: 'fa-user', exact: true},
                     {name: 'Work', route: '/work', icon: 'fa-desktop', exact: true},
                     {name: 'Blog', route: '/blog', icon: 'fa-edit', exact: false},
-                ],
-                externalLinks: [
-                    {
-                        name: 'LinkedIn',
-                        route: 'https://www.linkedin.com/in/stanleyclark',
-                        icon: 'fa-linkedin'
-                    },
-                    {
-                        name: 'Email',
-                        route: 'mailto:me@stanrogo.com?Subject=I%20Want%20To%20Ask%20You%20Something!',
-                        icon: ' fa-cloud'
-                    },
-                    {
-                        name: 'Twitter',
-                        route: 'https://www.twitter.com/stanrogo',
-                        icon: 'fa-twitter'
-                    }
                 ]
             }
         },
@@ -69,17 +49,9 @@
             }
         },
         methods: {
-            toggleMenu: function(event) {
+            toggleMenu: function(event,  biDirection = false) {
 
-                const isRouterLink = event.target.classList.contains('nav-link-inner');
-
-                if(!isRouterLink){
-
-                    this.vuexStore.commit('TOGGLE_SIDEBAR');
-                    return
-                }
-
-                if(this.sidebarOpen){
+                if(biDirection || this.sidebarOpen){
 
                     this.vuexStore.commit('TOGGLE_SIDEBAR');
                 }
@@ -169,7 +141,6 @@
             border: none;
             cursor: pointer;
             width: 100%;
-            @include align-self(center);
 
             @include breakpoint(tablet){
                 display: none;

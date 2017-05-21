@@ -1,7 +1,8 @@
 /**
- * Created by Stanley on 21/05/2017.
- *
  * Helper plugin to add the firebase database references to all components
+ *
+ * @author Stanley Clark
+ * @version 1.0.0
  */
 
 import Firebase from 'firebase';
@@ -19,7 +20,8 @@ const FireBaseHelper = {
                     source: db.ref('stanley'),
                     asObject: true
                 },
-                skills: db.ref('skills')
+                skills: db.ref('skills'),
+                contact: db.ref('contact')
             }
         });
     }

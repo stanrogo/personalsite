@@ -1,6 +1,6 @@
 <template>
 
-    <section id="hero" class="material-card">
+    <section id="hero" class="clearfix">
         <figure class="profile-figure">
             <img class="profile-image" :src="constructImageUrl('me.jpg')">
         </figure>
@@ -29,22 +29,12 @@
     @import '../../styles/general';
 
     #hero{
-        @include flexbox();
-        @include align-items(center);
-        @include flex-direction(column);
-        padding: 0;
-
-        @include breakpoint(laptop){
-            @include flex-direction(row);
-        }
-
-        .hero-content-wrapper{
-            @include borderbox();
-            padding: 1rem;
+        .profile-figure, .hero-content-wrapper{
+            float: left;
+            width: 100%;
 
             @include breakpoint(laptop){
                 width: 50%;
-                padding: 2rem;
             }
         }
 
@@ -56,14 +46,30 @@
             width: 100%;
 
             @include breakpoint(laptop){
-                height: 600px;
+                height: 800px;
                 width: 50%;
+            }
+
+            @include breakpoint(desktop){
+                height: 750px;
             }
         }
 
         .profile-image{
             @include position-center();
-            width: 100%;
+
+            @include breakpoint(laptop){
+                max-width: none;
+            }
+        }
+
+        .hero-content-wrapper{
+            @include borderbox();
+            padding: 1rem;
+
+            @include breakpoint(laptop){
+                padding: 2rem;
+            }
         }
 
         .hero-title{

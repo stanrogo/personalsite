@@ -1,7 +1,8 @@
 /**
- * Created by Stanley on 21/05/2017.
- *
  * Define the routes to use in the application
+ *
+ * @author Stanley Clark
+ * @version 1.0.0
  */
 
 // Import top level route modules as async components (for packaging as separate bundles)
@@ -29,6 +30,8 @@ const Post = resolve => {
         resolve(require('./components/blog/Post.vue'))
     })
 };
+
+// The actual route definition is done here
 
 const routes = [
     {

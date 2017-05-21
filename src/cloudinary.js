@@ -1,7 +1,8 @@
 /**
- * Created by Stanley on 21/05/2017.
+ * Instantiate a new cloudinary instance and provide helpers to CRUD images
  *
- * This file instantiates a new cloudinary instance and provides helpers to CRUD images
+ * @author Stanley Clark
+ * @version 1.0.0
  */
 
 import cloudinary from 'cloudinary-core';

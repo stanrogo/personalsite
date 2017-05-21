@@ -1,5 +1,5 @@
 <template>
-    <footer id="footer" class="material-card"></footer>
+    <footer id="footer"></footer>
 </template>
 
 <script>
@@ -11,5 +11,7 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
-    #footer{background-color: $color--text-primary;}
+    #footer{
+        background-color: $color--text-primary;
+    }
 </style>

@@ -27,3 +27,4 @@ const VuexStore = {
 };
 
 export default VuexStore;
+export {store};

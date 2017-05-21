@@ -36,13 +36,13 @@
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
     }
 
+    // Only apply fonts when they have actually loaded
+
     html.wf-active{
         font-family: 'Cormorant Garamond', serif;
-
-        button {font-family: 'Cormorant Garamond', serif;}
-
-        // Activate font awesome classes
-
+        button {
+            font-family: 'Cormorant Garamond', serif;
+        }
         [class*="fa-"]:before {
             font-family: 'FontAwesome', sans-serif;
         }

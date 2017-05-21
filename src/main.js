@@ -7,7 +7,6 @@ import VueResource from 'vue-resource'
 // Import 3rd party dependencies
 
 import WebFont from 'webfontloader';
-import VueFire from 'vuefire';
 
 // Import the Vuex Store
 
@@ -47,7 +46,6 @@ const Post = resolve => {
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
-Vue.use(VueFire);
 
 // Define the routes we want to take and inject them
 

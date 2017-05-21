@@ -1,8 +1,8 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<template>
 
     <section id="hero" class="material-card">
         <figure class="profile-figure">
-            <img class="profile-image" :src="imgUrl('v1492008891/me_zzydtk.jpg')">
+            <img class="profile-image" :src="constructImageUrl('me.jpg')">
         </figure>
 
         <div class="hero-content-wrapper">
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-    import variables from '../variables.js';
 
     export default {
         name: 'hero',
@@ -60,10 +59,6 @@
             toggleMenu: function() {
 
                 this.hamburgerActive = !this.hamburgerActive;
-            },
-            imgUrl: function(image){
-
-                return variables.imageBaseURLStripped + image;
             }
         }
     }

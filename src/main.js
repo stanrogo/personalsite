@@ -38,10 +38,15 @@ const Post = resolve => {
     })
 };
 
+// Import internal custom dependencies
+
+import Cloudinary from './cloudinary.js';
+
 // Bootstrap our application
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(Cloudinary);
 
 // Define the routes we want to take and inject them
 

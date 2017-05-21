@@ -7,7 +7,7 @@
                 <span class="fa-tag quick-fact" v-for="tag in post.tags">{{tag}}</span>
             </div>
             <figure class="card-figure">
-                <img class="card-image" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
+                <img class="card-image" v-if="post.imageURL" :src="constructImageUrl(post.imageURL)">
             </figure>
             <p class="post-summary">{{post.summary}}</p>
             <button class="button button--read-more" v-on:click="goToPost(post.htmlTitle)">Read more</button>
@@ -18,7 +18,6 @@
 <script>
 
     import store from '../../vuex/index.js';
-    import variables from '../variables.js';
 
     export default {
         name: 'feed',
@@ -46,10 +45,6 @@
                 const goPath = currPath + '/' + postID;
 
                 this.$router.push(goPath);
-            },
-            imgUrl: function(image){
-
-                return variables.imageBaseURLStripped + image;
             }
         }
     };

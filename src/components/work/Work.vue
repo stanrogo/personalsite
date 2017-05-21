@@ -2,7 +2,8 @@
     <div id="work">
         <section class="work-card" v-for="experience in experiences" :class="experience.classText">
             <figure class="work--figure" v-if="experience.imageURL">
-                <img :src="imgUrl(experience.imageURL)" class="work--image" :alt="experience.altText">
+                <img :src="constructImageUrl(experience.imageURL, experience.imageOptions || {})" class="work--image"
+                     :alt="experience.altText">
             </figure>
             <div class="work--content">
                 <div class="work-dates">{{experience.dates}}</div>
@@ -15,8 +16,6 @@
 </template>
 
 <script>
-
-    import variables from '../variables.js';
 
     export default {
         name: 'work',
@@ -36,7 +35,7 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: 'v1491936881/metaforum_az2von.jpg',
+                        imageURL: 'metaforum_az2von.jpg',
                         altText: 'TUe logo on top of building',
                         classText: 'current-card'
                     },
@@ -53,7 +52,8 @@
                             Responsiveness, speed and SEO are key aspects which I have learned and am continuing
                             to improve my skills upon.
                         `,
-                        imageURL: 'c_crop,h_345,w_480/v1485563099/studyportalscover_i0xeph.jpg',
+                        imageURL: 'studyportalscover_i0xeph.jpg',
+                        imageOptions: {crop: 'crop', height: '345',width: '480'},
                         altText: 'StudyPortals Conference',
                         classText: ''
                     },
@@ -71,7 +71,8 @@
                            I understood the variety of users out there and helped to target campaigns based on
                            personalised factors.
                         `,
-                        imageURL: 'e_art:incognito,c_fill,h_345,w_480/v1491940335/Cliq_puumgs.jpg',
+                        imageURL: 'Cliq_puumgs.jpg',
+                        imageOptions: {effect: 'art:incognito', crop: 'fill', height: '345',width: '480'},
                         altText: 'Cliq Digital Logo',
                         classText: ''
                     },
@@ -85,20 +86,10 @@
                           I worked as part of a team with two other back end developers and was heavily involved
                           in the initial design stages during this 2 month internship.
                         `,
-                        imageURL: 'v1495226054/placeholder3_qbviea.png',
+                        imageURL: 'placeholder3_qbviea.png',
                         classText: 'current-card'
                     }
                 ]
-            }
-        },
-        methods: {
-            /**
-             * This method is a wrapper in order for dynamic image loading to work
-             * @param path
-             * @returns {*}
-             */
-            imgUrl: function (path) {
-                return variables.imageBaseURLStripped + path
             }
         }
     }

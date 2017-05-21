@@ -3,7 +3,7 @@
         <div class="skill--explanation">
             <h1 class="skills--title">What do I like?</h1>
 
-            <img class="skill--image-mobile" :src="imgUrl('v1492008890/responsive_ycrn7k.jpg')">
+            <img class="skill--image-mobile" :src="constructImageUrl('responsive.jpg')">
 
             <div class="skill--separator" v-for="skill in skills">
                 <h2 >{{skill.name}}</h2>
@@ -13,14 +13,13 @@
 
         <div class="skill--images">
             <figure>
-                <img :src="imgUrl('v1492008890/responsive_ycrn7k.jpg')">
+                <img :src="constructImageUrl('responsive.jpg')">
             </figure>
         </div>
     </section>
 </template>
 
 <script>
-    import variables from '../variables.js';
 
     export default {
         name: 'skills',
@@ -78,18 +77,9 @@
                     }
                 ]
             }
-        },
-        methods: {
-            /**
-             * This method is a wrapper in order for dynamic image loading to work
-             * @param path
-             * @returns {*}
-             */
-            imgUrl: function (path) {
-                return variables.imageBaseURLStripped + path
-            }
         }
     }
+
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

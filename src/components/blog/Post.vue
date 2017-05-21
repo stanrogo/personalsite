@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <article id="post">
         <div class="cover-wrapper">
-            <img class="cover" v-if="post.imageURL" :src="imgUrl(post.imageURL)">
+            <img class="cover" v-if="post.imageURL" :src="constructImageUrl(post.imageURL)">
             <div class="cover--overlay" v-if="post.imageURL"></div>
             <div class="cover--title">
                 <h1>{{post.name}}</h1>
@@ -21,7 +21,6 @@
 <script>
 
     import store from '../../vuex/index.js';
-    import variables from '../variables.js';
 
     export default {
         name: 'post',
@@ -42,10 +41,6 @@
             goBack: function(){
 
                 this.navigateBack ? this.$router.go(-1) : this.$router.replace('/blog');
-            },
-            imgUrl: function(image){
-
-                return variables.imageBaseURLStripped + 'c_crop,g_auto,h_500,w_1920,x_0,y_0/a_0/' + image;
             }
         },
         beforeRouteEnter: (to, from, next) => {

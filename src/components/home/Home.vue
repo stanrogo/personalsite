@@ -11,20 +11,7 @@
 
     export default {
         name: 'home',
-        components: {Hero, Skills},
-        created() {
-            this.$nextTick(() => {
-
-                // Re-render the git hub view on route change
-
-                if(typeof ready == 'undefined'){
-
-                    return;
-                }
-
-                ready(start);
-            });
-        }
+        components: {Hero, Skills}
     }
 </script>
 

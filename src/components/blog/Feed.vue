@@ -73,7 +73,7 @@
         }
 
         .post-heading{
-            padding: 0 1rem 2rem;
+            padding: 0 0 1rem;
             text-align: center;
         }
 
@@ -97,13 +97,14 @@
 
         .card-figure{
             position: relative;
-            height: 200px;
+            height: 150px;
             margin: 0 -1rem;
             padding: 0;
             overflow: hidden;
 
             @include breakpoint(tablet){
                 margin: 0 -2rem;
+                height: 200px;
             }
 
             .card-image{

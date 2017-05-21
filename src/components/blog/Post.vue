@@ -83,7 +83,7 @@
 
         .cover-wrapper{
             position: relative;
-            height: 150px;
+            height: 300px;
             overflow: hidden;
             background-color: $color--grey-light;
 
@@ -92,7 +92,7 @@
             }
 
             .cover{
-                width: 100%;
+                max-width: none;
                 @include position-center();
 
                 @include breakpoint(tablet){
@@ -110,12 +110,16 @@
             }
 
             .cover--title{
+                @include borderbox();
                 @include flexbox();
                 @include flex-direction(column);
                 @include align-items(center);
                 @include position-center();
                 color: $color--white;
                 text-transform: uppercase;
+                width: 100%;
+                padding: 1rem;
+                text-align: center;
             }
         }
 

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import VueFire from 'vuefire';
 
 // Import the Vuex Store
 
@@ -41,12 +42,15 @@ const Post = resolve => {
 // Import internal custom dependencies
 
 import Cloudinary from './cloudinary.js';
+import FireBaseHelper from './firebaseHelper.js';
 
 // Bootstrap our application
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(VueFire);
 Vue.use(Cloudinary);
+Vue.use(FireBaseHelper);
 
 // Define the routes we want to take and inject them
 

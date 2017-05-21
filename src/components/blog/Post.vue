@@ -52,9 +52,9 @@
                 navigateBack = false;
             }
 
-            this.vuexStore.dispatch('FETCH_LIST', to.params.htmlTitle);
             next(vm => {
 
+                vm.vuexStore.dispatch('FETCH_LIST', to.params.htmlTitle);
                 vm.navigateBack = navigateBack;
             });
         }

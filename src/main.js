@@ -4,11 +4,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
-// Import 3rd party dependencies
-
-import WebFont from 'webfontloader';
-import FontFaceObserver from 'fontfaceobserver';
-
 // Import the Vuex Store
 
 import store from './vuex/index.js';
@@ -92,34 +87,4 @@ const vue = new Vue({
     el: '#app',
     render: h => h(App),
     router
-});
-
-
-
-if(document.documentElement.className.indexOf("fonts-loaded") === -1 ){
-
-    const garamond = new FontFaceObserver('Cormorant Garamond', {
-        weight: 400
-    });
-
-    const fontAwesome = new FontFaceObserver('FontAwesome');
-
-    Promise.all([garamond.load(), fontAwesome.load()]).then(() => {
-
-        document.documentElement.className += " fonts-loaded";
-        console.log('loaded!');
-    });
-}
-
-
-// Load web fonts in a non-blocking way
-
-WebFont.load({
-    google: {
-        families: ['Cormorant Garamond']
-    },
-    custom: {
-        families: ['FontAwesome'],
-        urls: ['https://use.fontawesome.com/405bb302d1.css']
-    }
 });

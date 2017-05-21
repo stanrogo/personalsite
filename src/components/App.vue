@@ -36,7 +36,7 @@
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
     }
 
-    html.fonts-loaded{
+    html.wf-active{
         font-family: 'Cormorant Garamond', serif;
 
         button {font-family: 'Cormorant Garamond', serif;}

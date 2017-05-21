@@ -19,12 +19,6 @@
 <style rel="stylesheet/scss" lang="scss">
     @import '../styles/general';
 
-    // Activate font awesome classes
-
-    [class*="fa-"]:before {
-        font-family: 'FontAwesome', sans-serif;
-    }
-
     // default reset styling
 
     html {
@@ -32,7 +26,7 @@
         padding: 0;
         font-size: 16px;
         color: $color--text-primary;
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'Times-Roman', Times, 'Times New Roman', serif;
     }
 
     body {
@@ -42,7 +36,17 @@
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
     }
 
-    button {font-family: 'Cormorant Garamond', serif;}
+    html.fonts-loaded{
+        font-family: 'Cormorant Garamond', serif;
+
+        button {font-family: 'Cormorant Garamond', serif;}
+
+        // Activate font awesome classes
+
+        [class*="fa-"]:before {
+            font-family: 'FontAwesome', sans-serif;
+        }
+    }
 
     h1, h2, h3, h4, h5, h6 {font-weight: 400;}
 

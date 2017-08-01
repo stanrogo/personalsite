@@ -32,13 +32,14 @@
         margin: 0;
         padding: 0;
         font-size: 16px;
+        line-height: 1.5;
         color: $color--text-primary;
         font-family: Helvetica, Arial, 'sans-serif';
     }
 
     body {
         margin: 0;
-        padding: 5rem 0 0 0;
+        padding: 5.5rem 0 0 0;
         min-width: 320px;
         overflow-y:scroll;
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");

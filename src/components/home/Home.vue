@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <hero></hero>
-        <skills></skills>
+        <!--<skills></skills>-->
     </div>
 </template>
 
@@ -17,4 +17,9 @@
 
 <style rel="stylesheet/scss" lang="scss">
     @import '../../styles/general';
+
+    #home{
+        position: relative;
+        z-index: $second-floor;
+    }
 </style>

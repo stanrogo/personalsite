@@ -1,17 +1,22 @@
 <template>
     <div id="work">
-        <section class="work-card" v-for="experience in experiences" :class="experience.classText">
-            <figure class="work--figure" v-if="experience.imageURL">
-                <img :src="constructImageUrl(experience.imageURL, experience.imageOptions || {})" class="work--image"
-                     :alt="experience.altText">
-            </figure>
-            <div class="work--content">
-                <div class="work-dates">{{experience.dates}}</div>
-                <h1 class="work-company">{{experience.title}}</h1>
-                <h2 class="work-position">{{experience.position}}</h2>
-                <p>{{experience.description}}</p>
-            </div>
-        </section>
+        <div class="grid-container">
+            <h1 class="section-heading">Work</h1>
+
+            <section class="work-card" v-for="experience in experiences" :class="experience.classText">
+
+                <div class="work--content">
+                    <div class="work-dates">{{experience.dates}}</div>
+                    <h1 class="work-company">{{experience.title}}</h1>
+                    <h2 class="work-position">{{experience.position}}</h2>
+                    <p>{{experience.description}}</p>
+                </div>
+                <figure class="work--figure" v-if="experience.imageURL">
+                    <img :src="constructImageUrl(experience.imageURL, experience.imageOptions || {})" class="work--image"
+                         :alt="experience.altText">
+                </figure>
+            </section>
+        </div>
     </div>
 </template>
 
@@ -86,7 +91,6 @@
                           I worked as part of a team with two other back end developers and was heavily involved
                           in the initial design stages during this 2 month internship.
                         `,
-                        imageURL: 'placeholder3_qbviea.png',
                         classText: 'current-card'
                     }
                 ]
@@ -100,9 +104,9 @@
     @import '../../styles/general';
 
     #work{
-        @include flexbox();
-        @include flex-wrap(wrap);
-        @include flex-direction(column);
+        .grid-container{
+            @include flex-direction(column);
+        }
 
         .module-title--text, .current-card{
             @include flex(0 0 100%);
@@ -111,15 +115,11 @@
         .work-card{
             @include flexbox();
             @include flex-direction(column);
+            margin-bottom: 1rem;
+            color: $color--white;
 
             @include breakpoint(laptop){
-                @include flex-direction(row);
-            }
-
-            &:nth-of-type(2n){
-                @include breakpoint(laptop){
-                    @include flex-direction(row-reverse);
-                }
+                @include flex-direction(column);
             }
         }
 
@@ -135,14 +135,9 @@
 
         .work--figure{
             position: relative;
-            margin: 0;
+            margin: 0 1rem;
             overflow: hidden;
             height: 200px;
-
-            @include breakpoint(laptop){
-                @include flex(0 0 50%);
-                height: auto;
-            }
 
             .work--image{
                 width: 100%;

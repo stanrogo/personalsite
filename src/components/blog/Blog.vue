@@ -1,19 +1,15 @@
 <template>
     <div id="blog">
-        <div class="grid-container blog-section-container">
-            <feed></feed>
-            <filters></filters>
-        </div>
+        <feed></feed>
     </div>
 </template>
 
 <script>
-    import Filters from './Filters.vue';
     import Feed from './Feed.vue';
 
     export default {
         name: 'blog',
-        components: {Filters, Feed},
+        components: {Feed},
         created: function(){
 
             this.vuexStore.dispatch('FETCH_LIST');
@@ -23,14 +19,4 @@
 
 <style rel="stylesheet/scss" lang="scss">
     @import '../../styles/general';
-
-    #blog{
-        .blog-section-container{
-            @include flex-direction(column-reverse);
-
-            @include breakpoint(laptop){
-                @include flex-direction(row);
-            }
-        }
-    }
 </style>

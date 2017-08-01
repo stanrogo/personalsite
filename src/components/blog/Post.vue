@@ -128,6 +128,7 @@
 
         .grid-container{
             @include flex-direction(column);
+            color: $color--white;
         }
 
         .lead-letter{

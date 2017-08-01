@@ -1,17 +1,11 @@
 <template>
 
-    <section id="hero" class="clearfix">
-        <figure class="profile-figure">
-            <img class="profile-image" :src="constructImageUrl('me.jpg')">
-        </figure>
-
-        <div class="hero-content-wrapper">
-            <h1 class="hero-title">I'm <strong>{{stanley.name}}</strong></h1>
-            <h2 class="hero-subtitle">{{stanley.profession}}, {{stanley.location}}</h2>
-            <button class="button button--resume-download button--resume-download-mobile">Download My Resume!</button>
-            <div class="intro-wrapper" v-html="stanley.intro"></div>
-            <button class="button button--resume-download button--resume-download-desktop">Download My Resume!</button>
-        </div>
+    <section id="hero" class="grid-container">
+        <h1 class="hero-heading hero-title">I'm <strong>{{stanley.name}}</strong></h1>
+        <h2 class="hero-heading hero-subtitle">{{stanley.profession}}, {{stanley.location}}</h2>
+        <button class="button button--resume-download button--resume-download-mobile">Download My Resume!</button>
+        <div class="intro-wrapper" v-html="stanley.intro"></div>
+        <button class="button button--resume-download button--resume-download-desktop">Download My Resume!</button>
     </section>
 
 </template>
@@ -29,48 +23,8 @@
     @import '../../styles/general';
 
     #hero{
-        .profile-figure, .hero-content-wrapper{
-            float: left;
-            width: 100%;
-
-            @include breakpoint(laptop){
-                width: 50%;
-            }
-        }
-
-        .profile-figure{
-            position: relative;
-            margin: 0;
-            overflow: hidden;
-            height: 200px;
-            width: 100%;
-
-            @include breakpoint(laptop){
-                height: 800px;
-                width: 50%;
-            }
-
-            @include breakpoint(desktop){
-                height: 750px;
-            }
-        }
-
-        .profile-image{
-            @include position-center();
-
-            @include breakpoint(laptop){
-                max-width: none;
-            }
-        }
-
-        .hero-content-wrapper{
-            @include borderbox();
-            padding: 1rem;
-
-            @include breakpoint(laptop){
-                padding: 2rem;
-            }
-        }
+        @include flex-direction(column);
+        color: $color--white;
 
         .hero-title{
             font-size: 4rem;
@@ -80,17 +34,19 @@
             font-size: 2rem;
         }
 
-        .hero-title, .hero-subtitle{
-            margin-bottom: 0.5rem;
-            margin-top: 0.5rem;
+        .hero-heading{
+            margin: 0.5rem 0;
         }
 
         .button--resume-download{
+            @include align-self(flex-start);
             margin: 1rem 0;
             background: $color--accent;
             color: $color--white;
 
             &.button--resume-download-mobile{
+                display: block;
+
                 @include breakpoint(laptop){
                     display: none;
                 }

@@ -1,26 +1,21 @@
 <template>
 
     <nav id="nav-bar">
-        <div class="title nav-link">
-            <router-link v-on:click="toggleMenu($event, true)" to="/">
+
+        <div class="title-wrapper">
+            <img class="logo" :src="constructImageUrl('homescreen192.png')">
+            <router-link v-on:click="toggleMenu($event, true)" to="/" class="title">
                 STANROGO
             </router-link>
-        </div>
 
-        <button class="hamburger" v-bind:class="{'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}" v-on:click="toggleMenu($event, true)">
-            {{routeName}}
-        </button>
+            <button class="hamburger" v-bind:class="{'fa-remove': sidebarOpen, 'fa-reorder': !sidebarOpen}" v-on:click="toggleMenu($event, true)"></button>
+        </div>
 
         <ul class="nav-links grid-container" v-bind:class="{'nav-links--hidden': !sidebarOpen}">
             <li v-for="link in links" class="nav-link" v-on:click="toggleMenu">
                 <router-link class="nav-link-inner" :class="link.icon"  v-bind:to="link.route" :exact="link.exact" replace>
                     {{link.name}}
                 </router-link>
-            </li>
-            <li v-for="link in contact" class="nav-link">
-                <a class="nav-link-inner" :class="link.icon" :href="link.URL" target="_blank">
-                    {{link.name}}
-                </a>
             </li>
         </ul>
     </nav>
@@ -67,32 +62,56 @@
     #nav-bar {
         @include flexbox();
         @include flex-direction(column);
-        position: relative;
-        background: $color--white;
-        @include material-shadow();
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: $first-floor;
 
+        @include breakpoint(tablet){
+            @include flex-direction(row);
+        }
 
-        .title {
-            padding: 2rem 0 0;
-            font-size: 2rem;
-            margin: 0 auto;
+        .title-wrapper{
+            @include flexbox();
+        }
+
+        .logo{
+            width: 2rem;
+            height: 2rem;
+            margin: 1.4rem 0 0 1rem;
 
             @include breakpoint(tablet){
-                padding-bottom: 2rem;
+                margin: 1.4rem 0 0 2rem;
+            }
+        }
+
+        .title {
+            display: block;
+            cursor: pointer;
+            padding: 1rem 1.5rem 1rem 1rem;
+            margin-right: auto;
+            text-decoration: none;
+            color: $color--white;
+            font-size: 2rem;
+            line-height: 3.2rem;
+            text-transform: uppercase;
+
+            @include breakpoint(tablet){
+                flex: 100px;
             }
         }
 
         .nav-links {
             @include flexbox();
-            @include justify-content(space-around);
+            @include justify-content(space-between);
             @include flex-wrap(wrap);
             width: calc(100% - 2rem);
             text-align: center;
-            margin: 1rem auto;
+            margin: 1rem 1rem 1rem auto;
 
             @include breakpoint(tablet){
-                @include justify-content(space-between);
+                @include justify-content(flex-end);
             }
 
             .router-link-active{
@@ -113,6 +132,7 @@
 
                 @include breakpoint(tablet){
                     width: auto;
+                    margin: 0 0 0 1rem;
                 }
             }
         }
@@ -120,13 +140,18 @@
         .nav-link a{
             display: block;
             cursor: pointer;
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.2rem;
             text-decoration: none;
-            color: $color--text-primary;
+            color: $color--white;
+            text-transform: uppercase;
+
+            @include breakpoint(tablet){
+                padding: 1rem 1.5rem;
+            }
 
             &:hover:not(.router-link-active){
                 text-decoration: none;
-                color: $color--accent;
+                background-color: $color--accent;
             }
 
             &:before{
@@ -140,17 +165,16 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            width: 100%;
 
             @include breakpoint(tablet){
                 display: none;
             }
 
             &:before{
-                padding-right: 1rem;
                 font-size: 1.2rem;
                 line-height: 0.8rem;
                 vertical-align: middle;
+                color: $color--white;
             }
         }
     }

@@ -1,5 +1,7 @@
 <template>
     <div id="app">
+        <div class="background background--image"></div>
+        <div class="background background--overlay" :class="{'full-opacity' : routeName !== 'Home'}"></div>
         <nav-bar></nav-bar>
         <router-view></router-view>
         <app-footer></app-footer>
@@ -12,7 +14,12 @@
 
     export default {
         name: 'app',
-        components: {NavBar, AppFooter}
+        components: {NavBar, AppFooter},
+        computed: {
+            routeName: function () {
+                return this.vuexStore.state.ui.currentRouteName;
+            }
+        }
     }
 </script>
 
@@ -26,22 +33,45 @@
         padding: 0;
         font-size: 16px;
         color: $color--text-primary;
-        font-family: 'Times-Roman', Times, 'Times New Roman', serif;
+        font-family: Helvetica, Arial, 'sans-serif';
     }
 
     body {
         margin: 0;
-        padding: 0;
+        padding: 5rem 0 0 0;
         min-width: 320px;
+        overflow-y:scroll;
         background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
+    }
+
+    .background{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .background--image{
+        background-image: url("#{$image-base-url-stripped}v1501628116/P1310020_kjh67g.jpg");
+        background-size: cover;
+        filter: blur(0px) grayscale(100%);
+    }
+
+    .background--overlay{
+        background-color: rgba(0, 0, 0, 0.7);
+
+        &.full-opacity{
+            background-color: $color--text-primary;
+        }
     }
 
     // Only apply fonts when they have actually loaded
 
     html.wf-active{
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'Ubuntu', sans-serif;
         button {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Ubuntu', sans-serif;
         }
         [class*="fa-"]:before {
             font-family: 'FontAwesome', sans-serif;
@@ -137,5 +167,12 @@
             margin-left: -2rem;
             width: calc(100% + 4rem);
         }
+    }
+
+    .section-heading{
+        color: $color--white;
+        text-transform: uppercase;
+        font-size: 2rem;
+        text-align: center;
     }
 </style>

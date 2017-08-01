@@ -66,7 +66,7 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: $first-floor;
+        z-index: $fourth-floor;
 
         @include breakpoint(tablet){
             @include flex-direction(row);

@@ -16,14 +16,7 @@ var urlsToCache = [
     './icons/homescreen144.png',
     './icons/homescreen168.png',
     './icons/homescreen192.png',
-    './dist/build.js',
-    'https://fonts.googleapis.com/css?family=Cormorant+Garamond',
-    'https://res.cloudinary.com/stanrogo/image/upload/v1492008891/me_zzydtk.jpg',
-    'https://res.cloudinary.com/stanrogo/image/upload/v1492008890/responsive_ycrn7k.jpg',
-    'https://res.cloudinary.com/stanrogo/image/upload/v1485570757/crossword2_fehfns.png',
-    'https://use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css',
-    'https://fonts.gstatic.com/s/cormorantgaramond/v3/EI2hhCO6kSfLAy-Dpd8fdwtAvOaaBo6YYi0S8FnWF2s.woff2',
-    'https://use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2'
+    './dist/build.js'
 ];
 
 

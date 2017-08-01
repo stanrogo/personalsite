@@ -3,9 +3,9 @@
     <section id="hero" class="grid-container">
         <h1 class="hero-heading hero-title">I'm <strong>{{stanley.name}}</strong></h1>
         <h2 class="hero-heading hero-subtitle">{{stanley.profession}}, {{stanley.location}}</h2>
-        <button class="button button--resume-download button--resume-download-mobile">Download My Resume!</button>
+        <button class="button button--resume-download button--resume-download-mobile" v-on:click="downloadDocument('CV graphical.pdf')">Download My Resume!</button>
         <div class="intro-wrapper" v-html="stanley.intro"></div>
-        <button class="button button--resume-download button--resume-download-desktop">Download My Resume!</button>
+        <button class="button button--resume-download button--resume-download-desktop" v-on:click="downloadDocument('CV graphical.pdf')">Download My Resume!</button>
     </section>
 
 </template>
@@ -13,7 +13,13 @@
 <script>
 
     export default {
-        name: 'hero'
+        name: 'hero',
+        methods: {
+            downloadCV: function(){
+
+                downloadDocument('CV graphical.pdf');
+            }
+        }
     }
 
 </script>

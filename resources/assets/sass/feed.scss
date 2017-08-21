@@ -1,0 +1,118 @@
+@import 'variables';
+
+#feed{
+
+    .featured-post{
+        position: relative;
+
+        .featured-post--heading{
+            @include position-center();
+            color: $color--white;
+            text-align: center;
+
+            .featured-article-text{
+                font-size: 1rem;
+            }
+
+            .featured-article-name{
+                text-transform: uppercase;
+                font-size: 2rem;
+            }
+        }
+
+        .card-figure{
+            height: 400px;
+
+            .card-image{
+                width: 200%;
+
+                @include breakpoint(tablet){
+                    width: calc(100% + 4rem);
+                }
+            }
+        }
+
+        .overlay{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+
+    .grid-container{
+        @include justify-content(space-around);
+        @include flex-direction(column);
+
+        @include breakpoint(tablet){
+            @include flex-direction(row);
+        }
+    }
+
+
+    .post-container{
+        @include flex(1);
+        margin: 1rem 0;
+        padding: 1rem;
+        color: $color--text-primary;
+
+        @include breakpoint(tablet){
+            margin: 2rem 0;
+        }
+
+        .material-card{
+            @include flexbox();
+            @include flex-direction(column);
+            padding: 0;
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+            background-color: $color--grey-light;
+            transition: 0.3s background-color ease;
+
+            &:hover{
+                cursor: pointer;
+                background-color: $color--white;
+            }
+        }
+    }
+
+    .post-heading{
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .button--read-more{
+        display: inline-block;
+        margin: 0 auto;
+        background-color: $color--accent;
+        color: $color--white;
+    }
+
+    .quick-fact{
+        display: block;
+        line-height: 1.5;
+
+        .tag{
+            display: inline;
+        }
+    }
+
+    .card-figure{
+        position: relative;
+        height: 150px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
+        @include breakpoint(tablet){
+            height: 200px;
+        }
+
+        .card-image{
+            @include position-center();
+        }
+    }
+}

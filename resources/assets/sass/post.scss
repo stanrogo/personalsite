@@ -1,0 +1,75 @@
+@import 'variables';
+
+#post{
+    position: relative;
+    background: white;
+
+    // resets
+
+    ul{
+        list-style-type:disc;
+        margin-left: 1rem;
+    }
+
+    .cover-wrapper{
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        background-color: $color--grey-light;
+
+        @include breakpoint(tablet){
+            height: $hero-height;
+        }
+
+        .cover{
+            max-width: none;
+            @include position-center();
+
+            @include breakpoint(tablet){
+                min-width: 1920px;
+            }
+        }
+
+        .cover--overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba($color--text-primary, 0.8);
+        }
+
+        .cover--title{
+            @include borderbox();
+            @include flexbox();
+            @include flex-direction(column);
+            @include align-items(center);
+            @include position-center();
+            color: $color--white;
+            text-transform: uppercase;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
+    .button {
+        position: absolute;
+        padding: 0.5rem 1rem;
+        top: 0;
+
+        &:before {
+            padding-right: 0.5rem;
+        }
+    }
+
+    .grid-container{
+        @include flex-direction(column);
+    }
+
+    .lead-letter{
+        float: left;
+        font-size: 3rem;
+        padding-right: 1rem;
+    }
+}

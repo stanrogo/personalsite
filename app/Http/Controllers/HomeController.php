@@ -1,0 +1,73 @@
+<?php
+
+
+namespace App\Http\Controllers;
+
+use Contentful\Delivery\Client as DeliveryClient;
+use Contentful\Delivery\Query;
+use Contentful\ResourceArray;
+
+class HomeController extends Controller{
+
+    private $client;
+
+    /**
+     * BlogController constructor.
+     *
+     * @param DeliveryClient $client - the contentful delivery client
+     */
+
+    public function __construct(DeliveryClient $client){
+
+        $this->client = $client;
+    }
+
+    /**
+     * Retrieve a view containing every piece of available content
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+
+    public function showIndex(){
+
+        $entry = $this->client->getEntry('3byYBY4ItOeKGgIYEu6IUs');
+
+        return view('pages.home', [
+            'introduction' => $entry
+        ]);
+    }
+
+    public function showWork(){
+
+        $query = (new Query())
+            ->setContentType('work')
+            ->where('order', '-fields.start');
+        $entries = $this->client->getEntries($query);
+
+        return view('pages.work', [
+            'work' => $entries
+        ]);
+    }
+
+    public function showPosts(){
+
+        $query = (new Query())->setContentType('blogPost');
+        $entries = $this->client->getEntries($query);
+
+        return view('pages.blog', [
+            'posts' => $entries
+        ]);
+    }
+
+    public function showPost($id){
+
+        $query = (new Query())
+            ->setContentType('blogPost')
+            ->where('sys.id', $id);
+        $entries = $this->client->getEntries($query);
+
+        return view('pages.post', [
+            'post' => $entries[0]
+        ]);
+    }
+}

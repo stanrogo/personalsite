@@ -1,0 +1,44 @@
+@import 'variables';
+
+#work{
+    .grid-container{
+        @include flex-direction(column);
+    }
+
+    .module-title--text, .current-card{
+        @include flex(0 0 100%);
+    }
+
+    .work-card{
+        @include flexbox();
+        @include flex-direction(column);
+        margin-bottom: 1rem;
+        color: $color--white;
+
+        @include breakpoint(laptop){
+            @include flex-direction(column);
+        }
+    }
+
+    .work--content{
+        @include flexbox();
+        @include flex-direction(column);
+        padding: 1rem;
+    }
+
+    .work-company, .work-position{
+        margin: 0;
+    }
+
+    .work--figure{
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        height: 200px;
+
+        .work--image{
+            width: 100%;
+            @include position-center();
+        }
+    }
+}

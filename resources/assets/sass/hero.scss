@@ -1,0 +1,41 @@
+@import 'variables';
+
+#hero{
+    @include flex-direction(column);
+    color: $color--white;
+
+    .hero-title{
+        font-size: 4rem;
+    }
+
+    .hero-subtitle{
+        font-size: 2rem;
+    }
+
+    .hero-heading{
+        margin: 0.5rem 0;
+    }
+
+    .button--resume-download{
+        @include align-self(flex-start);
+        margin: 1rem 0;
+        background: $color--accent;
+        color: $color--white;
+
+        &.button--resume-download-mobile{
+            display: block;
+
+            @include breakpoint(laptop){
+                display: none;
+            }
+        }
+
+        &.button--resume-download-desktop{
+            display: none;
+
+            @include breakpoint(laptop){
+                display: block;
+            }
+        }
+    }
+}

@@ -1,23 +1,8 @@
-var CACHE_NAME = 'general-cache-0-0-7';
+var CACHE_NAME = 'general-cache-0-0-1';
 
 // Files that we want to cache
 
-var urlsToCache = [
-    './',
-    './dist/build.js',
-    './index.html',
-    './manifest.json',
-    './icons/favicon.ico',
-    './icons/favicon-16x16.png',
-    './icons/favicon-32x32.png',
-    './icons/homescreen48.png',
-    './icons/homescreen72.png',
-    './icons/homescreen96.png',
-    './icons/homescreen144.png',
-    './icons/homescreen168.png',
-    './icons/homescreen192.png',
-    './dist/build.js'
-];
+var urlsToCache = [];
 
 
 // On install, we want to add all urls we want to cache, to the cache

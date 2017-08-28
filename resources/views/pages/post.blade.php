@@ -1,5 +1,9 @@
 @extends('default')
 
+@section('head')
+    <link async rel="stylesheet" type="text/css" href="{{asset('css/post.css')}}">
+@endsection
+
 @section('page-template')
 
     <article id="post">

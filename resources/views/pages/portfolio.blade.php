@@ -1,5 +1,9 @@
 @extends('default')
 
+@section('head')
+    <link async rel="stylesheet" type="text/css" href="{{asset('css/portfolio.css')}}">
+@endsection
+
 @section('page-template')
 
     <div id="Portfolio" class="grid-container">

@@ -1,5 +1,9 @@
 @extends('default')
 
+@section('head')
+    <link async rel="stylesheet" type="text/css" href="{{asset('css/work.css')}}">
+@endsection
+
 @section('page-template')
 
     <div id="work">

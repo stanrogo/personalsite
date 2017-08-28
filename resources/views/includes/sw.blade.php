@@ -1,6 +1,6 @@
 <script>
     if(navigator.serviceWorker){
 
-        navigator.serviceWorker.register('sw.js');
+        navigator.serviceWorker.register('{{asset('sw.js')}}');
     }
 </script>

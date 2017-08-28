@@ -1,3 +1,7 @@
+<?php $__env->startSection('head'); ?>
+    <link async rel="stylesheet" type="text/css" href="<?php echo e(asset('css/post.css')); ?>">
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('page-template'); ?>
 
     <article id="post">

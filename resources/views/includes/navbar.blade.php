@@ -1,7 +1,7 @@
 <nav id="nav-bar">
 
     <div class="title-wrapper">
-        <img class="logo" src="/icons/homescreen192.png">
+        <img class="logo" src="{{asset('icons/homescreen192.png')}}">
         <a class="title">
             STANROGO
         </a>

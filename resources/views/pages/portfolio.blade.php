@@ -27,7 +27,7 @@
             <hr>
         </section>
         <section class="PortfolioCard">
-            <img class="PortfolioImage" src="/public/images/carlablog.png">
+            <img class="PortfolioImage" src="{{asset('images/carlablog.png')}}">
             <div class="overlay"></div>
             <div class="TextContainer Hexagon">
                 <h1 class="PortfolioItemText">
@@ -37,7 +37,7 @@
             </div>
         </section>
         <section class="PortfolioCard">
-            <img class="PortfolioImage" src="/public/images/capitalism.png">
+            <img class="PortfolioImage" src="{{asset('images/capitalism.png')}}">
             <div class="overlay"></div>
             <div class="TextContainer Hexagon">
                 <h1 class="PortfolioItemText">
@@ -48,7 +48,7 @@
         </section>
         <section class="PortfolioSpotlight">
 
-            <img class="PortfolioImage" src="/public/images/carlablog.png">
+            <img class="PortfolioImage" src="{{asset('images/carlablog.png')}}">
             <div class="PortfolioSpotlightTextContent">
                 <h1 class="PortfolioSpotlightHeading">Carla Unterwegs - Blog</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus eget elit ut ullamcorper. Etiam vel vestibulum purus. Ut gravida venenatis dignissim. Nam tristique maximus tortor, pretium bibendum augue pretium eget. Curabitur bibendum scelerisque justo eu sodales. Sed pharetra, nisi tincidunt finibus maximus, augue diam faucibus sem, nec euismod ex mauris a dui. Etiam vehicula leo non metus faucibus facilisis.

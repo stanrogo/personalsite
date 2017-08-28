@@ -16,7 +16,7 @@
             @if(strpos($route_instance->getName(), 'post') !== 0)
 
                 <li class="nav-link">
-                    <a class="nav-link-inner {{ Request::path() == $route_instance->uri() ? 'is-active' : '' }}"
+                    <a class="nav-link-inner {{ substr(Request::path(), 0, strlen($route_instance->uri())) === $route_instance->uri() ? 'is-active' : '' }}"
                        href="{{route($route_instance->getName())}}">
                         {{$route_instance->getName()}}
                     </a>

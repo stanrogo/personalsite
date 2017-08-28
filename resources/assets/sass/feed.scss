@@ -1,14 +1,18 @@
 @import 'variables';
 
 #feed{
-
     .featured-post{
         position: relative;
 
         .featured-post--heading{
             @include position-center();
+            width: 95%;
             color: $color--white;
             text-align: center;
+
+            @media all and (min-width: 769px){
+                width: auto;
+            }
 
             .featured-article-text{
                 font-size: 1rem;
@@ -30,15 +34,6 @@
                     width: calc(100% + 4rem);
                 }
             }
-        }
-
-        .overlay{
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
         }
     }
 

@@ -32,8 +32,11 @@
 </head>
 <body>
 <div id="app">
-    <div class="background background--image"></div>
-    <div class="background background--overlay <?php echo e(Request::path() != '/' ? 'full-opacity' : ''); ?>"></div>
+
+    <?php if(Request::path() == '/'): ?>
+        <div class="background background--image"></div>
+        <div class="background background--overlay"></div>
+    <?php endif; ?>
 
     <?php echo $__env->make('includes.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

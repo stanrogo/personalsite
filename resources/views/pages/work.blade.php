@@ -4,48 +4,32 @@
 
     <div id="work">
         <div class="grid-container">
-            <h1 class="section-heading">Work</h1>
+
+            <div class="WorkTimeLineGraphic"></div>
+
+            <h1 class="section-heading">I'm currently here:</h1>
 
             @foreach($work as $job)
 
-                <section class="work-card">
+                @if(!$job->getEnd())
 
-                    <div class="work--content">
-                        <div class="work-dates">
-                            {{
-                                strftime(
-                                    "%B %Y",
-                                    $job->getStart()->getTimestamp()
-                                )
-                            }}
-                            -
+                    @include('includes.job')
 
-                            @if($job->getEnd())
-                                {{
-                                    strftime(
-                                        "%B %Y",
-                                        $job->getEnd()->getTimestamp()
-                                    )
-                                }}
-                            @else
-                                present
-                            @endif
+                @endif
 
+            @endforeach
 
-                        </div>
-                        <h1 class="work-company">{{$job->getCompany()}}</h1>
-                        <h2 class="work-position">{{$job->getRole()}}</h2>
-                        {{\Illuminate\Mail\Markdown::parse($job->getDescription())}}
+            <hr>
 
-                        @if($job->getPhoto())
+            <h1 class="section-heading">I used to work here:</h1>
 
-                        <figure class="work--figure">
-                            <img class="work--image" src="{{$job->getPhoto()->getFile()->getUrl()}}">
-                        </figure>
+            @foreach($work as $job)
 
-                        @endif
-                    </div>
-                </section>
+                @if($job->getEnd())
+
+                    @include('includes.job')
+
+                @endif
 
             @endforeach
         </div>

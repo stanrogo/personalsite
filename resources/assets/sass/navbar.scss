@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     z-index: $fourth-floor;
-    background: rgba(0, 0, 0, 0.8);
+    background: $color--text-primary;
 
     @include breakpoint(tablet){
         @include flex-direction(row);

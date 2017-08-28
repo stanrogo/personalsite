@@ -11,10 +11,14 @@ html {
 
 body {
     margin: 0;
-    padding: 5.5rem 0 0 0;
+    padding: 5.2rem 0 0 0;
     min-width: 320px;
     overflow-y:scroll;
     background-image: url("#{$image-base-url-stripped}v1485570757/crossword2_fehfns.png");
+
+    @media all and (min-width: 769px){
+        padding: 5.5rem 0 0 0;
+    }
 }
 
 .background{
@@ -35,7 +39,7 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
 
     &.full-opacity{
-        background-color: rgba($color--text-primary, 1);
+        background-color: white;
     }
 }
 
@@ -140,8 +144,15 @@ img{max-width: 100%;}
 }
 
 .section-heading{
-    color: $color--white;
     text-transform: uppercase;
     font-size: 2rem;
-    text-align: center;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }

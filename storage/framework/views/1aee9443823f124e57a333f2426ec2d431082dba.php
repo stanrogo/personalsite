@@ -9,7 +9,7 @@
                 <h2>By Stanley Clark</h2>
             </div>
         </div>
-        <a class="button" href="<?php echo e(route('blog')); ?>"><span class="lnr lnr-arrow-left"></span>Back</a>
+        <a class="button" href="<?php echo e(route('blog')); ?>"><span class="lnr lnr-arrow-left ArrowLeft"></span>Back</a>
 
         <div class="post-content grid-container">
 

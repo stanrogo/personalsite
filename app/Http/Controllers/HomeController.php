@@ -31,9 +31,11 @@ class HomeController extends Controller{
     public function showIndex(){
 
         $entry = $this->client->getEntry('3byYBY4ItOeKGgIYEu6IUs');
+        $cv = $this->client->getAsset('5Ub1HnzdQsaks0QaWy20Y6');
 
         return view('pages.home', [
-            'introduction' => $entry
+            'introduction' => $entry,
+            'cv' => $cv
         ]);
     }
 

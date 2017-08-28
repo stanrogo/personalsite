@@ -16,7 +16,7 @@
             <?php if(strpos($route_instance->getName(), 'post') !== 0): ?>
 
                 <li class="nav-link">
-                    <a class="nav-link-inner <?php echo e(Request::path() == $route_instance->uri() ? 'is-active' : ''); ?>"
+                    <a class="nav-link-inner <?php echo e(substr(Request::path(), 0, strlen($route_instance->uri())) === $route_instance->uri() ? 'is-active' : ''); ?>"
                        href="<?php echo e(route($route_instance->getName())); ?>">
                         <?php echo e($route_instance->getName()); ?>
 

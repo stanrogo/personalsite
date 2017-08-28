@@ -3,6 +3,8 @@
 #work{
     .grid-container{
         @include flex-direction(column);
+        padding-left: 3rem;
+        box-sizing: border-box;
     }
 
     .module-title--text, .current-card{
@@ -13,7 +15,6 @@
         @include flexbox();
         @include flex-direction(column);
         margin-bottom: 1rem;
-        color: $color--white;
 
         @include breakpoint(laptop){
             @include flex-direction(column);
@@ -23,11 +24,16 @@
     .work--content{
         @include flexbox();
         @include flex-direction(column);
-        padding: 1rem;
+        padding-bottom: 1rem;
     }
 
-    .work-company, .work-position{
+    .work-company{
+        margin-bottom: 0;
+    }
+
+    .work-position{
         margin: 0;
+        font-size: 1.2rem;
     }
 
     .work--figure{
@@ -40,5 +46,28 @@
             width: 100%;
             @include position-center();
         }
+    }
+
+    hr{
+        width: 100%;
+    }
+
+    .WorkTimeLineGraphic{
+        position: absolute;
+        left: 0rem;
+        top: 6.3rem;
+        bottom: 0;
+        width: 5px;
+        background: black;
+    }
+
+    .work-dates:before{
+        content: '';
+        position: absolute;
+        background: black;
+        width: 1rem;
+        height: 5px;
+        left: 0rem;
+        margin: calc(0.75rem - 2px) 0;
     }
 }

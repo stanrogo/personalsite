@@ -2,47 +2,32 @@
 
     <div id="work">
         <div class="grid-container">
-            <h1 class="section-heading">Work</h1>
+
+            <div class="WorkTimeLineGraphic"></div>
+
+            <h1 class="section-heading">I'm currently here:</h1>
 
             <?php $__currentLoopData = $work; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                <section class="work-card">
+                <?php if(!$job->getEnd()): ?>
 
-                    <div class="work--content">
-                        <div class="work-dates">
-                            <?php echo e(strftime(
-                                    "%B %Y",
-                                    $job->getStart()->getTimestamp()
-                                )); ?>
+                    <?php echo $__env->make('includes.job', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                            -
+                <?php endif; ?>
 
-                            <?php if($job->getEnd()): ?>
-                                <?php echo e(strftime(
-                                        "%B %Y",
-                                        $job->getEnd()->getTimestamp()
-                                    )); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                            <?php else: ?>
-                                present
-                            <?php endif; ?>
+            <hr>
 
+            <h1 class="section-heading">I used to work here:</h1>
 
-                        </div>
-                        <h1 class="work-company"><?php echo e($job->getCompany()); ?></h1>
-                        <h2 class="work-position"><?php echo e($job->getRole()); ?></h2>
-                        <?php echo e(\Illuminate\Mail\Markdown::parse($job->getDescription())); ?>
+            <?php $__currentLoopData = $work; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $job): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
+                <?php if($job->getEnd()): ?>
 
-                        <?php if($job->getPhoto()): ?>
+                    <?php echo $__env->make('includes.job', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                        <figure class="work--figure">
-                            <img class="work--image" src="<?php echo e($job->getPhoto()->getFile()->getUrl()); ?>">
-                        </figure>
-
-                        <?php endif; ?>
-                    </div>
-                </section>
+                <?php endif; ?>
 
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>

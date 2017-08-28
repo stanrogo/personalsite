@@ -32,8 +32,11 @@
 </head>
 <body>
 <div id="app">
-    <div class="background background--image"></div>
-    <div class="background background--overlay {{ Request::path() != '/' ? 'full-opacity' : '' }}"></div>
+
+    @if(Request::path() == '/')
+        <div class="background background--image"></div>
+        <div class="background background--overlay"></div>
+    @endif
 
     @include('includes.navbar')
 

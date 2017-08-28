@@ -1,7 +1,7 @@
 @extends('default')
 
 @section('head')
-    <link async rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
 @endsection
 
 @section('page-template')

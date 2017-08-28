@@ -2,6 +2,10 @@
     WebFontConfig = {
         google: {
             families: ['Ubuntu']
+        },
+        custom: {
+            families: ['Linearicons-Free'],
+            urls: ['https://cdn.linearicons.com/free/1.0.0/icon-font.min.css']
         }
     };
 

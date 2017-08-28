@@ -27,10 +27,6 @@
 <meta name="msapplicatoin-TileImage" content="{{asset('icons/mstile-150x150.png')}}">
 <meta name="msapplicatoin-TileColor" content="#bcc9be">
 
-<!-- STYLESHEETS -->
-
-<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-
 <!-- EXTRA PAGE SPECIFIC CSS -->
 
 @yield('head')

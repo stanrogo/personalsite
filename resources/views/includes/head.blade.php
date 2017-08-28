@@ -29,8 +29,7 @@
 
 <!-- STYLESHEETS -->
 
-<link async rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-<link async rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
 <!-- EXTRA PAGE SPECIFIC CSS -->
 

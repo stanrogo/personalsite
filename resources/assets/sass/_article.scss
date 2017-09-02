@@ -42,11 +42,14 @@
             padding: 1rem;
             text-align: center;
 
+            h1{
+                font-size: 2rem;
+            }
+
             h2, h1{
                 display: inline;
                 margin: 0;
                 text-transform: uppercase;
-                font-size: 2rem;
 
                 span{
                     padding: 0.2rem;
@@ -54,6 +57,10 @@
                     background-color: rgba($color--text-primary,0.7);
                 }
             }
+        }
+
+        .PostAuthor{
+            font-size: 1.2rem;
         }
     }
 
@@ -68,6 +75,16 @@
 
         .ArrowLeft{
             padding-right: 0.5rem;
+        }
+    }
+
+    .TagContainer{
+        color: $color--grey-dark;
+
+        .Tag{
+            margin: 0 0.5rem 0 0;
+            padding: 0.25rem 0.5rem;
+            background: $color--grey-light;
         }
     }
 

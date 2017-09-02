@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Contentful\Delivery\Client as DeliveryClient;
 use Contentful\Delivery\Query;
-use Contentful\ResourceArray;
+use Contentful\File\ImageOptions;
 
 class HomeController extends Controller{
 
@@ -67,9 +67,18 @@ class HomeController extends Controller{
             ->setContentType('blogPost')
             ->where('sys.id', $id);
         $entries = $this->client->getEntries($query);
+        $entry = $entries[0];
+
+        $options = (new ImageOptions())
+            ->setHeight(400)
+            ->setWidth(1920)
+            ->setResizeFit('thumb');
+
+        $image_url = $entry->getCoverImage()->getFile()->getUrl($options);
 
         return view('pages.post', [
-            'post' => $entries[0]
+            'post' => $entries[0],
+            'cover_image' => $image_url
         ]);
     }
 }

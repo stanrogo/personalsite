@@ -14,4 +14,3 @@ yarn-error.log
 /public/js
 vendor/
 /storage/
-/storage/logs/laravel.log

@@ -16,6 +16,8 @@
 
 <script src="{{asset('js/app.js')}}" type="application/javascript"></script>
 
+@yield('footer-scripts')
+
 @include('includes.sw')
 
 @include('includes.fonts')

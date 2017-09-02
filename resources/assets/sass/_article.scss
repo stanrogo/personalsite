@@ -23,6 +23,7 @@
 
         .cover{
             max-width: none;
+            height: 100%;
             @include position-center();
 
             @include breakpoint(tablet){

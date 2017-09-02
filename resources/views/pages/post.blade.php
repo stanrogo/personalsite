@@ -27,7 +27,9 @@
 
                 <span class="lnr lnr-clock"></span>
 
-                    <span class="Tag">{{date_format($post->getDate(), "Y/m/d H:i:s")}}</span>
+                <span class="Tag">
+                    {{strftime("%A, %B %d, %Y", $post->getDate()->getTimestamp())}}
+                </span>
             </div>
 
             <div>

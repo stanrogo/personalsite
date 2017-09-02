@@ -52,6 +52,9 @@
                             </figure>
                             <div class="post-heading">
                                 <div class="quick-fact">
+
+                                    <span class="lnr lnr-clock"></span>
+
                                     {{
                                         strftime(
                                             "%A, %B %d, %Y",
@@ -60,6 +63,7 @@
                                     }}
                                 </div>
                                 <div class="quick-fact">
+                                    <span class="lnr lnr-tag"></span>
 
                                     @foreach($post->getTags() as $tag)
 

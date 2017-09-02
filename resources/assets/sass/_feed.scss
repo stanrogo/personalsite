@@ -32,13 +32,19 @@
         }
 
         .card-figure{
-            height: 400px;
+            height: 300px;
+
+            @include breakpoint(laptop){
+                height: 400px;
+            }
 
             .card-image{
-                width: 200%;
+                height: 100%;
+                width: auto;
 
-                @include breakpoint(tablet){
-                    width: calc(100% + 4rem);
+                @include breakpoint(laptop){
+                    height: auto;
+                    width: 100%;
                 }
             }
         }
@@ -61,26 +67,30 @@
     .post-container{
         @include flex(33%);
         margin: 1rem 0;
-        padding: 1rem;
+
         color: $color--text-primary;
 
         @include breakpoint(tablet){
             margin: 0 0 2rem;
+            padding: 1rem;
         }
 
         &:nth-of-type(1){
-            padding-left: 0;
+            @include breakpoint(tablet){
+                padding-left: 0;
+            }
         }
 
         &:nth-of-type(3){
-            padding-right: 0;
+            @include breakpoint(tablet){
+                padding-right: 0;
+            }
         }
 
         .material-card{
             @include flexbox();
             @include flex-direction(column);
             padding: 0;
-            border-radius: 0 0 5px 5px;
             overflow: hidden;
             background-color: $color--grey-light;
             transition: 0.3s background-color ease;

@@ -11,9 +11,10 @@ Route::get('/work', [
     'uses' => 'HomeController@showWork',
 ]);
 
-Route::get('/portfolio', function(){
-    return view('pages.portfolio');
-})->name('portfolio');
+Route::get('/portfolio', [
+    'as' => 'portfolio',
+    'uses' => 'HomeController@showPortfolio',
+]);
 
 
 Route::get('/blog', [

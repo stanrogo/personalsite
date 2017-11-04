@@ -63,9 +63,12 @@
         width: 100%;
     }
 
+    .grid-container{
+        justify-content: flex-start;
+    }
 
     .post-container{
-        @include flex(33%);
+        @include flex(calc(100% / 3 - 2rem) 0 0);
         margin: 1rem 0;
 
         color: $color--text-primary;

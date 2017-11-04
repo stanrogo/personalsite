@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Contentful\Delivery\Client as DeliveryClient;
 use Contentful\Delivery\Query;
 use Contentful\File\ImageOptions;
+use Illuminate\Mail\Markdown;
 
 class HomeController extends Controller{
 
@@ -79,6 +80,27 @@ class HomeController extends Controller{
         return view('pages.post', [
             'post' => $entries[0],
             'cover_image' => $image_url
+        ]);
+    }
+
+    public function showPortfolio(){
+
+        $query = (new Query())->setContentType('portolfio');
+        $entries = $this->client->getEntries($query);
+
+        $items = [];
+
+        foreach($entries as $entry){
+            array_push($items, [
+                'imageUrl' => $entry->getImage()->getFile()->GetUrl(),
+                'title' => $entry->getTitle(),
+                'type' => $entry->getType(),
+                'description' => (string) Markdown::parse($entry->getDescription())
+            ]);
+        }
+
+        return view('pages.portfolio', [
+            'entries' => $items
         ]);
     }
 }

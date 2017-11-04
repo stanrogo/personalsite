@@ -122,6 +122,7 @@ img{max-width: 100%;}
 .grid-container{
     position: relative;
     @include flexbox();
+    flex-wrap: wrap;
     width: calc(100% - 2rem);
     max-width: 1040px;
     margin: 1rem;

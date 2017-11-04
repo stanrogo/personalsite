@@ -1,12 +1,13 @@
 @extends('default')
 
 @section('head')
-    <link async rel="stylesheet" type="text/css" href="{{asset('css/portfolio.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/portfolio.css')}}">
 @endsection
 
 @section('page-template')
 
     <div id="Portfolio" class="grid-container">
+
         <section class="PortfolioExplanation">
             <h1 class="section-heading">Dive in to my coding projects</h1>
             <p>
@@ -26,41 +27,19 @@
             </p>
             <hr>
         </section>
-        <section class="PortfolioCard">
-            <img class="PortfolioImage" src="{{asset('images/carlablog.png')}}">
-            <div class="overlay"></div>
-            <div class="TextContainer Hexagon">
-                <h1 class="PortfolioItemText">
-                    Carla Unterwegs
-                </h1>
-                <h2 class="PortfolioItemText">Blog</h2>
-            </div>
-        </section>
-        <section class="PortfolioCard">
-            <img class="PortfolioImage" src="{{asset('images/capitalism.png')}}">
-            <div class="overlay"></div>
-            <div class="TextContainer Hexagon">
-                <h1 class="PortfolioItemText">
-                    Rice Of Capitalism
-                </h1>
-                <h2 class="PortfolioItemText">Dummy Website</h2>
-            </div>
-        </section>
-        <section class="PortfolioSpotlight">
 
-            <img class="PortfolioImage" src="{{asset('images/carlablog.png')}}">
-            <div class="PortfolioSpotlightTextContent">
-                <h1 class="PortfolioSpotlightHeading">Carla Unterwegs - Blog</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus eget elit ut ullamcorper. Etiam vel vestibulum purus. Ut gravida venenatis dignissim. Nam tristique maximus tortor, pretium bibendum augue pretium eget. Curabitur bibendum scelerisque justo eu sodales. Sed pharetra, nisi tincidunt finibus maximus, augue diam faucibus sem, nec euismod ex mauris a dui. Etiam vehicula leo non metus faucibus facilisis.
+        <!-- launch new vue components -->
 
-                </p><p>   Vivamus nec ante vestibulum, facilisis leo euismod, sagittis metus. Praesent volutpat rhoncus elit. Aenean vitae tortor condimentum, vehicula enim ac, pretium justo. Vestibulum id tempor quam. Donec vehicula odio non massa congue fermentum. Aliquam sit amet vulputate massa. Cras maximus eget felis vel congue. Morbi faucibus porta faucibus. Praesent mollis hendrerit mauris id efficitur. Sed magna odio, imperdiet posuere enim quis, vestibulum viverra mauris. Nullam id lectus pretium, ultrices ex sed, consectetur erat. Ut in ullamcorper mi, id fermentum ipsum.
+        @foreach($entries as $entry)
+            <portfolio-item v-bind:portfolio-item='{!! json_encode($entry) !!}'></portfolio-item>
+        @endforeach
 
-                </p> </div>
+        <portfolio-spotlight v-bind:portfolio-items=`{!! json_encode($entries) !!}`></portfolio-spotlight>
 
-            <hr>
-
-        </section>
     </div>
 
+@endsection
 
+@section('footer-scripts')
+    <script src="{{asset('js/portfolio.js')}}" type="application/javascript"></script>
 @endsection

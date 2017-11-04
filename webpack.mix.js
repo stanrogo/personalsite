@@ -12,6 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+    .js('resources/assets/js/portfolio.js', 'public/js')
     .sass('resources/assets/sass/main.scss', 'public/css')
     .sass('resources/assets/sass/home.scss', 'public/css/home_temp.css')
     .sass('resources/assets/sass/work.scss', 'public/css/work_temp.css')

@@ -179,8 +179,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Contentful\Laravel\ContentfulServiceProvider::class,
-        GrahamCampbell\Markdown\MarkdownServiceProvider::class
-
+        GrahamCampbell\Markdown\MarkdownServiceProvider::class,
+        Spatie\ResponseCache\ResponseCacheServiceProvider::class,
     ],
 
     /*
@@ -230,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'ResponseCache' => Spatie\ResponseCache\ResponseCacheFacade::class,
     ],
 
 ];

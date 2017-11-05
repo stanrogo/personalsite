@@ -1,4 +1,6 @@
-var CACHE_NAME = 'general-cache-0-0-1';
+// Set the cache name to currently be used.
+
+var CACHE_NAME = 'general-cache-0-0-3';
 
 // On install, open the cache
 
@@ -6,22 +8,18 @@ self.addEventListener('install', function(event){
     event.waitUntil(caches.open(CACHE_NAME));
 });
 
-// On activate, we clean out any old caches that have not been white listed
+// On activate, if the cache version has been updated, delete the old ones
+// Activation will occur once the user has re-navigated to our page
 
 self.addEventListener('activate', function(event){
-
-    var whiteList = ['general-cache'];
-
-    event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    if (whiteList.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            )
-        })
+    event.waitUntil(caches.keys().then(function (cacheNames) {
+        return Promise.all(
+            cacheNames.map(function (cacheName) {
+                if (cacheName !== CACHE_NAME) {
+                    return caches.delete(cacheName);
+                }
+            })
+        )})
     );
 });
 

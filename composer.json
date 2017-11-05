@@ -13,16 +13,9 @@
         "spatie/laravel-responsecache": "3.2.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "laravel/homestead": "^6.5",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "laravel/homestead": "^6.5"
     },
     "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "psr-4": {
             "App\\": "app/"
         }

@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use Contentful\Delivery\Client as DeliveryClient;
 use Contentful\Delivery\Query;
 use Contentful\File\ImageOptions;
-use Illuminate\Mail\Markdown;
 
 class PostController extends Controller{
 
@@ -26,10 +25,11 @@ class PostController extends Controller{
     /**
      * Retrieve a view containing every piece of available content
      *
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
-    public function showIndex(){
+    public function showIndex($id){
 
         $query = (new Query())
             ->setContentType('blogPost')
@@ -47,27 +47,6 @@ class PostController extends Controller{
         return view('pages.post', [
             'post' => $entries[0],
             'cover_image' => $image_url
-        ]);
-    }
-
-    public function showPortfolio(){
-
-        $query = (new Query())->setContentType('portolfio');
-        $entries = $this->client->getEntries($query);
-
-        $items = [];
-
-        foreach($entries as $entry){
-            array_push($items, [
-                'imageUrl' => $entry->getImage()->getFile()->GetUrl(),
-                'title' => $entry->getTitle(),
-                'type' => $entry->getType(),
-                'description' => (string) Markdown::parse($entry->getDescription())
-            ]);
-        }
-
-        return view('pages.portfolio', [
-            'entries' => $items
         ]);
     }
 }

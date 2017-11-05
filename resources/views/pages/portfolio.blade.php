@@ -9,22 +9,9 @@
     <div id="Portfolio" class="grid-container">
 
         <section class="PortfolioExplanation">
-            <h1 class="section-heading">Dive in to my coding projects</h1>
-            <p>
-                This portfolio features most of the work that I do in my spare
-                time, as well as at university. It is therefore a collection
-                of simple single page apps, dummy websites, blogs and in general
-                cool things that I have built based mostly on tutorials e.g.
-                build a clock using JavaScript.
-            </p>
-
-            <p>
-                Throughout my time at University I hope to grow this section
-                so that I can showcase the achievements that I make during my
-                studies, and I also hope to be able to upload any presentation
-                material that I produce for a few talks that I have done and
-                include them here as part of the portfolio.
-            </p>
+            <h1 class="section-heading">@lang('portfolio.dive_in')</h1>
+            <p>@lang('portfolio.description_1')</p>
+            <p>@lang('portfolio.description_2')</p>
             <hr>
         </section>
 

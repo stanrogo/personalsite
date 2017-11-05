@@ -36,12 +36,21 @@ class PortfolioController extends Controller{
         $items = [];
 
         foreach($entries as $entry){
-            array_push($items, [
+
+            $processed_entry = [
                 'imageUrl' => $entry->getImage()->getFile()->GetUrl(),
                 'title' => $entry->getTitle(),
                 'type' => $entry->getType(),
                 'description' => (string) Markdown::parse($entry->getDescription())
-            ]);
+            ];
+//
+//            $json_entry = htmlspecialchars(
+//                json_encode($processed_entry),
+//                ENT_QUOTES,
+//                'UTF-8'
+//            );
+
+            array_push($items, $processed_entry);
         }
 
         return view('pages.portfolio', [

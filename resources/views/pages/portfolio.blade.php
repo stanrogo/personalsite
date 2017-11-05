@@ -12,21 +12,27 @@
             <h1 class="section-heading">@lang('portfolio.dive_in')</h1>
             <p>@lang('portfolio.description_1')</p>
             <p>@lang('portfolio.description_2')</p>
-            <hr>
+            <hr class="hr">
         </section>
 
         <!-- launch new vue components -->
+        <div id="PortfolioSpotlightContainer">
 
-        @foreach($entries as $entry)
-            <portfolio-item v-bind:portfolio-item='{!! json_encode($entry) !!}'></portfolio-item>
-        @endforeach
+            @foreach($entries as $entry)
+                <section class="PortfolioSpotlight">
+                    <img class="PortfolioImage" src="{{$entry['imageUrl']}}">
+                    <div class="PortfolioSpotlightTextContent">
+                        <h1 class="PortfolioSpotlightHeading">
+                            {{$entry['title']}} -
+                            {{$entry['type']}}
+                        </h1>
+                        <div>{!! $entry['description'] !!}</div>
+                    </div>
+                </section>
+                <hr class="hr">
+            @endforeach
 
-        <portfolio-spotlight v-bind:portfolio-items=`{!! json_encode($entries) !!}`></portfolio-spotlight>
-
+        </div>
     </div>
 
-@endsection
-
-@section('footer-scripts')
-    <script src="{{asset('js/portfolio.js')}}" type="application/javascript"></script>
 @endsection

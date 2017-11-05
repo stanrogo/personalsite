@@ -1,4 +1,3 @@
-
 class NavBar{
 
     constructor(){

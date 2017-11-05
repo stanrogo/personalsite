@@ -4,13 +4,14 @@
 namespace App\Http\Controllers;
 
 use Contentful\Delivery\Client as DeliveryClient;
+use Contentful\Delivery\Query;
 
-class HomeController extends Controller{
+class BlogController extends Controller{
 
     private $client;
 
     /**
-     * HomeController constructor.
+     * BlogController constructor.
      *
      * @param DeliveryClient $client - the contentful delivery client
      */
@@ -28,12 +29,17 @@ class HomeController extends Controller{
 
     public function showIndex(){
 
-        $entry = $this->client->getEntry('3byYBY4ItOeKGgIYEu6IUs');
-        $cv = $this->client->getAsset('5Ub1HnzdQsaks0QaWy20Y6');
+        $query = (new Query())->setContentType('blogPost');
+        $entries = $this->client->getEntries($query);
 
-        return view('pages.home', [
-            'introduction' => $entry,
-            'cv' => $cv
+        $converted_title = strtolower(
+            preg_replace('/ |:/', '-', $entries[0]->getTitle())
+        );
+
+        return view('pages.blog', [
+            'posts' => $entries,
+            'featured_post' => $entries[0],
+            'featured_title' => $converted_title,
         ]);
     }
 }

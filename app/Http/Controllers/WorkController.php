@@ -4,13 +4,14 @@
 namespace App\Http\Controllers;
 
 use Contentful\Delivery\Client as DeliveryClient;
+use Contentful\Delivery\Query;
 
-class HomeController extends Controller{
+class WorkController extends Controller{
 
     private $client;
 
     /**
-     * HomeController constructor.
+     * WorkController constructor.
      *
      * @param DeliveryClient $client - the contentful delivery client
      */
@@ -28,12 +29,14 @@ class HomeController extends Controller{
 
     public function showIndex(){
 
-        $entry = $this->client->getEntry('3byYBY4ItOeKGgIYEu6IUs');
-        $cv = $this->client->getAsset('5Ub1HnzdQsaks0QaWy20Y6');
+        $query = (new Query())
+            ->setContentType('work')
+            ->where('order', '-fields.start');
 
-        return view('pages.home', [
-            'introduction' => $entry,
-            'cv' => $cv
+        $entries = $this->client->getEntries($query);
+
+        return view('pages.work', [
+            'work' => $entries
         ]);
     }
 }

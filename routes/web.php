@@ -8,22 +8,22 @@ Route::get('/', [
 
 Route::get('/work', [
     'as' => 'work',
-    'uses' => 'HomeController@showWork',
+    'uses' => 'WorkController@showIndex',
 ]);
 
 Route::get('/portfolio', [
     'as' => 'portfolio',
-    'uses' => 'HomeController@showPortfolio',
+    'uses' => 'PortfolioController@showIndex',
 ]);
 
 
 Route::get('/blog', [
     'as' => 'blog',
-    'uses' => 'HomeController@showPosts',
+    'uses' => 'BlogController@showIndex',
 ]);
 
 Route::get('/blog/{id}/{postName}', [
     'as' => 'post',
-    'uses' => 'HomeController@showPost',
+    'uses' => 'PostController@showIndex',
 ]);
 

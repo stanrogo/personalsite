@@ -1,9 +1,10 @@
-/node_modules
-/.idea/
-/.vagrant
-/public/css
-/public/js
-/vendor/
-/storage/
+node_modules
+.idea
+.vagrant
+public/css
+public/js
+vendor
+storage
 npm-debug.log
 yarn-error.log
+dist

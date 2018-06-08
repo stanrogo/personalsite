@@ -1,75 +1,19 @@
 @import "variables";
 
-html {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    color: $color--text-primary;
-    font-family: Helvetica, Arial, 'sans-serif';
-}
-
 body {
-    margin: 0;
-    padding: 5.2rem 0 0 0;
+    padding: $navbar-height 0 0 0;
     min-width: 320px;
     overflow-y:scroll;
     background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_58/v1485563095/Future/crossword_tggzxa.png");
-
-    @media all and (min-width: 769px){
-        padding: 5.5rem 0 0 0;
-    }
-}
-
-.background{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-
-.background--image{
-    background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg");
-    background-size: cover;
-    filter: blur(0px) grayscale(100%);
-}
-
-.background--overlay{
-    background-color: rgba(0, 0, 0, 0.7);
-
-    &.full-opacity{
-        background-color: white;
-    }
 }
 
 // Only apply fonts when they have actually loaded
-
-html.wf-active{
+html.wf-active body{
     font-family: 'Ubuntu', sans-serif;
     button:not([class*="lnr"]) {
         font-family: 'Ubuntu', sans-serif;
     }
 }
-
-h1, h2, h3, h4, h5, h6 {font-weight: 400;}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-a{
-    color: #1976D2;
-    text-decoration: none;
-
-    &:visited{
-        color: #1976D2;
-    }
-}
-
-img{max-width: 100%;}
 
 // Helpers
 
@@ -78,11 +22,20 @@ img{max-width: 100%;}
     padding: 1rem;
     background-color: $color--white;
     @include material-shadow();
-    @include borderbox();
+    box-sizing: border-box;
 
     @include breakpoint(tablet){
         padding: 2rem;
     }
+}
+
+.background--overlay{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .clearfix{overflow: auto;}
@@ -121,7 +74,7 @@ img{max-width: 100%;}
 
 .grid-container{
     position: relative;
-    @include flexbox();
+    display: flex;
     flex-wrap: wrap;
     width: calc(100% - 2rem);
     max-width: 1040px;
@@ -131,11 +84,6 @@ img{max-width: 100%;}
         width: calc(100% - 4rem);
         margin: 2rem auto;
     }
-}
-
-.card-image{
-    width: 100%;
-    max-width: none;
 }
 
 .section-heading{

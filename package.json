@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "webpack-dev-server --config build/webpack.config.dev.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -10,17 +10,30 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
-    "axios": "^0.16.2",
-    "bootstrap-sass": "^3.3.7",
-    "cross-env": "^5.0.1",
-    "html-inline-source-webpack-plugin": "^1.1.0",
-    "html-webpack-plugin": "^2.30.1",
-    "jquery": "^3.1.1",
-    "laravel-mix": "^1.0",
-    "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.21.0",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "vue-markdown": "^2.2.4"
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "contentful": "^6.1.1",
+    "vue": "^2.5.16",
+    "vue-async-computed": "^3.3.1",
+    "vue-markdown": "^2.2.4",
+    "vue-moment": "^4.0.0-0",
+    "vue-multilanguage": "^4.0.7",
+    "vue-router": "^3.0.1"
   }
 }

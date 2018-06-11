@@ -1,29 +1,21 @@
 <template>
 	<div id="app">
 		<navbar></navbar>
-		<home></home>
-		<work></work>
-		<portfolio></portfolio>
-		<blog></blog>
+		<router-view></router-view>
+		<my-footer></my-footer>
 	</div>
 </template>
 
 <script>
-
-import Home from './Home.vue';
-import Work from './Work.vue';
-import Portfolio from './Portfolio.vue';
-import Blog from './Blog.vue';
-import Navbar from './Navbar.vue';
+import Navbar from './components/Navbar.vue';
+import MyFooter from './components/Footer.vue';
+import VueRouter from 'vue-router';
 
 export default {
 	name: 'App',
 	components: {
 		Navbar,
-		Home,
-		Work,
-		Portfolio,
-		Blog
+		MyFooter,
 	},
 };
 </script>

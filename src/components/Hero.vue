@@ -1,5 +1,6 @@
 <template>
-<div id="home">
+<section id="hero">
+    <a class="anchor" id="hero--a"></a>
     <div class="background--overlay"></div>
     <section id="hero" class="container h-100 text-white">
         <div class="row align-items-center h-100">
@@ -15,14 +16,14 @@
             </div>
         </div>
     </section>
-</div>
+</section>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown';
 
 export default {
-    name: 'Home',
+    name: 'Hero',
     components: {
         VueMarkdown,
     },

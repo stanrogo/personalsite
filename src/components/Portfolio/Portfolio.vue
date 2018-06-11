@@ -1,5 +1,6 @@
 <template>
 <section id="portfolio">
+    <a class="anchor" id="portfolio--a"></a>
     <div class="container py-4">
         <div class="row">
             <div class="col">

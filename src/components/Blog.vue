@@ -1,5 +1,6 @@
 <template>
-<div id="feed" class="container my-4">
+<section id="blog" class="container my-4">
+    <a class="anchor" id="blog--a"></a>
     <div class="row">
         <section class="col-12 my-4">
             <h1>These are my Thoughts</h1>
@@ -46,7 +47,7 @@
             </section>
         </a>
     </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -68,7 +69,7 @@ export default {
 $header-height: 300px;
 $card-height: 400px;
 
-#feed{
+#blog{
     .featured-post{
         position: relative;
         height: $header-height;

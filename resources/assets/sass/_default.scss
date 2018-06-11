@@ -72,6 +72,13 @@ html.wf-active body{
     }
 }
 
+.anchor{
+    position: relative;
+    display: block;
+    visibility: hidden;
+    top: -$navbar-height;
+}
+
 .grid-container{
     position: relative;
     display: flex;

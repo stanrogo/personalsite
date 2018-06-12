@@ -2,7 +2,7 @@
 <section id="hero">
     <a class="anchor" id="hero--a"></a>
     <div class="background--overlay"></div>
-    <section id="hero" class="container h-100 text-white">
+    <section class="container h-100 text-white">
         <div class="row align-items-center h-100">
             <div class="col-sm">
                 <h1>I'm <strong>Stanley Clark</strong></h1>
@@ -38,10 +38,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import './resources/assets/sass/variables';
 
-#home{
+#hero{
     position: relative;
     height: calc(100vh - #{$navbar-height});
     background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg");

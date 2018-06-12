@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        <a class="col-4 " v-for="post in posts" :key="post.id" href="">
+        <router-link class="col-4" v-for="post in posts" :key="post.id" :to="'/articles/' + post.id">
             <section class="my-4 text-white post-container">
                 <figure class="card-figure">
                     <img class="card-image" v-if="post.thumbnailImage"
@@ -45,7 +45,7 @@
                     <h1 class="h4">{{post.title}}</h1>
                 </div>
             </section>
-        </a>
+        </router-link>
     </div>
 </section>
 </template>
@@ -56,7 +56,9 @@ export default {
     name: 'Blog',
     asyncComputed: {
         async posts() {
-            const entries = await this.$contentful.getEntries({ 'content_type': 'blogPost' });
+            const entries = await this.$contentful.getEntries({
+                'content_type': 'blogPost',
+            });
             return entries.items.map(x => x.fields);
         }
     },

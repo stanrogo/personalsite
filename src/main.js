@@ -1,9 +1,12 @@
 import Vue from 'vue';
+
+import BootstrapVue from 'bootstrap-vue'
+
 import App from './App.vue';
 
 import AsyncComputed from 'vue-async-computed'
 import VueMarkdown from 'vue-markdown';
-import BootstrapVue from 'bootstrap-vue'
+
 import Moment from 'vue-moment';
 import VueDisqus from 'vue-disqus';
 

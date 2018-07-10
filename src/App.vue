@@ -23,4 +23,10 @@ export default {
 <style lang="scss">
 	@import './resources/assets/sass/variables';
 	@import './resources/assets/sass/default';
+
+	#app{
+		max-width: 1920px;
+		margin: 0 auto;
+		background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_58/v1485563095/Future/crossword_tggzxa.png");
+	}
 </style>

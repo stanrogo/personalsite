@@ -1,5 +1,5 @@
 <template>
-<b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
+<b-navbar toggleable="md" type="dark" variant="dark" fixed="top" class="navbar">
     <b-navbar-brand href="#/">
         <img src="icons/favicon-32x32.png" width="30" height="30"
             class="d-inline-block align-top" alt="">
@@ -73,3 +73,10 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+	.navbar{
+		max-width: 1920px;
+		margin: 0 auto;
+	}
+</style>

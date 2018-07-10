@@ -1,5 +1,5 @@
 <template>
-<section id="footer" class="bg-dark">
+<section id="footer">
     <div class="container py-4">
         <div class="row">
             <div class="col text-center text-white">
@@ -17,5 +17,9 @@ export default {
 </script>
 
 <style lang="scss">
-	@import './resources/assets/sass/variables';
+    @import './resources/assets/sass/variables';
+    
+    #footer{
+        background: #252525;
+    }
 </style>

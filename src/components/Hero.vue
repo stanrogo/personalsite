@@ -47,5 +47,9 @@ export default {
     background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg");
     background-size: cover;
     filter: blur(0px) grayscale(100%);
+
+    .btn{
+        @include material-shadow();
+    }
 }
 </style>

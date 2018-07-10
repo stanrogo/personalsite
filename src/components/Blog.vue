@@ -23,7 +23,7 @@
                 </div>
             </div>
         </section>
-        <router-link class="col-4" v-for="post in posts" :key="post.id" :to="'/articles/' + post.id">
+        <router-link class="col-lg-4 col-md-6" v-for="post in posts" :key="post.id" :to="'/articles/' + post.id">
             <section class="my-4 text-white post-container">
                 <figure class="card-figure">
                     <img class="card-image" v-if="post.thumbnailImage"
@@ -75,6 +75,9 @@ $card-height: 400px;
     .featured-post{
         position: relative;
         height: $header-height;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        @include material-shadow();
 
         .featured-post--heading{
             position: relative;
@@ -109,12 +112,19 @@ $card-height: 400px;
                 height: auto;
             }
         }
+
+        .button--read-more{
+            @include material-shadow();
+        }
     }
 
     .post-container{
         position: relative;
         display: flex;
         height: $card-height;
+        border-radius: 0.25rem;
+        overflow: hidden;
+        @include material-shadow();
 
          .card-figure{
             position: absolute;

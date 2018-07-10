@@ -18,14 +18,13 @@ html.wf-active body{
 // Helpers
 
 .material-card {
-    box-sizing: border-box;
-    padding: 1rem;
-    background-color: $color--white;
-    @include material-shadow();
-    box-sizing: border-box;
-
     @include breakpoint(tablet){
+        box-sizing: border-box;
         padding: 2rem;
+        background-color: $color--white;
+        @include material-shadow();
+        box-sizing: border-box;
+        border-radius: 0.25rem;
     }
 }
 

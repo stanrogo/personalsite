@@ -1,7 +1,6 @@
 <template>
-<div class="col-6">
-    <h1>{{entry.title}} - {{entry.type}}</h1>
-    <vue-markdown>{{ entry.description }}</vue-markdown>
+<div class="col-12 py-4 my-1 portfolio-item">
+    <h1 class="h5">{{entry.title}} - {{entry.type}}</h1>
 </div>
 </template>
 
@@ -19,7 +18,22 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	@import './resources/assets/sass/variables';
 
+    .portfolio-item{
+        background: #ededed;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        @include material-shadow();
+
+        &:hover{
+            @include material-shadow();
+        }
+    }
+
+    .description{
+        height: 3rem;
+        overflow: hidden;
+    }
 </style>

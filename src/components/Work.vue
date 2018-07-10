@@ -2,11 +2,11 @@
 <section id="work">
     <a class="anchor" id="work--a"></a>
     <div class="container py-4">
-        <div class="row">
+        <div class="row material-card">
             <div class="col-12 my-4">
                 <h1>This is where I've worked</h1>
             </div>
-            <div class="col-12 pl-4">
+            <div class="col-12">
                 <job v-for="job in work" :key="job.id" :details="job"></job>
             </div>
         </div>
@@ -35,3 +35,11 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+#work{
+    position: relative;
+    z-index: 25;
+}  
+</style>
+

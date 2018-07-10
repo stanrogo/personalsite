@@ -8,29 +8,32 @@
         </div>
     </div>
 
-    <div class="post-content grid-container">
-        <span>
-            <router-link to="/#hero">Home</router-link>
-            &middot; Blog
-        </span>
+    <div class="container my-4 post-content">
+        <div class="row material-card">
+            <div class="col-12">
+                <router-link to="/#hero">Home</router-link> &middot; Blog
+            </div>
 
-        <div class="TagContainer">
-            <span class="lnr lnr-tag"></span>
-            <span v-for="tag in article.tags" :key="tag.id" class="Tag">
-                {{tag}}
-            </span>
-            <span class="lnr lnr-clock"></span>
+            <div class="col-12 my-4 TagContainer">
+                <span class="lnr lnr-tag"></span>
+                <span v-for="tag in article.tags" :key="tag.id" class="Tag">
+                    {{tag}}
+                </span>
+                <span class="lnr lnr-clock"></span>
 
-            <span class="Tag">
-                 {{ article.date | moment("MMMM YYYY") }}
-            </span>
-        </div>
+                <span class="Tag">
+                    {{ article.date | moment("MMMM YYYY") }}
+                </span>
+            </div>
 
-        <div>
-            <vue-markdown>{{article.content}}</vue-markdown>
+            <div class="col-12 px-4">
+                <vue-markdown>{{article.content}}</vue-markdown>
+            </div>
+            <div class="col-12">
+                <vue-disqus shortname="stanrogo" :identifier="this.id" :url="$route.path"></vue-disqus>
+            </div>
         </div>
     </div>
-    <vue-disqus shortname="stanrogo" :identifier="this.id" :url="$route.path"></vue-disqus>
 </article>
 </template>
 
@@ -72,6 +75,8 @@ export default {
         list-style-type:disc;
         margin-left: 1rem;
     }
+
+    img{max-width: 100%;}
 
     .cover-wrapper{
         position: relative;

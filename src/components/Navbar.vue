@@ -35,7 +35,7 @@ export default {
                     active: false,
                 },
                 {
-                    name: 'Portfolio',
+                    name: 'Code',
                     id: 'portfolio',
                     anchor: 'portfolio--a',
                     active: false,

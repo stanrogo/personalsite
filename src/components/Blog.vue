@@ -16,9 +16,9 @@
                         <span>{{posts ? posts[0].title : ""}}</span>
                     </h1>
                     <div class="my-2">
-                        <a class="btn button--read-more" href="">
+                        <router-link class="btn button--read-more" :to="posts ? '/articles/' + posts[0].id : ''">
                             Read more
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>

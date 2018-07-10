@@ -11,7 +11,7 @@
     <div class="container my-4 post-content">
         <div class="row material-card">
             <div class="col-12">
-                <router-link to="/#hero">Home</router-link> &middot; Blog
+                <router-link to="/">Home</router-link> &middot; Blog
             </div>
 
             <div class="col-12 my-4 TagContainer">
@@ -89,8 +89,8 @@ export default {
         }
 
         .cover{
-            max-width: none;
-            height: 100%;
+            max-width: 1920px;
+            min-height: 100%;
             @include position-center();
 
             @include breakpoint(tablet){

@@ -7,7 +7,7 @@
             <div class="col-sm">
                 <h1>I'm <strong>Stanley Clark</strong></h1>
                 <h2>Front end web developer and student, Eindhoven</h2>
-                <a href="" target="_blank" class="btn btn-primary my-4">
+                <a href="//assets.ctfassets.net/rb7ghqpklwc4/5Ub1HnzdQsaks0QaWy20Y6/ffb2ad8e4986316f37ad644e4d0489d6/CV_graphical.pdf" target="_blank" class="btn btn-primary my-4">
                     Download My Resume!
                 </a>
                 <div class="intro-wrapper" v-if="description">

@@ -28,14 +28,14 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
-                            <item v-for="entry in projects" :key="entry.id" :entry="entry"></item>
-                            <item :entry="{title: 'Browser Based File Line Reader', type: 'npm package'}"></item>
-                            <item :entry="{title: 'Browser Based graph database', type: 'javascript'}"></item>
-                            <item :entry="{title: 'Code Generator from UML', type: 'javascript'}"></item>
+                            <item v-for="(entry, i) in projects" :key="entry.id" :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
                         </div>
                     </div>
                     <div class="col-6">
-                        <vue-markdown class="description py-4 px-4">{{projects[0].description}}</vue-markdown>
+						<div class="description py-4 px-4">
+							<vue-markdown :source="projectDescription"></vue-markdown>
+							<a :href="projectLink" target="_blank">View it here</a>
+						</div>
                     </div>
                 </div>
             </div>
@@ -47,22 +47,39 @@
 <script>
 import Item from './Item.vue';
 import VueMarkdown from 'vue-markdown';
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
-    name: 'Portoflio',
+    name: 'Portfolio',
     data(){
         return {
             selected: null,
         };
     },
+	computed: {
+		...mapGetters([
+			'activePortfolioItem',
+		]),
+		projectDescription(){
+			return this.projects ? this.projects[this.activePortfolioItem].description : "";
+		},
+		projectLink(){
+			return this.projects ? this.projects[this.activePortfolioItem].link : "";
+		},
+	},
+	methods: {
+		...mapMutations([
+			'changeActivePortfolioItem',
+		]),
+	},
     components: {
         Item,
         VueMarkdown,
     },
     asyncComputed: {
         async projects() {
-            const entries = await this.$contentful.getEntries({ 'content_type': 'portolfio' });
-            return entries.items.map(x => x.fields);
+			const entries = await this.$contentful.getEntries({'content_type': 'portfolio'});
+			return entries.items.map(x => x.fields);
         },
     },
 };
@@ -92,11 +109,6 @@ export default {
     .description{
         @include material-shadow();
         border-radius: 0.25rem;
-    }
-
-    .portfolio-item:nth-child(2){
-        color: $color--accent;
-        border-left: 0.25rem solid $color--accent;
     }
 }
 </style>

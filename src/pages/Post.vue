@@ -26,7 +26,7 @@
                 </span>
             </div>
 
-            <div class="col-12 px-4">
+            <div class="col-12">
                 <vue-markdown>{{article.content}}</vue-markdown>
             </div>
             <div class="col-12">

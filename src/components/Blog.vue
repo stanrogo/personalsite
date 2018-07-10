@@ -8,12 +8,12 @@
         <section class="col-12">
             <div class="featured-post">
                 <figure class="card-figure">
-                    <img class="card-image" :src="posts[0].coverImage.fields.file.url">
+                    <img class="card-image" :src="posts ? posts[0].coverImage.fields.file.url: ''">
                 </figure>
                 <div class="px-4 py-4 featured-post--heading text-white">
                     <h2>Featured Article</h2>
                     <h1 class="h2 featured-article-name">
-                        <span>{{posts[0].title}}</span>
+                        <span>{{posts ? posts[0].title : ""}}</span>
                     </h1>
                     <div class="my-2">
                         <a class="btn button--read-more" href="">

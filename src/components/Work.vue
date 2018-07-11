@@ -1,5 +1,5 @@
 <template>
-<section id="work">
+<section id="work" class="z-ground-floor">
     <a class="anchor" id="work--a"></a>
     <div class="container py-4">
         <div class="row material-card">
@@ -35,11 +35,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" scoped>
-#work{
-    position: relative;
-    z-index: 25;
-}  
-</style>
-

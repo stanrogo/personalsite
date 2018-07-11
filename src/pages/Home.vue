@@ -24,11 +24,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss">
-	@import '../scss/variables';
-
-	#app{
-		background: black;
-	}
-</style>

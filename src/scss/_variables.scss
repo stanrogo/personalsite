@@ -1,27 +1,16 @@
 // Variables
 
-$color--primary: #FFFFFF;
-$color--primary-dark: #1976D2;
-$color--primary-light: #BBDEFB;
 $color--accent: #5511c1;
 $color--text-primary: #212121;
-$color--text-secondary: #757575;
 $color--white: #FFFFFF;
-$color--divider: #BDBDBD;
 $color--grey-light: #EEEEEE;
-$color--grey-medium: #CCCCCC;
 $color--grey-dark: #AAAAAA;
 
 $ground-floor: 0;
 $first-floor: 25;
-$second-floor: 50;
-$third-floor: 75;
-$fourth-floor: 100;
 
 $hero-height: 400px;
 $navbar-height: 56px;
-
-$image-base-url-stripped: 'https://res.cloudinary.com/stanrogo/image/upload/';
 
 @mixin breakpoint($point) {
     @if $point == desktop {

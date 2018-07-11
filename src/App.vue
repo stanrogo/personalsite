@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss">
 	@import 'scss/variables';
+	@import 'scss/bootstrap';
 
 	#app{
 		max-width: 1920px;
@@ -51,7 +52,6 @@ export default {
 		visibility: hidden;
 		top: -$navbar-height;
 	}
-
 
 	// Helpers
 	.material-card {

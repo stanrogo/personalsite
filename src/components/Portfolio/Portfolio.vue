@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './resources/assets/sass/variables';
+@import '../../scss/variables';
 
 #portfolio{
     position: relative;

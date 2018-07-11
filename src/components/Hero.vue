@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './resources/assets/sass/variables';
+@import '../scss/variables';
 
 #hero{
     position: relative;
@@ -51,5 +51,14 @@ export default {
     .btn{
         @include material-shadow();
     }
+
+	.background--overlay{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
 }
 </style>

@@ -26,8 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-	@import './resources/assets/sass/variables';
-	@import './resources/assets/sass/default';
+	@import '../scss/variables';
 
 	#app{
 		background: black;

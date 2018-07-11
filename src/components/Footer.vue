@@ -17,8 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
-    @import './resources/assets/sass/variables';
-    
+    @import '../scss/variables';
+
     #footer{
         background: #252525;
     }

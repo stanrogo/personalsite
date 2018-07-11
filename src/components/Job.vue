@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './resources/assets/sass/variables';
+@import '../scss/variables';
 .work--figure{
     position: relative;
     margin: 0;

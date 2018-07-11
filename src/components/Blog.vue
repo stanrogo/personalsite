@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './resources/assets/sass/variables';
+@import '../scss/variables';
 
 $header-height: 300px;
 $card-height: 400px;

@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	@import './resources/assets/sass/variables';
+	@import '../../scss/variables';
 
     .portfolio-item{
         background: #ededed;

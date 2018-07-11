@@ -28,4 +28,8 @@ export default {
 <style lang="scss">
 	@import './resources/assets/sass/variables';
 	@import './resources/assets/sass/default';
+
+	#app{
+		background: black;
+	}
 </style>

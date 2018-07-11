@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from './pages/Home.vue';
-import Post from './pages/Post.vue';
+import Home from '../pages/Home.vue';
+import Post from '../pages/Post.vue';
 
 const routes = [
     { path: '/', component: Home, name: 'Home' },
     { path: '/articles/:postID', component: Post, name: 'Post' },
 ];
 
-const router = new VueRouter({
+const routerConfig = {
     routes,
     scrollBehavior: function(to) {
         if (to.hash) {
@@ -19,8 +19,8 @@ const router = new VueRouter({
         }
     },
 	mode: 'history',
-});
+};
 
 Vue.use(VueRouter);
 
-export default router;
+export default () => new VueRouter(routerConfig);

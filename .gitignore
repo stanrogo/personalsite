@@ -1,5 +1,8 @@
-node_modules
+# IDEs
 .idea
-npm-debug.log
 .vscode
+
+# Build/install folders and files
+node_modules
 dist
+npm-debug.log

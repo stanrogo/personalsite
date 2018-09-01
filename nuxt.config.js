@@ -3,14 +3,15 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'personalsite',
+    title: 'StanRogo - Thoughts, Events and Other Things by Stanley Clark',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
+      { hid: 'description', name: 'description', content: 'Thoughts, events and other things from a computer science student in Eindhoven.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'manifest', href: 'manifest.json' },
     ]
   },
   /*
@@ -23,6 +24,7 @@ module.exports = {
     '~/plugins/vue-disqus',
     '~/plugins/vue-markdown',
     '~/plugins/vue-moment',
+    '~/plugins/vue-highlight',
   ],
   /*
   ** Customize the progress bar color

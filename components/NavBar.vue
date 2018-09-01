@@ -1,7 +1,7 @@
 <template>
 <b-navbar toggleable="md" type="dark" variant="dark" fixed="top" class="navbar">
-    <b-navbar-brand href="#/">
-        <img src="icons/favicon-32x32.png" width="30" height="30"
+    <b-navbar-brand href="/">
+        <img src="/icons/favicon-32x32.png" width="30" height="30"
 			 class="d-inline-block align-top" alt="">
             Stanrogo
     </b-navbar-brand>

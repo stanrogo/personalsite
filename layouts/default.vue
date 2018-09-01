@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 import NavBar from '~/components/NavBar.vue';
 import MyFooter from '~/components/Footer.vue';
 
@@ -22,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+  @import 'node_modules/bootstrap-vue/dist/bootstrap-vue.min.css';
 	@import './assets/scss/variables';
 	@import './assets/scss/bootstrap';
 

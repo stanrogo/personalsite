@@ -3,7 +3,8 @@
     <div class="container py-4">
         <div class="row">
             <div class="col text-center text-white">
-                Made with hours of frustration and even more hours of fun, by stanrogo.
+              <Contact/>
+              <span class="copy-text">Made with hours of frustration and even more hours of fun, by stanrogo. | Copyright 2018 - stanrogo</span>
             </div>
         </div>
     </div>
@@ -11,7 +12,22 @@
 </template>
 
 <script>
+import Contact from './Contact.vue';
+
 export default {
-	name: 'Footer',
+  name: 'Footer',
+  components: {
+    Contact,
+  },
 };
 </script>
+
+<style lang="scss">
+#footer{
+  .copy-text{
+    display: block;
+    margin-top: 1rem;
+  }
+}
+</style>
+

@@ -2,7 +2,14 @@
 .idea
 .vscode
 
-# Build/install folders and files
+# dependencies
 node_modules
-dist
+
+# logs
 npm-debug.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
+dist

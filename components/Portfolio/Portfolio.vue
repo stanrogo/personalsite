@@ -1,8 +1,6 @@
 <template>
 <section id="portfolio">
-    <div class="back-panel"></div>
-    <a class="anchor" id="portfolio--a"></a>
-    <div class="container py-4">
+    <div class="container my-4">
         <div class="row material-card">
             <div class="col">
                 <div class="row">
@@ -108,7 +106,6 @@ export default {
 
     .description{
         @include material-shadow();
-        border-radius: 0.25rem;
     }
 }
 </style>

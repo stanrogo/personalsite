@@ -1,7 +1,6 @@
 <template>
 <section id="work" class="z-ground-floor">
-    <a class="anchor" id="work--a"></a>
-    <div class="container py-4">
+    <div class="container my-4">
         <div class="row material-card">
             <div class="col-12 my-4">
                 <h1>This is where I've worked</h1>

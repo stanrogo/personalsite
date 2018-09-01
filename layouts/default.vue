@@ -28,7 +28,7 @@ export default {
 	#app{
 		max-width: 1920px;
 		margin: 0 auto;
-		background-image: url("https://res.cloudinary.com/stanrogo/image/upload/q_58/v1485563095/Future/crossword_tggzxa.png");
+		background-image: url("/images/furley_bg.png");
 	}
 
 	// Some standard body styling
@@ -47,22 +47,12 @@ export default {
 		}
 	}
 
-	// Hidden anchor class to be able to navigate to from the nav bar
-	.anchor{
-		position: relative;
-		display: block;
-		visibility: hidden;
-		top: -$navbar-height;
-	}
-
 	// Helpers
 	.material-card {
 		@include breakpoint(tablet){
-			@include material-shadow();
 			box-sizing: border-box;
 			padding: 2rem;
 			background-color: $color--white;
-			border-radius: 0.25rem;
 		}
 	}
 </style>

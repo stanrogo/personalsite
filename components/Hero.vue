@@ -1,6 +1,5 @@
 <template>
 <section id="hero">
-    <a class="anchor" id="hero--a"></a>
     <div class="background--overlay"></div>
     <section class="container h-100 text-white">
         <div class="row align-items-center h-100">

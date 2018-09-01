@@ -24,7 +24,6 @@ export default {
 
     .portfolio-item{
         background: #ededed;
-        border-radius: 0.25rem;
         cursor: pointer;
         @include material-shadow();
 

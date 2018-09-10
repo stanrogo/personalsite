@@ -49,9 +49,9 @@ export default {
 
 	// Only apply fonts when they have actually loaded
 	html.wf-active body{
-		font-family: 'Roboto Slab', serif;
+		font-family: 'Ubuntu', sans-serif;
 		button:not([class*="lnr"]) {
-			font-family: 'Roboto Slab', serif;
+			font-family: 'Ubuntu', sans-serif;
 		}
 	}
 

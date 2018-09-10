@@ -1,5 +1,5 @@
 <template>
-<article id="post">
+<article id="post" class="mt-4">
     <div class="cover-wrapper">
         <img class="cover" :src="article.coverImage.fields.file.url">
         <div class="cover--title">
@@ -11,18 +11,23 @@
     <div class="container my-4 post-content">
         <div class="row material-card">
             <div class="col-12">
-                <router-link to="/">Home</router-link> &middot; Blog
+                <router-link to="/">Home</router-link> &middot;
+                <router-link to="/blog">Blog</router-link> &middot;
+                {{article.title}}
             </div>
 
             <div class="col-12 my-4 TagContainer">
-                <span class="lnr lnr-tag"></span>
-                <span v-for="tag in article.tags" :key="tag.id" class="Tag">
-                    {{tag}}
+                <span class="categories">
+                    <span class="lnr lnr-tag"></span>
+                    <span v-for="tag in article.tags" :key="tag.id" class="Tag">
+                        {{tag}}
+                    </span>
                 </span>
-                <span class="lnr lnr-clock"></span>
-
-                <span class="Tag">
-                    {{ article.date | moment("MMMM YYYY") }}
+                <span class="timing">
+                    <span class="lnr lnr-clock"></span>
+                    <span class="Tag">
+                        {{ article.date | moment("MMMM YYYY") }}
+                    </span>
                 </span>
             </div>
 
@@ -50,14 +55,10 @@ export default {
             return this.$route.params.postID;
         },
     },
-    validate ({ params }) {
-      // Must be a number
-      return /^\d+$/.test(params.id)
-    },
     async asyncData ({ app, params }) {
       const entries = await app.$contentful.getEntries({
           'content_type': 'blogPost',
-          'fields.id': params.id,
+          'fields.cleanUrl': params.id,
       });
       return {
         article: entries.items[0].fields,
@@ -151,12 +152,23 @@ export default {
     }
 
     .TagContainer{
+        display: flex;
+        flex-wrap: wrap;
         color: $color--grey-dark;
 
         .Tag{
-            margin: 0 0.5rem 0 0;
+            display: inline-block;
+            margin: 0 0.5rem 1rem 0;
             padding: 0.25rem 0.5rem;
             background: $color--grey-light;
+        }
+
+        .categories{
+            margin-right: 1rem;
+        }
+
+        .lnr{
+            margin-right: 0.5rem;
         }
     }
 

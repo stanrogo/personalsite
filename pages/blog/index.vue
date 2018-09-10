@@ -1,15 +1,14 @@
 <template>
-<section id="blog" class="container mb-4">
-    <a class="anchor" id="blog--a"></a>
+<section id="blog" class="my-4 px-4 py-4">
     <div class="row">
-        <section class="col-12 my-4">
+        <section class="col-8 my-4">
             <h1>The Blog</h1>
             <p>
               These are my thoughts, university adventures and life
               struggles which I just have to share.
             </p>
         </section>
-        <section class="col-12">
+        <section class="col-6">
             <div class="featured-post">
                 <figure class="card-figure">
                     <img class="card-image" :src="posts ? posts[0].coverImage.fields.file.url: ''">
@@ -20,15 +19,15 @@
                         <span>{{posts ? posts[0].title : ""}}</span>
                     </h1>
                     <div class="my-2">
-                        <router-link class="btn button--read-more" :to="posts ? '/blog/' + posts[0].id : ''">
+                        <router-link class="btn button--read-more" :to="posts ? '/blog/' +  posts[0].cleanUrl : ''">
                             Read more
                         </router-link>
                     </div>
                 </div>
             </div>
         </section>
-        <router-link class="post-link col-lg-4 col-md-6" v-for="post in posts" :key="post.id" :to="'/blog/' + post.id">
-            <section class="my-4 text-white post-container">
+        <router-link class="post-link col-lg-3 col-md-6" v-for="post in otherPosts" :key="post.id" :to="'/blog/' + post.cleanUrl">
+            <section class="mb-4 text-white post-container">
                 <figure class="card-figure">
                     <img class="card-image" v-if="post.thumbnailImage"
                             :src="post.thumbnailImage.fields.file.url">
@@ -64,6 +63,10 @@ export default {
                 'content_type': 'blogPost',
             });
             return entries.items.map(x => x.fields);
+        },
+        async otherPosts() {
+            const entries = await this.posts;
+            return entries ? entries.slice(1) : entries;
         }
     },
 };
@@ -76,9 +79,10 @@ $header-height: 300px;
 $card-height: 400px;
 
 #blog{
+    background: white;
     .featured-post{
         position: relative;
-        height: $header-height;
+        height: $card-height;
         overflow: hidden;
 
         .featured-post--heading{
@@ -102,7 +106,7 @@ $card-height: 400px;
             position: absolute;
             left: 0;
             right: 0;
-            height: $header-height;
+            height: $card-height;
             z-index: $ground-floor;
             width: 100%;
             margin: 0;

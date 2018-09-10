@@ -3,16 +3,16 @@
   <p>Need more info? Feel free to reach out!</p>
   <span class="contact-links">
     <span class="contact-link"><font-awesome-icon :icon="['fab', 'twitter']" />
-      <a href="https://twitter.com/stanrogo">Twitter</a>
+      <a target="_blank" href="https://twitter.com/stanrogo">Twitter</a>
     </span> |
     <span class="contact-link"><font-awesome-icon :icon="['fab', 'linkedin']" />
-      <a href="https://nl.linkedin.com/in/stanleyclark">LinkedIn</a>
+      <a target="_blank" href="https://nl.linkedin.com/in/stanleyclark">LinkedIn</a>
     </span> |
     <span class="contact-link"><font-awesome-icon :icon="['fas', 'envelope']" />
       <a href="mailto:me@stanrogo.com?Subject=Hey%20Stanley%20!%20I%20was%20looking%20for%20me%20information" target="_top">me@stanrogo.com</a>
     </span> |
     <span class="contact-link"><font-awesome-icon :icon="['fab', 'skype']" />
-      <a href="tel:+31647051992">+31647051992</a>
+      <a target="_blank" href="tel:+31647051992">+31647051992</a>
     </span>
   </span>
 </section>

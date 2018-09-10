@@ -1,6 +1,6 @@
 WebFontConfig = {
     google: {
-        families: ['Ubuntu']
+        families: ['Roboto+Slab']
     },
     custom: {
         families: ['Linearicons-Free'],

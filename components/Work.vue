@@ -1,15 +1,7 @@
 <template>
-<section id="work" class="z-ground-floor">
-    <div class="container my-4">
-        <div class="row material-card">
-            <div class="col-12 my-4">
-                <h1>This is where I've worked</h1>
-            </div>
-            <div class="col-12">
-                <job v-for="job in work" :key="job.id" :details="job"></job>
-            </div>
-        </div>
-    </div>
+<section id="work" class="z-ground-floor material-card mb-4">
+    <h1 class="section-heading">This is where I've worked</h1>
+    <job v-for="job in work" :key="job.id" :details="job"/>
 </section>
 </template>
 

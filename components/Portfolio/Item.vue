@@ -1,5 +1,5 @@
 <template>
-<div class="col-12 py-4 my-1 portfolio-item" :class="{'is-active': isActive}" @click="$emit('item-clicked')">
+<div class="portfolio-item py-4 px-2 my-1" :class="{'is-active': isActive}" @click="$emit('item-clicked')">
     <h1 class="h5">{{entry.title}} - {{entry.type}}</h1>
 </div>
 </template>
@@ -26,6 +26,7 @@ export default {
         background: #ededed;
         cursor: pointer;
         @include material-shadow();
+        border-left: 0.25rem solid transparent;
 
         &:hover{
             @include material-shadow();

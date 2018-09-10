@@ -1,0 +1,48 @@
+// Variables
+
+$color--accent: #5511c1;
+$color--text-primary: #212121;
+$color--white: #FFFFFF;
+$color--grey-light: #EEEEEE;
+$color--grey-dark: #AAAAAA;
+
+$ground-floor: 0;
+$first-floor: 25;
+
+$hero-height: 400px;
+$navbar-height: 56px;
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    } @else if $point == laptop {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if $point == tablet {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $point == phablet {
+        @media (min-width: 480px) {
+            @content;
+        }
+    } @else if $point == mobileonly {
+        @media (min-width: 320px) {
+            @content;
+        }
+    }
+}
+
+@mixin position-center(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin material-shadow(){
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}

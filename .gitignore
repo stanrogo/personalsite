@@ -1,10 +1,15 @@
-node_modules
+# IDEs
 .idea
-.vagrant
-public/css
-public/js
-vendor
-storage
+.vscode
+
+# dependencies
+node_modules
+
+# logs
 npm-debug.log
-yarn-error.log
+
+# Nuxt build
+.nuxt
+
+# Nuxt generate
 dist

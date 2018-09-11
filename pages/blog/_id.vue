@@ -1,5 +1,5 @@
 <template>
-<article id="post" class="mt-4">
+<article id="post" class="my-4">
     <div class="cover-wrapper">
         <img class="cover" :src="article.coverImage.fields.file.url">
         <div class="cover--title">
@@ -7,35 +7,39 @@
             <h2 class="PostAuthor"><span>By Stanley Clark</span></h2>
         </div>
     </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-xs-12">
+            <div class="material-card my-4 post-content">
+                <div class="row">
+                    <div class="col-12">
+                        <router-link to="/">Home</router-link> &middot;
+                        <router-link to="/blog">Blog</router-link> &middot;
+                        {{article.title}}
+                    </div>
 
-    <div class="container my-4 post-content">
-        <div class="row material-card">
-            <div class="col-12">
-                <router-link to="/">Home</router-link> &middot;
-                <router-link to="/blog">Blog</router-link> &middot;
-                {{article.title}}
-            </div>
+                    <div class="col-12 my-4 TagContainer">
+                        <span class="categories">
+                            <span class="lnr lnr-tag"></span>
+                            <span v-for="tag in article.tags" :key="tag.id" class="Tag">
+                                {{tag}}
+                            </span>
+                        </span>
+                        <span class="timing">
+                            <span class="lnr lnr-clock"></span>
+                            <span class="Tag">
+                                {{ article.date | moment("MMMM YYYY") }}
+                            </span>
+                        </span>
+                    </div>
 
-            <div class="col-12 my-4 TagContainer">
-                <span class="categories">
-                    <span class="lnr lnr-tag"></span>
-                    <span v-for="tag in article.tags" :key="tag.id" class="Tag">
-                        {{tag}}
-                    </span>
-                </span>
-                <span class="timing">
-                    <span class="lnr lnr-clock"></span>
-                    <span class="Tag">
-                        {{ article.date | moment("MMMM YYYY") }}
-                    </span>
-                </span>
-            </div>
-
-            <div class="col-12">
-                <vue-markdown>{{article.content}}</vue-markdown>
-            </div>
-            <div class="col-12">
-                <vue-disqus shortname="stanrogo" :identifier="this.id" :url="$route.path"></vue-disqus>
+                    <div class="col-12 article-content">
+                        <vue-markdown>{{article.content}}</vue-markdown>
+                    </div>
+                    <div class="col-12">
+                        <vue-disqus shortname="stanrogo" :identifier="this.id" :url="$route.path"></vue-disqus>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -201,5 +205,15 @@ export default {
 			display: inline;
 		}
 	}
+
+    .article-content{
+        h1{
+            font-size: 1.5rem;
+        }
+
+        h2{
+            font-size: 1.2rem;
+        }
+    }
 }
 </style>

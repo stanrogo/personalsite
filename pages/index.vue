@@ -5,11 +5,11 @@
 				<hero/>
 			</div>
 			<div class="col-md-8 col-sm-12">
-				<work/>
-				<portfolio/>
+				<work class="mb-4"/>
+				<portfolio class="mb-4"/>
 			</div>
 			<div class="col-md-4 col-sm-12">
-				<post-widget/>
+				<post-widget class="mb-4"/>
 			</div>
 		</div>
 	</div>

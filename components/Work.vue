@@ -1,5 +1,5 @@
 <template>
-<section id="work" class="z-ground-floor material-card mb-4">
+<section id="work" class="material-card">
     <h1 class="section-heading">This is where I've worked</h1>
     <job v-for="job in work" :key="job.id" :details="job"/>
 </section>

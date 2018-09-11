@@ -36,14 +36,18 @@ export default {
 	#app{
 		max-width: 1920px;
 		margin: 0 auto;
-		// background-image: url("/images/furley_bg.png");
+
+		@media (max-width: 767px) {
+			padding: 0;
+		}
 	}
 
 	// Some standard body styling
 	body {
 		padding: 0;
 		min-width: 320px;
-		overflow-y:scroll;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		background-color: #e2e7ea;
 	}
 
@@ -57,11 +61,13 @@ export default {
 
 	// Helpers
 	.material-card {
-	
-			box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 2rem 1rem;
+		background-color: $color--white;
+
+		@media (min-width: 768px) {
 			padding: 2rem;
-			background-color: $color--white;
-		
+		}	
 	}
 
 	.section-heading{

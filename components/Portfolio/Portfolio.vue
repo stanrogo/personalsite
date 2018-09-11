@@ -1,5 +1,5 @@
 <template>
-<section id="portfolio" class="my-4 material-card">
+<section id="portfolio" class="material-card">
     <div class="row">
         <div class="col">
             <h1 class="section-heading">These are my coding projects</h1>
@@ -19,14 +19,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-xs-12">
             <div class="row">
                 <div v-for="(entry, i) in projects" :key="entry.id" class="col-12">
                     <item :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-xs-12">
             <div class="description py-4 px-4">
                 <vue-markdown :source="projectDescription"></vue-markdown>
                 <a :href="projectLink" target="_blank">View it on GitHub </a>

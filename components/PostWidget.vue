@@ -1,86 +1,64 @@
 <template>
-  <section id="post-widget" class="text-white py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div v-for="post in posts" :key="post.id" class="post row" :style="`background: url('${post.coverImage.fields.file.url}')`">
-            <div class="col-8 post-text justify-content-center d-flex flex-column">
-              <h1 class="h3"><router-link :to="'/blog/' + post.cleanUrl">{{post.title}}</router-link></h1>
-              <div v-if="post.content">{{post.content.substr(0, 200) + '...'}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="post-widget" class="py-4">
+	<div class="container">
+        <h1 class="section-heading">I Blog</h1>
+        <hr/>
+		<div class="post-container" v-for="post in posts" :key="post.id" :style="`background: url('${post.coverImage.fields.file.url}')`">
+			<router-link :to="'/blog/' + post.cleanUrl" class="post row text-white">
+				<div class="col-md-8 col-xs-12 justify-content-center d-flex flex-column">
+					<div class="post-text px-4 h-100 d-flex flex-column justify-content-center">
+						<h1 class="h4 text-uppercase text-primary">{{post.title}}</h1>
+						<div v-if="post.content">{{ post.content.substr(0, 150) + '...' }}</div>
+					</div>
+				</div>
+			</router-link>
+		</div>
+	</div>
+</section>
 </template>
 
 <script>
 
 export default {
-    name: 'PostWidget',
-    asyncComputed: {
-        async posts() {
-            const entries = await this.$contentful.getEntries({
-                'content_type': 'blogPost',
-            });
-            return entries.items.map(x => x.fields);
-        }
-    },
+	name: 'PostWidget',
+	props: [
+		'posts',
+	],
 };
 </script>
 
-<style lang="scss" scoped>
-  @import './assets/scss/variables';
+<style lang="scss">
+@import '~assets/scss/variables';
 
-  #post-widget{
-    background: #2e3842;
+#post-widget{
+	background: #2e3842;
 
-    .post{
-      height: 15rem;
-      transition: opacity 0.3s;
-      cursor: pointer;
+	.post-text{
+		background: $color--accent--hover;
+	}
 
-      &:hover{
-        opacity: 0.5;
-      }
+	.post-container{
+		&:nth-child(2n){
+			.post{
+				flex-direction: row-reverse;
+			}
 
-      &:nth-child(2n){
-        flex-direction: row-reverse;
-      }
+			.post-text{
+				background: $color--accent;
+			}
+		}
+	}
 
-      &:nth-child(1){
-        .post-text{
-          background: #2e3842;
-        }
+	.post{
+		height: 15rem;
+		transition: opacity 0.3s;
+		cursor: pointer;
 
-      }
-      &:nth-child(2){
-        .post-text{
-          background: #2e3844;
-        }
-      }
-      &:nth-child(3){
-        .post-text{
-          background: #2e3846;
-        }
-      }
-      &:nth-child(4){
-        .post-text{
-          background: #2e3848;
-        }
-      }
-      &:nth-child(5){
-        .post-text{
-          background: #2e384a;
-        }
-      }
-      &:nth-child(6){
-        .post-text{
-          background: #2e384c;
-        }
-      }
-    }
-  }
+		&:hover{
+            opacity: 0.9;
+            text-decoration: none;
+		}
+	}
+}
 </style>
 

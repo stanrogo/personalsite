@@ -1,5 +1,5 @@
 <template>
-<article id="post" class="my-4">
+<article id="post">
     <div class="cover-wrapper">
         <img class="cover" :src="article.coverImage.fields.file.url">
         <div class="cover--title">
@@ -7,7 +7,7 @@
             <h2 class="PostAuthor"><span>By Stanley Clark</span></h2>
         </div>
     </div>
-    
+
     <div class="row justify-content-center">
         <div class="col-md-8 col-xs-12">
             <div class="material-card my-4 post-content">

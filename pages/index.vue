@@ -1,11 +1,11 @@
 <template>
-  <div id="home" class="row flex-column">
-    <hero class="col-12"/>
-    <description class="col-12"/>
-    <work class="col-12"/>
-    <portfolio class="col-12"/>
-    <post-widget class="col-12"/>
-  </div>
+<div id="home" class="text-white">
+	<hero/>
+	<description :description="description"/>
+	<work :work="work"/>
+	<portfolio :projects="projects"/>
+	<post-widget :posts="posts"/>
+</div>
 </template>
 
 <script>
@@ -19,10 +19,26 @@ export default {
 	name: 'App',
 	components: {
 		Hero,
-    Description,
+		Description,
 		Work,
 		Portfolio,
 		PostWidget,
+	},
+	async asyncData ({ app }) {
+		const introduction = await app.$contentful.getEntries({ 'content_type': 'introduction' });
+		const projects = await app.$contentful.getEntries({ 'content_type': 'portfolio' });
+		const articles = await app.$contentful.getEntries({ 'content_type': 'blogPost' });
+		const jobs = await app.$contentful.getEntries({
+			'content_type': 'work',
+			'order': '-fields.start'
+		});
+
+		return {
+			description: introduction.items[0].fields.description,
+			work: jobs.items.map(x => x.fields),
+			projects: projects.items.map(x => x.fields),
+			posts: articles.items.map(x => x.fields),
+		};
 	},
 };
 </script>

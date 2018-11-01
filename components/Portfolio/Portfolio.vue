@@ -1,27 +1,23 @@
 <template>
-  <section id="portfolio" class="py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="section-heading text-center">I like to work on stuff</h1>
-            <hr/>
-          </div>
-          <div class="col-md-6 col-xs-12">
-            <div class="row">
-              <div v-for="(entry, i) in projects" :key="entry.id" class="col-12">
-                <item :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xs-12">
-            <div class="description py-4 px-4 h-100">
-              <vue-markdown :source="projectDescription"></vue-markdown>
-              <a :href="projectLink" target="_blank">View it on GitHub </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
+<section id="portfolio" class="py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="section-heading">I like to work on stuff</h1>
+				<hr/>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<item v-for="(entry, i) in projects" :key="entry.id" :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<div class="text-content p-4 h-100 material d-flex justify-content-between flex-column">
+					<vue-markdown :source="projectDescription"/>
+					<a :href="projectLink" target="_blank" class="view-github bg-accent text-white p-4 material">View it on GitHub</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 </template>
 
 <script>
@@ -30,21 +26,24 @@ import VueMarkdown from 'vue-markdown';
 import { mapMutations, mapGetters } from 'vuex';
 
 export default {
-    name: 'Portfolio',
-    data(){
-        return {
-            selected: null,
-        };
-    },
+	name: 'Portfolio',
+	data(){
+		return {
+			selected: null,
+		};
+	},
+	props: [
+		'projects'
+	],
 	computed: {
 		...mapGetters([
 			'activePortfolioItem',
 		]),
 		projectDescription(){
-			return this.projects ? this.projects[this.activePortfolioItem].description : "";
+			return this.projects[this.activePortfolioItem].description;
 		},
 		projectLink(){
-			return this.projects ? this.projects[this.activePortfolioItem].link : "";
+			return this.projects[this.activePortfolioItem].link;
 		},
 	},
 	methods: {
@@ -52,43 +51,30 @@ export default {
 			'changeActivePortfolioItem',
 		]),
 	},
-    components: {
-        Item,
-        VueMarkdown,
-    },
-    asyncComputed: {
-        async projects() {
-			    const entries = await this.$contentful.getEntries({'content_type': 'portfolio'});
-			    return entries.items.map(x => x.fields);
-        },
-    },
+	components: {
+		Item,
+		VueMarkdown,
+	},
 };
 </script>
 
 <style lang="scss">
-@import './assets/scss/variables';
+@import "~assets/scss/variables";
 
 #portfolio{
     background: #21b2a6;
 
-    .back-panel{
-        @include breakpoint(tablet){
-            position: absolute;
-            top: -5rem;
-            bottom: 5rem;
-            width: 100%;
-            background-color: #252525;
+    .text-content{
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .view-github{
+        transition: background-color 0.3s;
+        text-decoration: none;
+
+        &:hover{
+            background: $color--accent--hover;
         }
-    }
-
-    .container{
-        position: relative;
-        z-index: 25;
-    }
-
-    .description{
-        background: white;
     }
 }
 </style>
-

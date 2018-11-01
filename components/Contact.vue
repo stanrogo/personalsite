@@ -1,6 +1,5 @@
 <template>
 <section id="contact">
-  <p>Need more info? Feel free to reach out!</p>
   <span class="contact-links">
     <span class="contact-link"><font-awesome-icon :icon="['fab', 'twitter']" />
       <a target="_blank" href="https://twitter.com/stanrogo">Twitter</a>

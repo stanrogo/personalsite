@@ -1,10 +1,27 @@
 // This file overrides and extends bootstrap.
 
-@import "./node_modules/bootstrap/scss/functions";
-@import "./node_modules/bootstrap/scss/variables";
-@import "./node_modules/bootstrap/scss/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "./variables";
 
 .z-ground-floor{
 	position: relative;
 	z-index: $zindex-dropdown;
 }
+
+$enable-gradients: true;
+
+.text-accent{color: $color--accent;}
+.bg-accent{background: $color--accent;}
+.btn-accent{
+    background: $color--accent;
+    color: white;
+
+    &:hover{
+        color: white;
+        background: $color--accent--hover;
+    }
+}
+
+.material{@include material-shadow();}

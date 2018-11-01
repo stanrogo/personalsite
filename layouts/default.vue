@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
 	@import '~assets/scss/variables';
     @import '~assets/scss/bootstrap';
-    @import '~bootstrap/scss/bootstrap';
+    @import 'bootstrap/dist/css/bootstrap.min.css';
 
 	#app{
 		background: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg") no-repeat fixed center center;

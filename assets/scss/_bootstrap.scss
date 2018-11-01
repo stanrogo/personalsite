@@ -1,16 +1,6 @@
-// This file overrides and extends bootstrap.
+// This file extends bootstrap.
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
 @import "./variables";
-
-.z-ground-floor{
-	position: relative;
-	z-index: $zindex-dropdown;
-}
-
-$enable-gradients: true;
 
 .text-accent{color: $color--accent;}
 .bg-accent{background: $color--accent;}

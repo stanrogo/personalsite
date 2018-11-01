@@ -1,13 +1,9 @@
 <template>
-  	<div id="app" class="container-fluid">
+  <div id="app" class="container-fluid">
 		<div class="row">
-			<div class="col-12">
+			<div class="col">
 				<nav-bar/>
-			</div>
-			<div class="col-12">
 				<nuxt/>
-			</div>
-			<div class="col-12">
 				<my-footer/>
 			</div>
 		</div>
@@ -34,12 +30,8 @@ export default {
 	@import './assets/scss/bootstrap';
 
 	#app{
-		max-width: 1920px;
-		margin: 0 auto;
-
-		@media (max-width: 767px) {
-			padding: 0;
-		}
+    background: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg") no-repeat fixed center center;
+    background-size: cover;
 	}
 
 	// Some standard body styling
@@ -71,10 +63,8 @@ export default {
 	}
 
 	.section-heading{
-		background: $color--text-primary;
+    text-transform: uppercase;
 		color: white;
-		padding: 1rem;
-		margin-bottom: 1.5rem;
 		display: inline-block;
 		font-size: 1.5rem;
 	}

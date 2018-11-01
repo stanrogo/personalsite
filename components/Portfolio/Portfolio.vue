@@ -1,39 +1,27 @@
 <template>
-<section id="portfolio" class="material-card">
-    <div class="row">
-        <div class="col">
-            <h1 class="section-heading">These are my coding projects</h1>
-            <p>This portfolio features most of the work that I do in my spare
-                time, as well as at university. It is therefore a collection
-                of simple single page apps, dummy websites, blogs and in general
-                cool things that I have built based mostly on tutorials e.g.
-                build a clock using JavaScript.
-            </p>
-            <p>Throughout my time at University I hope to grow this section
-                so that I can showcase the achievements that I make during my
-                studies, and I also hope to be able to upload any presentation
-                material that I produce for a few talks that I have done and
-                include them here as part of the portfolio.
-            </p>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
+  <section id="portfolio" class="py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="section-heading text-center">I like to work on stuff</h1>
+            <hr/>
+          </div>
+          <div class="col-md-6 col-xs-12">
             <div class="row">
-                <div v-for="(entry, i) in projects" :key="entry.id" class="col-12">
-                    <item :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
-                </div>
+              <div v-for="(entry, i) in projects" :key="entry.id" class="col-12">
+                <item :entry="entry" :isActive="i === activePortfolioItem" @item-clicked="changeActivePortfolioItem(i)"></item>
+              </div>
             </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="description py-4 px-4">
-                <vue-markdown :source="projectDescription"></vue-markdown>
-                <a :href="projectLink" target="_blank">View it on GitHub </a>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="description py-4 px-4 h-100">
+              <vue-markdown :source="projectDescription"></vue-markdown>
+              <a :href="projectLink" target="_blank">View it on GitHub </a>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+  </section>
 </template>
 
 <script>
@@ -81,7 +69,7 @@ export default {
 @import './assets/scss/variables';
 
 #portfolio{
-    position: relative;
+    background: #21b2a6;
 
     .back-panel{
         @include breakpoint(tablet){
@@ -99,7 +87,7 @@ export default {
     }
 
     .description{
-        @include material-shadow();
+        background: white;
     }
 }
 </style>

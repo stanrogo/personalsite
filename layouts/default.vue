@@ -56,10 +56,5 @@ export default {
 		}
 	}
 
-	.section-heading{
-		text-transform: uppercase;
-		color: white;
-		display: inline-block;
-		font-size: 1.5rem;
-	}
+
 </style>

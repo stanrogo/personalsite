@@ -10,7 +10,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 col-xs-12">
-            <div class="material-card my-4 post-content">
+            <div class="my-4 post-content">
                 <div class="row">
                     <div class="col-12">
                         <router-link to="/">Home</router-link> &middot;

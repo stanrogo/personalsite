@@ -45,16 +45,4 @@ export default {
 		}
 	}
 
-	// Helpers
-	.material-card {
-		box-sizing: border-box;
-		padding: 2rem 1rem;
-		background-color: $color--white;
-
-		@media (min-width: 768px) {
-			padding: 2rem;
-		}
-	}
-
-
 </style>

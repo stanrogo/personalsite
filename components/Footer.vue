@@ -1,14 +1,10 @@
 <template>
-<section id="footer" class="text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col text-center py-4 d-flex flex-column">
-                <div class="py-2">Need more info? Feel free to reach out!</div>
-                <Contact/>
-                <div class="py-2">Made with hours of frustration and even more hours of fun, by stanrogo. | Copyright 2018 - stanrogo</div>
-            </div>
-        </div>
+<section id="footer" class="p-3 d-flex flex-md-column flex-wrap text-center text-md-left">
+    <div class="d-flex justify-content-between flex-column-reverse flex-md-row w-100">
+        <span class="my-4 my-md-0"><strong>stanrogo.</strong> web engineer</span>
+        <Contact/>
     </div>
+    <div class="mb-2 mt-0 my-md-4 w-100 copy">Copyright 2018</div>
 </section>
 </template>
 
@@ -25,7 +21,12 @@ export default {
 
 <style lang="scss">
 #footer{
-    background: rgba(29, 36, 42, 0.9);
+    background: #F6F6F6;
+
+    .copy{
+        font-size: 11px;
+        color: #767676;
+    }
 }
 </style>
 

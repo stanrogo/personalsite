@@ -1,8 +1,12 @@
 <template>
-	<div id="app">
-		<nav-bar/>
-		<nuxt/>
-		<my-footer/>
+	<div id="app" class="container bg-white text-body">
+        <div class="row">
+            <div class="col">
+                <nav-bar/>
+                <nuxt/>
+                <my-footer/>
+            </div>
+        </div>
 	</div>
 </template>
 
@@ -23,11 +27,6 @@ export default {
 	@import '~assets/scss/variables';
     @import '~assets/scss/bootstrap';
     @import 'bootstrap/dist/css/bootstrap.min.css';
-
-	#app{
-		background: linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/stanrogo/image/upload/q_50/v1501628116/P1310020_kjh67g.jpg") no-repeat fixed center center;
-		background-size: cover;
-	}
 
 	// Some standard body styling
 	body {

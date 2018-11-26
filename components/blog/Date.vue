@@ -1,7 +1,7 @@
 <template>
 <div class="date my-2">
     <font-awesome-icon :icon="['fas', 'clock']" class="tags-icon"/>
-    <span>{{ date | moment("dddd MMMM D YYYY") }}</span>
+    <span>{{ date | moment("dddd MMMM D, YYYY") }}</span>
 </div>
 </template>
 
@@ -24,8 +24,6 @@
 </script>
 
 <style lang="scss">
-    @import '~assets/scss/variables';
-
     .date{
         .tags-icon{
             margin-right: 1rem;

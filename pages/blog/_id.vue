@@ -1,24 +1,18 @@
 <template>
 <article id="post">
     <div class="cover-wrapper">
-        <img class="cover" :src="article.coverImage.fields.file.url">
+        <img class="cover" :src="article.coverImage && article.coverImage.fields.file.url">
         <div class="cover--title">
             <h1><span>{{article.title}}</span></h1>
             <h2 class="PostAuthor"><span>By Stanley Clark</span></h2>
         </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-xs-12">
+    <div class="row">
+        <div class="col-md-12 col-12">
             <div class="my-4 post-content">
                 <div class="row">
-                    <div class="col-12">
-                        <router-link to="/">Home</router-link> &middot;
-                        <router-link to="/blog">Blog</router-link> &middot;
-                        {{article.title}}
-                    </div>
-
-                    <div class="col-12 my-4 TagContainer">
+                    <div class="col-12 mb-4 TagContainer">
                         <span class="categories">
                             <span class="lnr lnr-tag"></span>
                             <span v-for="tag in article.tags" :key="tag.id" class="Tag">
@@ -33,10 +27,10 @@
                         </span>
                     </div>
 
-                    <div class="col-12 article-content">
+                    <div class="col-12 article-content px-4">
                         <vue-markdown>{{article.content}}</vue-markdown>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 px-4">
                         <vue-disqus shortname="stanrogo" :identifier="this.id" :url="$route.path"></vue-disqus>
                     </div>
                 </div>
@@ -65,7 +59,7 @@ export default {
           'fields.cleanUrl': params.id,
       });
       return {
-        article: entries.items[0].fields,
+        article: entries.items[0] ? entries.items[0].fields : {},
       };
     }
 };

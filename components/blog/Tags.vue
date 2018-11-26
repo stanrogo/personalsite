@@ -26,8 +26,6 @@
 </script>
 
 <style lang="scss">
-    @import '~assets/scss/variables';
-
     .tags{
         .tags-icon {
             margin-right: 0.5rem;
@@ -37,8 +35,7 @@
             display: inline-block;
             margin: 0 0.5rem 1rem 0;
             padding: 0.25rem 0.5rem;
-            color: white;
-            background: $color--text-primary;
+            background: #F6F6F6;
         }
     }
 </style>

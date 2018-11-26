@@ -10,6 +10,8 @@ if (process.server) {
     Vue.component('b-navbar-brand', require('bootstrap-vue/es/components/navbar/navbar-brand').default);
     Vue.component('b-navbar-toggle', require('bootstrap-vue/es/components/navbar/navbar-toggle').default);
     Vue.component('b-navbar-nav', require('bootstrap-vue/es/components/navbar/navbar-nav').default);
+    Vue.component('b-nav-item-dropdown', require('bootstrap-vue/es/components/nav/nav-item-dropdown').default);
+    Vue.component('b-dropdown-item', require('bootstrap-vue/es/components/dropdown/dropdown-item').default);
     Vue.component('b-nav-item', require('bootstrap-vue/es/components/nav/nav-item').default);
     Vue.component('b-collapse', require('bootstrap-vue/es/components/collapse/collapse').default);
   }

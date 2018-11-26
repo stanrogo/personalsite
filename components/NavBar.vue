@@ -12,7 +12,7 @@
             </b-nav-item>
             <b-nav-item-dropdown v-for="nav in dropDownNavs" :key="nav.name" :text="nav.name" :exact="nav.exact" right>
                 <b-dropdown-item v-for="item in nav.items" :key="item.pageName"
-                                 :to="'/' + nav.name.toLowerCase() + '/' + item.pageName">
+                                 :to="'/' + nav.name.toLowerCase() + '/' + item.pageName + '/'">
                     {{ item.title }}
                 </b-dropdown-item>
             </b-nav-item-dropdown>

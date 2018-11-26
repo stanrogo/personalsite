@@ -11,25 +11,25 @@ const createStore = () => {
                 },
                 {
                     name: 'Work',
-                    to: '/work',
+                    to: '/work/',
                     exact: false,
                     items: [],
 
                 },
                 {
                     name: 'Projects',
-                    to: '/projects',
+                    to: '/project/s',
                     exact: false,
                     items: [],
                 },
                 {
                     name: 'Blog',
-                    to: '/blog',
+                    to: '/blog/',
                     exact: false,
                 },
                 {
                     name: 'About',
-                    to: '/about',
+                    to: '/about/',
                     exact: true,
                 },
             ],

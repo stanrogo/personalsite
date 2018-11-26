@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio-item text-center d-flex flex-column">
-        <router-link :to="'/' + item.type + '/' + item.link" tag="figure" class="portfolio-item--figure">
-                <img class="portfolio-item--image" :src="item.img + '?w=350&h=350&fit=crop&fm=jpg&fl=progressive'">
+        <router-link :to="'/' + item.type + '/' + item.link + '/'" tag="figure" class="portfolio-item--figure">
+                <img v-if="item.img" class="portfolio-item--image" :src="item.img + '?w=350&h=350&fit=crop&fm=jpg&fl=progressive'">
         </router-link>
         <div>{{ item.name }}</div>
         <div class="portfolio-item--sub">{{ item.sub }}</div>

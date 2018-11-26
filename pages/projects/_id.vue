@@ -45,7 +45,5 @@
         .role, .link-label{
             color: #767676;
         }
-
-
     }
 </style>

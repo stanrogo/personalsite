@@ -2,7 +2,7 @@
     <article id="about" class="row">
         <div class="col-4">
             <h1 class="mb-4">About Me</h1>
-            <img class="photo" src="images/me.jpeg">
+            <img class="photo" src="/images/me.jpeg">
         </div>
         <div class="col-8">
             <vue-markdown>{{ description }}</vue-markdown>

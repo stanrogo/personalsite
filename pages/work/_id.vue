@@ -1,5 +1,5 @@
 <template>
-    <article id="work-page" class="row">
+    <article id="work-page" class="row" v-if="job">
         <div class="col-12 col-md-6">
             <h1>{{ job.company }}</h1>
             <h2 class="h4 role">{{ job.role }}</h2>

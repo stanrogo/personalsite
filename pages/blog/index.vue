@@ -1,5 +1,5 @@
 <template>
-    <section id="blog" class="row my-4">
+    <section id="blog" class="row my-4" v-if="posts">
         <div class="mb-4 col-12" v-for="(post, index) in posts" :key="post.id">
             <FeedItem :post="post"/>
             <hr v-if="index < posts.length - 1"/>

@@ -1,5 +1,5 @@
 <template>
-<article id="post">
+<article id="post" v-if="article">
     <div class="cover-wrapper">
         <img class="cover" :src="article.coverImage && article.coverImage.fields.file.url">
         <div class="cover--title">

@@ -74,9 +74,11 @@ module.exports = {
 		async routes() {
 			const projects = await client.getEntries({ 'content_type': 'portfolio', });
 			const jobs = await client.getEntries({ 'content_type': 'work', });
+			const posts = await client.getEntries({ 'content_type': 'blogPost', });
 			const mappedProjects = projects.items.map(x => `/projects/${x.fields.pageName}`);
 			const mappedJobs = jobs.items.map(x => `/work/${x.fields.pageName}`);
-			return mappedJobs.concat(mappedProjects);
+			const mappedPosts = posts.items.map(x => `/blog/${x.fields.cleanUrl}`);
+			return mappedJobs.concat(mappedProjects, mappedPosts);
 		},
 	},
 };

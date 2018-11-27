@@ -1,12 +1,12 @@
 <template>
 	<div id="app" class="container bg-white text-body">
-        <div class="row">
-            <div class="col">
-                <nav-bar/>
-                <nuxt/>
-                <my-footer/>
-            </div>
-        </div>
+		<div class="row">
+			<div class="col">
+				<nav-bar/>
+				<nuxt/>
+				<my-footer/>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -43,5 +43,4 @@ export default {
 			font-family: 'Ubuntu', sans-serif;
 		}
 	}
-
 </style>

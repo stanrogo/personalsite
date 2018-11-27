@@ -1,20 +1,23 @@
 <template>
-    <div class="portfolio-item text-center d-flex flex-column">
-        <router-link :to="'/' + item.type + '/' + item.link + '/'" tag="figure" class="portfolio-item--figure">
-                <img v-if="item.img" class="portfolio-item--image" :src="item.img + '?w=350&h=350&fit=crop&fm=jpg&fl=progressive'">
-        </router-link>
-        <div>{{ item.name }}</div>
-        <div class="portfolio-item--sub">{{ item.sub }}</div>
-    </div>
+	<div class="portfolio-item text-center d-flex flex-column">
+		<router-link :to="'/' + item.type + '/' + item.link + '/'" tag="figure" class="portfolio-item--figure">
+			<img v-if="item.img" :src="item.img + '?w=350&h=350&fit=crop&fm=jpg&fl=progressive'" class="portfolio-item--image">
+		</router-link>
+		<div>{{ item.name }}</div>
+		<div class="portfolio-item--sub">{{ item.sub }}</div>
+	</div>
 </template>
 
 <script>
-    export default {
-        name: 'Item',
-        props: [
-            'item',
-        ],
-    }
+export default {
+	name: 'Item',
+	props: {
+		item: {
+			type: Object,
+			default: () => {},
+		},
+	},
+};
 </script>
 
 <style lang="scss">

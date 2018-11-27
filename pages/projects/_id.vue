@@ -1,37 +1,33 @@
 <template>
-    <article id="project-page" class="row" v-if="project">
-        <div class="col-12 col-md-6">
-            <h1>{{ project.title }}</h1>
-            <h2 class="h4 role">{{ project.type }}</h2>
-            <vue-markdown>{{ project.description }}</vue-markdown>
-            <div class="mb-4">
-                <span class="link-label">Website Link: </span>
-                <a :href="project.link" target="_blank" class="link-text">{{ project.link }}</a>
-            </div>
-        </div>
-        <div class="col-12 col-md-6">
-            <img class="photo" :src="project.image && project.image.fields.file.url">
-        </div>
-    </article>
+	<article v-if="project" id="project-page" class="row">
+		<div class="col-12 col-md-6">
+			<h1>{{ project.title }}</h1>
+			<h2 class="h4 role">{{ project.type }}</h2>
+			<vue-markdown :toc="false">{{ project.description }}</vue-markdown>
+			<div class="mb-4">
+				<span class="link-label">Website Link: </span>
+				<a :href="project.link" target="_blank" class="link-text">{{ project.link }}</a>
+			</div>
+		</div>
+		<div class="col-12 col-md-6">
+			<img :src="project.image && project.image.fields.file.url" class="photo">
+		</div>
+	</article>
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown';
-    export default {
-        name: 'PortfolioItem',
-        components: {
-            VueMarkdown,
-        },
-        async asyncData ({ app, params }) {
-            const entries = await app.$contentful.getEntries({
-                'content_type': 'portfolio',
-                'fields.pageName': params.id,
-            });
-            return {
-                project: entries.items[0].fields,
-            };
-        }
-    };
+export default {
+	name: 'PortfolioItem',
+	async asyncData ({ app, params, }) {
+		const entries = await app.$contentful.getEntries({
+			'content_type': 'portfolio',
+			'fields.pageName': params.id,
+		});
+		return {
+			project: entries.items[0].fields,
+		};
+	},
+};
 </script>
 
 <style lang="scss">

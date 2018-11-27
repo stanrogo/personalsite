@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import VueMarkdown from 'vue-markdown';
+import VueMarkdownComponent from 'vue-markdown/src/VueMarkdown';
 
-Vue.use(VueMarkdown);
+Vue.component('vue-markdown', VueMarkdownComponent);

@@ -1,28 +1,31 @@
 <template>
-<div class="tags my-2">
-    <font-awesome-icon :icon="['fas', 'tags']" class="tags-icon"/>
-    <span v-for="tag in tags" :key="tag.id" class="Tag">
-        {{tag}}
-    </span>
-</div>
+	<div class="tags my-2">
+		<font-awesome-icon :icon="['fas', 'tags']" class="tags-icon"/>
+		<span v-for="tag in tags" :key="tag.id" class="Tag">
+			{{ tag }}
+		</span>
+	</div>
 </template>
 
 <script>
-    import { library } from '@fortawesome/fontawesome-svg-core'
-    import { faTags } from '@fortawesome/free-solid-svg-icons'
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-    library.add(faTags);
+library.add(faTags);
 
-    export default {
-        name: 'Tags',
-        props: [
-            'tags',
-        ],
-        components: {
-            FontAwesomeIcon,
-        },
-    };
+export default {
+	name: 'Tags',
+	components: {
+		FontAwesomeIcon,
+	},
+	props: {
+		tags: {
+			type: Object,
+			default: () => {},
+		},
+	},
+};
 </script>
 
 <style lang="scss">

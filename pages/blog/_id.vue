@@ -30,7 +30,7 @@
 						<div class="col-12 article-content">
 							<vue-markdown v-if="article.introduction">{{ article.introduction }}</vue-markdown>
 							<hr>
-							<vue-markdown>{{ article.content }}</vue-markdown>
+							<vue-markdown :postrender="highlight()">{{ article.content }}</vue-markdown>
 						</div>
 						<div class="col-12">
 							<vue-disqus :identifier="id" :url="'https://stanrogo.com/' + $route.path" shortname="stanrogo"/>
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
 	name: 'Post',
 	computed: {
@@ -59,9 +61,15 @@ export default {
 			article: entries.items[0] ? entries.items[0].fields : {},
 		};
 	},
-	mounted() {
-		/* global hljs */
-		hljs.initHighlightingOnLoad();
+	methods: {
+		highlight() {
+			if (!process.server) {
+				Vue.nextTick(() => {
+					this.hljs.initHighlighting.called = false;
+					this.hljs.initHighlighting();
+				});
+			}
+		},
 	},
 };
 </script>

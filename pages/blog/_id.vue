@@ -32,8 +32,8 @@
 							<hr>
 							<vue-markdown>{{ article.content }}</vue-markdown>
 						</div>
-						<div class="col-12 px-4">
-							<vue-disqus :identifier="id" :url="$route.path" shortname="stanrogo"/>
+						<div class="col-12">
+							<vue-disqus :identifier="id" :url="'https://stanrogo.com/' + $route.path" shortname="stanrogo"/>
 						</div>
 					</div>
 				</div>

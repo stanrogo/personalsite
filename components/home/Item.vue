@@ -1,10 +1,10 @@
 <template>
 	<div class="portfolio-item text-center d-flex flex-column">
-		<router-link :to="'/' + item.type + '/' + item.link + '/'" tag="figure" class="portfolio-item--figure">
+		<router-link :to="'/' + item.type + '/' + item.link + '/'" tag="figure" class="portfolio-item--figure bg-main">
 			<img v-if="item.img" :src="item.img + '?w=350&h=350&fit=crop&fm=jpg&fl=progressive'" class="portfolio-item--image">
 		</router-link>
 		<div>{{ item.name }}</div>
-		<div class="portfolio-item--sub">{{ item.sub }}</div>
+		<div class="text-secondary">{{ item.sub }}</div>
 	</div>
 </template>
 
@@ -24,7 +24,6 @@ export default {
     .portfolio-item--figure {
         position: relative;
         padding-top: 100%;
-        background: #F6F6F6;
         overflow: hidden;
         transition: opacity 0.3s;
 
@@ -40,9 +39,5 @@ export default {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .portfolio-item--sub {
-        color: #767676;
     }
 </style>

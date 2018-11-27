@@ -8,8 +8,8 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12 col-12">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 col-12">
 				<div class="my-4 post-content">
 					<div class="row">
 						<div class="col-12 mb-4 TagContainer">
@@ -27,8 +27,10 @@
 							</span>
 						</div>
 
-						<div class="col-12 article-content px-4">
-							<vue-markdown :toc="false">{{ article.content }}</vue-markdown>
+						<div class="col-12 article-content">
+							<vue-markdown v-if="article.introduction">{{ article.introduction }}</vue-markdown>
+							<hr>
+							<vue-markdown>{{ article.content }}</vue-markdown>
 						</div>
 						<div class="col-12 px-4">
 							<vue-disqus :identifier="id" :url="$route.path" shortname="stanrogo"/>
@@ -56,6 +58,10 @@ export default {
 		return {
 			article: entries.items[0] ? entries.items[0].fields : {},
 		};
+	},
+	mounted() {
+		/* global hljs */
+		hljs.initHighlightingOnLoad();
 	},
 };
 </script>
@@ -107,10 +113,6 @@ export default {
 				width: 100%;
 				padding: 1rem;
 				text-align: center;
-
-				h1{
-					font-size: 2rem;
-				}
 
 				h2, h1{
 					display: inline;
@@ -196,13 +198,13 @@ export default {
 		}
 
 		.article-content{
-			h1{
-				font-size: 1.5rem;
+			h1, h2, h3 {
+				margin-top: 4rem;
+				margin-bottom: 2rem;
 			}
-
-			h2{
-				font-size: 1.2rem;
-			}
+			h1{font-size: 2rem !important;}
+			h2{font-size: 1.75rem !important;}
+			img{margin: 2rem 0;}
 		}
 	}
 </style>

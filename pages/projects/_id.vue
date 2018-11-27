@@ -1,16 +1,16 @@
 <template>
-	<article v-if="project" id="project-page" class="row">
+	<article v-if="project" id="project-page" class="row padded-section">
 		<div class="col-12 col-md-6">
 			<h1>{{ project.title }}</h1>
-			<h2 class="h4 role">{{ project.type }}</h2>
+			<h2 class="h4 text-secondary">{{ project.type }}</h2>
 			<vue-markdown :toc="false">{{ project.description }}</vue-markdown>
 			<div class="mb-4">
-				<span class="link-label">Website Link: </span>
+				<span class="text-secondary">Website Link: </span>
 				<a :href="project.link" target="_blank" class="link-text">{{ project.link }}</a>
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
-			<img :src="project.image && project.image.fields.file.url" class="photo">
+			<img :src="project.image && project.image.fields.file.url">
 		</div>
 	</article>
 </template>
@@ -29,17 +29,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss">
-    #project-page{
-        padding: 4rem 0;
-
-        .photo{
-            width: 100%;
-        }
-
-        .role, .link-label{
-            color: #767676;
-        }
-    }
-</style>

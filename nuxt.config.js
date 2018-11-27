@@ -26,6 +26,9 @@ module.exports = {
 			{rel: 'manifest', href: '/manifest.json',},
 		],
 	},
+	css: [
+		'highlight.js/styles/darcula.css',
+	],
 	/*
     ** Define registered plugins
     */
@@ -35,6 +38,7 @@ module.exports = {
 		'~/plugins/vue-disqus',
 		'~/plugins/vue-markdown',
 		'~/plugins/vue-moment',
+		'~/plugins/vue-highlight',
 	],
 	/*
     ** Customize the progress bar color

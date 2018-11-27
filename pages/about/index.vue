@@ -1,11 +1,17 @@
 <template>
-	<article id="about" class="row">
-		<div class="col-12 col-md-4">
-			<h1 class="mb-4">About Me</h1>
-			<img class="photo" src="/images/me.jpeg">
+	<article id="about" class="row justify-content-between padded-section">
+		<div class="col-12 col-md-6">
+			<h1>About Me</h1>
 		</div>
-		<div class="col-12 col-md-8">
-			<vue-markdown :toc="false">{{ description }}</vue-markdown>
+		<div class="col-12 col-md-6">
+			<h2 class="sub-heading text-secondary">I'm into VueJS, Performant Databases and all things web.</h2>
+		</div>
+		<div class="col-12 col-sm-6 col-lg-4">
+			<img :src="photo + '?w=500&h=700&fit=pad&fm=jpg&fl=progressive'" class="photo">
+		</div>
+		<div class="col-12 col-sm-6">
+			<h2 class="name mb-4">Stanley Clark</h2>
+			<vue-markdown>{{ description }}</vue-markdown>
 		</div>
 	</article>
 </template>
@@ -19,21 +25,26 @@ export default {
 		});
 		return {
 			description: entries.items[0].fields.description,
+			photo: entries.items[0].fields.photo.fields.file.url,
 		};
 	},
 };
 </script>
 
 <style lang="scss">
-	#about {
-		padding: 4rem 0;
+	@import '~assets/scss/variables';
 
+	#about {
 		.photo {
-			width: 100%;
+			margin-bottom: 2rem;
 		}
 
-		.role {
-			color: #767676;
+		.sub-heading{
+			margin: 2rem 0;
+
+			@include breakpoint(tablet){
+				margin: 0 0 4rem;
+			}
 		}
 	}
 </style>

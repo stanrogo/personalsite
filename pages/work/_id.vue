@@ -1,8 +1,8 @@
 <template>
-	<article v-if="job" id="work-page" class="row">
+	<article v-if="job" id="work-page" class="row padded-section">
 		<div class="col-12 col-md-6">
 			<h1>{{ job.company }}</h1>
-			<h2 class="h4 role">{{ job.role }}</h2>
+			<h2 class="h4 role text-secondary">{{ job.role }}</h2>
 			<p>
 				{{ job.start | moment("MMMM YYYY") }} -
 				<span v-if="job.end"> {{ job.end | moment("MMMM YYYY") }} </span>
@@ -11,7 +11,7 @@
 			<vue-markdown :toc="false">{{ job.description }}</vue-markdown>
 		</div>
 		<div class="col-12 col-md-6">
-			<img :src="job.photo && job.photo.fields.file.url" class="photo">
+			<img :src="job.photo && job.photo.fields.file.url">
 		</div>
 	</article>
 </template>
@@ -30,17 +30,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss">
-	#work-page {
-		padding: 4rem 0;
-
-		.photo {
-			width: 100%;
-		}
-
-		.role {
-			color: #767676;
-		}
-	}
-</style>

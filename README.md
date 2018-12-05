@@ -37,7 +37,7 @@ refreshenv
 gem install travis
 ```
 
-We can then run the following commands:
+We can then run the following commands (**only works using a bash, non-windows, shell e.g. WSL**):
 ```
 ssh-keygen -t rsa -b 4096 -C 'build@travis-ci.com' -f ./deploy_rsa
 travis login --pro

@@ -1,5 +1,8 @@
 # personalsite
 
+[![Build Status](https://travis-ci.com/stanrogo/personalsite.svg?branch=master)](https://travis-ci.com/stanrogo/personalsite)
+[![Maintainability](https://api.codeclimate.com/v1/badges/50e85e0040327c92f424/maintainability)](https://codeclimate.com/github/stanrogo/personalsite/maintainability)
+
 > Everyone needs a place to call their own, and this is my little nook of the Internet.
 
 This site is built using [Nuxt.js](https://github.com/nuxt/nuxt.js), which provides a way to

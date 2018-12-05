@@ -1,25 +1,30 @@
 # personalsite
 
-> Nuxt.js project
+> Everyone needs a place to call their own, and this is my little nook of the Internet.
+
+This site is built using [Nuxt.js](https://github.com/nuxt/nuxt.js), which provides a way to
+build a Vue project, and generate a static site in a fantastic way!
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ npm install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
 
 # generate static project
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+## Accessing the Server
+We can access the server via ssh by first generating an ssh key with:
+`ssh-keygen -t rsa -b 4096 -C '<user>@stanrogo.com' -f ./<my_file>_rsa`.
+
+We can then add the keys via the GoDaddy CPanel management interface and authorise it in the same place.
+
+Finally we can run: `ssh ssh.stanrogo.com -l <user> -p 22 -i <path_to_private_rsa>`. 
 
 ## Generating SSH Keys for Travis Integration
 Because we want to deploy via SSH via Travis CI, we need to generate and encrypt an SSH key
@@ -34,9 +39,9 @@ gem install travis
 
 We can then run the following commands:
 ```
-ssh-keygen -t rsa -b 4096 -C 'build@travis-ci.org' -f ./deploy_rsa
-travis login
-travis encrypt-file deploy_rsa --add -r stanrogo/personalsite
+ssh-keygen -t rsa -b 4096 -C 'build@travis-ci.com' -f ./deploy_rsa
+travis login --pro
+travis encrypt-file --pro deploy_rsa --add
 ```
 
 Then we add the generated public key to our host server, remove the generated files

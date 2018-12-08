@@ -26,6 +26,14 @@ module.exports = {
 			{rel: 'manifest', href: '/manifest.json',},
 		],
 	},
+	modules: [
+		// Simple usage
+		[
+			'@nuxtjs/google-analytics', {
+				id: 'UA-68184328-3',
+			},
+		],
+	],
 	/*
     ** Define registered plugins
     */

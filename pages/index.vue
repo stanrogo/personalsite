@@ -34,7 +34,7 @@ export default {
 					sub: x.type,
 					link: x.pageName,
 					type: 'projects',
-					img: x.photo && x.photo.fields.file.url,
+					img: x.image && x.image.fields.file.url,
 				};
 			});
 		const mappedJobs = jobs.items

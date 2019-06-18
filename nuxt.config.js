@@ -24,6 +24,9 @@ module.exports = {
 		link: [
 			{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico',},
 			{rel: 'manifest', href: '/manifest.json',},
+			{rel: 'preconnect', href: 'https://cdn.linearicons.com',},
+			{rel: 'preconnect', href: 'https://cdn.contentful.com',},
+			{rel: 'preconnect', href: 'https://ajax.googleapis.com',},
 		],
 	},
 	modules: [

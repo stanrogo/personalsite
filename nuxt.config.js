@@ -11,6 +11,9 @@ module.exports = {
     ** Headers of the page
     */
 	head: {
+		htmlAttrs: {
+			lang: 'en',
+		},
 		title: 'StanRogo - Thoughts, Events and Other Things by Stanley Clark',
 		meta: [
 			{charset: 'utf-8',},

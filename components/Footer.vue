@@ -7,7 +7,7 @@
 				</span>
 				<Contact/>
 			</div>
-			<div class="mb-2 mt-0 my-md-4 w-100 font-tiny text-secondary">Copyright 2018</div>
+			<div class="mb-2 mt-0 my-md-4 w-100 font-tiny">Copyright 2018</div>
 		</div>
 	</section>
 </template>

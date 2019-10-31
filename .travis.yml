@@ -5,7 +5,7 @@ branches:
   only:
     - master
 addons:
-  ssh_known_hosts: ssh.stanrogo.com
+  ssh_known_hosts: 160.153.18.20
 before_deploy:
   - openssl aes-256-cbc -K $encrypted_bab956e4e3b0_key -iv $encrypted_bab956e4e3b0_iv -in deploy_rsa.enc -out deploy_rsa -d
   - eval "$(ssh-agent -s)"
@@ -16,6 +16,6 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete -q $TRAVIS_BUILD_DIR/dist/ stanrogo@ssh.stanrogo.com:/home/stanrogo/public_html/stanrogo.com
+  script: rsync -r --delete -q $TRAVIS_BUILD_DIR/dist/ stanrogo@160.153.18.20:/home/stanrogo/public_html/stanrogo.com
   on:
     branch: master

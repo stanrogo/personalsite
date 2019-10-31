@@ -10,7 +10,6 @@
 				<span v-if="job.end"> {{ job.end | moment("MMMM YYYY") }} </span>
 				<span v-if="!job.end"> present </span>
 			</p>
-			{{ job.description }}
 			<div v-html="$md.render(job.description)" />
 		</div>
 		<div class="col-12 col-md-6">

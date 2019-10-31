@@ -60,6 +60,9 @@ module.exports = {
 		breaks: true,
 		injected: true,
 	},
+	router: {
+		linkActiveClass: 'active',
+	},
 	/*
     ** Define registered plugins
     */

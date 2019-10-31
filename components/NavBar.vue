@@ -7,14 +7,17 @@
 		<b-navbar-toggle target="nav_collapse" />
 		<b-collapse id="nav_collapse" is-nav>
 			<b-navbar-nav class="ml-auto">
-				<b-nav-item v-for="item in directNavs" :to="item.to" :key="item.name" :exact="item.exact"
-					class="font-small text-uppercase">
+				<b-nav-item v-for="item in directNavs" :key="item.name" :to="item.to" :exact="item.exact"
+					class="font-small text-uppercase"
+				>
 					{{ item.name }}
 				</b-nav-item>
 				<b-nav-item-dropdown v-for="nav in dropDownNavs" :key="nav.name" :text="nav.name" :exact="nav.exact"
-					class="font-small text-uppercase" right>
+					class="font-small text-uppercase" right
+				>
 					<b-dropdown-item v-for="item in nav.items" :key="item.pageName"
-						:to="'/' + nav.name.toLowerCase() + '/' + item.pageName + '/'">
+						:to="'/' + nav.name.toLowerCase() + '/' + item.pageName + '/'"
+					>
 						{{ item.title }}
 					</b-dropdown-item>
 				</b-nav-item-dropdown>
@@ -28,10 +31,10 @@ export default {
 	name: 'Navbar',
 	computed: {
 		directNavs() {
-			return this.$store.state.navItems.filter(x => !x.hasOwnProperty('items'));
+			return this.$store.state.navItems.filter(x => Object.keys(x).indexOf('items') === -1);
 		},
 		dropDownNavs() {
-			return this.$store.state.navItems.filter(x => x.hasOwnProperty('items'));
+			return this.$store.state.navItems.filter(x => Object.keys(x).indexOf('items') !== -1);
 		},
 	},
 	async mounted() {

@@ -2,9 +2,9 @@
 	<div id="app" class="container bg-white text-body">
 		<div class="row">
 			<div class="col">
-				<nav-bar/>
-				<nuxt/>
-				<my-footer/>
+				<nav-bar />
+				<nuxt />
+				<my-footer />
 			</div>
 		</div>
 	</div>

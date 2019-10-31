@@ -4,14 +4,18 @@
 			<h1>About Me</h1>
 		</div>
 		<div class="col-12 col-md-6">
-			<h2 class="sub-heading text-secondary">I'm into VueJS, Performant Databases and all things web.</h2>
+			<h2 class="sub-heading text-secondary">
+				I'm into VueJS, Performant Databases and all things web.
+			</h2>
 		</div>
 		<div class="col-12 col-sm-6 col-lg-4">
 			<img :src="photo + '?w=500&h=700&fit=pad&fm=jpg&fl=progressive'" class="photo">
 		</div>
 		<div class="col-12 col-sm-6">
-			<h2 class="name mb-4">Stanley Clark</h2>
-			<vue-markdown>{{ description }}</vue-markdown>
+			<h2 class="name mb-4">
+				Stanley Clark
+			</h2>
+			<div v-html="$md.render(description)" />
 		</div>
 	</article>
 </template>

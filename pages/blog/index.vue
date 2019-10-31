@@ -1,7 +1,7 @@
 <template>
 	<section v-if="posts" id="blog" class="row padded-section">
 		<div v-for="(post, index) in posts" :key="post.id" class="mb-4 col-12">
-			<FeedItem :post="post"/>
+			<FeedItem :post="post" />
 			<hr v-if="index < posts.length - 1">
 		</div>
 	</section>

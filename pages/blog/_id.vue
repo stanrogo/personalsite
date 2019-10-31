@@ -4,7 +4,9 @@
 			<img :src="article.coverImage && article.coverImage.fields.file.url" class="cover">
 			<div class="cover--title">
 				<h1><span>{{ article.title }}</span></h1>
-				<h2 class="PostAuthor"><span>By Stanley Clark</span></h2>
+				<h2 class="PostAuthor">
+					<span>By Stanley Clark</span>
+				</h2>
 			</div>
 		</div>
 
@@ -14,13 +16,13 @@
 					<div class="row">
 						<div class="col-12 mb-4 TagContainer">
 							<span class="categories">
-								<span class="lnr lnr-tag"/>
+								<span class="lnr lnr-tag" />
 								<span v-for="tag in article.tags" :key="tag.id" class="Tag">
 									{{ tag }}
 								</span>
 							</span>
 							<span class="timing">
-								<span class="lnr lnr-clock"/>
+								<span class="lnr lnr-clock" />
 								<span class="Tag">
 									{{ article.date | moment("MMMM YYYY") }}
 								</span>
@@ -28,12 +30,12 @@
 						</div>
 
 						<div class="col-12 article-content">
-							<vue-markdown v-if="article.introduction">{{ article.introduction }}</vue-markdown>
+							<div v-if="article.introduction" v-html="$md.render(article.introduction)" />
 							<hr>
-							<vue-markdown :postrender="highlight()">{{ article.content }}</vue-markdown>
+							<div :postrender="highlight()" v-html="$md.render(article.content)" />
 						</div>
 						<div class="col-12">
-							<vue-disqus :identifier="id" :url="'https://stanrogo.com/' + $route.path" shortname="stanrogo"/>
+							<vue-disqus :identifier="id" :url="'https://stanrogo.com/' + $route.path" shortname="stanrogo" />
 						</div>
 					</div>
 				</div>

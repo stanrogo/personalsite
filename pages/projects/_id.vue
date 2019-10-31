@@ -2,8 +2,10 @@
 	<article v-if="project" id="project-page" class="row padded-section">
 		<div class="col-12 col-md-6">
 			<h1>{{ project.title }}</h1>
-			<h2 class="h4 text-secondary">{{ project.type }}</h2>
-			<vue-markdown :toc="false">{{ project.description }}</vue-markdown>
+			<h2 class="h4 text-secondary">
+				{{ project.type }}
+			</h2>
+			<div v-html="$md.render(project.description)" />
 			<div class="mb-4">
 				<span class="text-secondary">Website Link: </span>
 				<a :href="project.link" target="_blank" class="link-text">{{ project.link }}</a>

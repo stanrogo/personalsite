@@ -1,8 +1,8 @@
 <template>
 	<Section id="work">
 		<div class="row">
-			<div v-for="job in work" :key="job.id" class="col-md-4 col-6 mb-4">
-				<Item :item="job"/>
+			<div v-for="job in work" :key="job.id" class="col-md-3 col-6 mb-4">
+				<Item :item="job" />
 			</div>
 		</div>
 	</Section>

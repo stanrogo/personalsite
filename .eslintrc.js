@@ -29,5 +29,6 @@ module.exports = {
 		'no-console': 'off',
 		'vue/max-attributes-per-line': 'off',
 		'vue/html-indent': ['error', 'tab'],
+		'vue/no-v-html': 'off',
 	}
 };

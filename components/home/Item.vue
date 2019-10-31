@@ -6,11 +6,14 @@
 				<source :srcset="item.img + '?w=290&h=290&fit=crop&fm=jpg&fl=progressive'" media="(min-width: 992px)">
 				<source :srcset="item.img + '?w=210&h=210&fit=crop&fm=jpg&fl=progressive'" media="(min-width: 768px)">
 				<img :src="item.img + '?w=240&h=240&fit=crop&fm=jpg&fl=progressive'" class="portfolio-item--image"
-					alt="Potfolio Item Image">
+					alt="Potfolio Item Image"
+				>
 			</picture>
 		</router-link>
 		<div>{{ item.name }}</div>
-		<div class="text-secondary">{{ item.sub }}</div>
+		<div class="text-secondary">
+			{{ item.sub }}
+		</div>
 	</div>
 </template>
 

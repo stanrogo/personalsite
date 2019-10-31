@@ -39,15 +39,33 @@ module.exports = {
 				id: 'UA-68184328-3',
 			},
 		],
+		'bootstrap-vue/nuxt',
+		'@nuxtjs/markdownit',
 	],
+	bootstrapVue: {
+		components: [
+			'BNavbar',
+			'BNavbarBrand',
+			'BNavbarToggle',
+			'BNavbarNav',
+			'BNavItemDropdown',
+			'BDropdownItem',
+			'BNavItem',
+			'BCollapse',
+		],
+	},
+	markdownit: {
+		preset: 'default',
+		linkify: true,
+		breaks: true,
+		injected: true,
+	},
 	/*
     ** Define registered plugins
     */
 	plugins: [
 		'~/plugins/contentful',
-		'~/plugins/vue-bootstrap',
 		'~/plugins/vue-disqus',
-		'~/plugins/vue-markdown',
 		'~/plugins/vue-moment',
 		'~/plugins/highlight',
 	],
@@ -79,10 +97,6 @@ module.exports = {
 				});
 			}
 		},
-		analyze: true,
-		transpile: [
-			'vue-markdown/src/VueMarkdown',
-		],
 	},
 	generate: {
 		async routes() {

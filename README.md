@@ -12,7 +12,7 @@ build a Vue project, and generate a static site in a fantastic way!
 
 ``` bash
 # install dependencies
-$ npm install
+$ yarn install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
@@ -27,7 +27,7 @@ We can access the server via ssh by first generating an ssh key with:
 
 We can then add the keys via the GoDaddy CPanel management interface and authorise it in the same place.
 
-Finally we can run: `ssh ssh.stanrogo.com -l <user> -p 22 -i <path_to_private_rsa>`. 
+Finally we can run: `ssh ssh.stanrogo.com -l <user> -p 22 -i <path_to_private_rsa>`.
 
 ## Generating SSH Keys for Travis Integration
 Because we want to deploy via SSH via Travis CI, we need to generate and encrypt an SSH key

@@ -49,11 +49,6 @@ import Vue from 'vue';
 
 export default {
 	name: 'Post',
-	computed: {
-		id() {
-			return this.$route.params.id;
-		},
-	},
 	async asyncData ({ app, params, }) {
 		const entries = await app.$contentful.getEntries({
 			'content_type': 'blogPost',
@@ -62,6 +57,11 @@ export default {
 		return {
 			article: entries.items[0] ? entries.items[0].fields : {},
 		};
+	},
+	computed: {
+		id() {
+			return this.$route.params.id;
+		},
 	},
 	methods: {
 		highlight() {

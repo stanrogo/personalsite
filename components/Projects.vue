@@ -5,7 +5,9 @@
 		</h1>
 		<article v-for="project in projects" :key="project.id" class="portfolio-item d-flex flex-row row mb-4">
 			<div class="col-12 col-md-9">
-				<div class="mb-4"><strong>{{ project.title }}</strong> - {{ project.type }}</div>
+				<div class="mb-4">
+					<strong>{{ project.title }}</strong> - {{ project.type }}
+				</div>
 				<div v-html="$md.render(project.description)" />
 				<div class="mb-4">
 					<span class="text-secondary">Website Link: </span>

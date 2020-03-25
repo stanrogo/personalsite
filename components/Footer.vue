@@ -8,7 +8,7 @@
 				<Contact />
 			</div>
 			<div class="mb-2 mt-0 my-md-4 w-100 font-tiny">
-				Copyright 2018 - 2019
+				Copyright 2018 - 2020
 			</div>
 		</div>
 	</section>

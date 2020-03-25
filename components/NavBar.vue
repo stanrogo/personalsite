@@ -37,22 +37,5 @@ export default {
 			return this.$store.state.navItems.filter(x => Object.keys(x).indexOf('items') !== -1);
 		},
 	},
-	async mounted() {
-		const projects = await this.$contentful.getEntries({
-			content_type: 'portfolio',
-		});
-		const jobs = await this.$contentful.getEntries({ content_type: 'work', });
-		const mappedJobs = jobs.items.map(x => {
-			return {
-				title: x.fields.company,
-				pageName: x.fields.pageName,
-			};
-		});
-		this.$store.commit('setNavItems', {
-			name: 'Projects',
-			items: projects.items.map(x => x.fields),
-		});
-		this.$store.commit('setNavItems', { name: 'Work', items: mappedJobs, });
-	},
 };
 </script>

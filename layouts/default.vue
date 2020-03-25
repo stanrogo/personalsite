@@ -43,4 +43,8 @@ export default {
 			font-family: 'Ubuntu', sans-serif;
 		}
 	}
+
+	.heading{
+		text-transform: uppercase;
+	}
 </style>

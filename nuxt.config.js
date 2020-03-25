@@ -21,7 +21,7 @@ module.exports = {
 			{
 				hid: 'description',
 				name: 'description',
-				content: 'Thoughts, events and other things from a computer science student in Eindhoven.',
+				content: 'Thoughts, events and other things from a computer science PhD student in Eindhoven.',
 			},
 		],
 		link: [
@@ -68,9 +68,7 @@ module.exports = {
     */
 	plugins: [
 		'~/plugins/contentful',
-		'~/plugins/vue-disqus',
 		'~/plugins/vue-moment',
-		'~/plugins/highlight',
 	],
 	/*
     ** Customize the progress bar color
@@ -99,17 +97,6 @@ module.exports = {
 					exclude: /(node_modules)/,
 				});
 			}
-		},
-	},
-	generate: {
-		async routes() {
-			const projects = await client.getEntries({ 'content_type': 'portfolio', });
-			const jobs = await client.getEntries({ 'content_type': 'work', });
-			const posts = await client.getEntries({ 'content_type': 'blogPost', });
-			const mappedProjects = projects.items.map(x => `/projects/${x.fields.pageName}`);
-			const mappedJobs = jobs.items.map(x => `/work/${x.fields.pageName}`);
-			const mappedPosts = posts.items.map(x => `/blog/${x.fields.cleanUrl}`);
-			return mappedJobs.concat(mappedProjects, mappedPosts);
 		},
 	},
 };

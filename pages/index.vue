@@ -1,19 +1,22 @@
 <template>
 	<div id="home">
 		<hero />
-		<work :work="work" class="mb-4" />
+		<about :description="description" class="mb-4" />
+		<projects :projects="projects" class="mb-4" />
 	</div>
 </template>
 
 <script>
-import Hero from '~/components/home/Hero.vue';
-import Work from '~/components/home/Work.vue';
+import Hero from '~/components/Hero.vue';
+import About from '~/components/About.vue';
+import Projects from '~/components/Projects.vue';
 
 export default {
 	name: 'App',
 	components: {
 		Hero,
-		Work,
+		About,
+		Projects,
 	},
 	async asyncData({ app, }) {
 		const introduction = await app.$contentful.getEntries({
@@ -22,36 +25,10 @@ export default {
 		const projects = await app.$contentful.getEntries({
 			content_type: 'portfolio',
 		});
-		const jobs = await app.$contentful.getEntries({
-			content_type: 'work',
-			order: '-fields.start',
-		});
-		const mappedProjects = projects.items
-			.map(x => x.fields)
-			.map(x => {
-				return {
-					name: x.title,
-					sub: x.type,
-					link: x.pageName,
-					type: 'projects',
-					img: x.image && x.image.fields.file.url,
-				};
-			});
-		const mappedJobs = jobs.items
-			.map(x => x.fields)
-			.map(x => {
-				return {
-					name: x.company,
-					sub: x.role,
-					link: x.pageName,
-					type: 'work',
-					img: x.photo && x.photo.fields.file.url,
-				};
-			});
 
 		return {
 			description: introduction.items[0].fields.description,
-			work: mappedJobs.concat(mappedProjects),
+			projects: projects.items.map(x => x.fields),
 		};
 	},
 };

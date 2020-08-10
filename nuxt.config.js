@@ -1,11 +1,3 @@
-const createClient = require('contentful').createClient;
-const config = {
-	space: 'rb7ghqpklwc4',
-	accessToken: '232b1ef6d09ece11d2fb8baeeb17e35cc317bdbf0aae6ef1c433b676af7ae8d4',
-};
-
-const client = createClient(config);
-
 module.exports = {
 	/*
     ** Headers of the page
@@ -14,7 +6,7 @@ module.exports = {
 		htmlAttrs: {
 			lang: 'en',
 		},
-		title: 'StanRogo - Thoughts, Events and Other Things by Stanley Clark',
+		title: 'StanRogo - Stanley Clark - PhD Student Database Access Control',
 		meta: [
 			{charset: 'utf-8',},
 			{name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no',},
@@ -33,7 +25,6 @@ module.exports = {
 		],
 	},
 	modules: [
-		// Simple usage
 		[
 			'@nuxtjs/google-analytics', {
 				id: 'UA-68184328-3',
@@ -41,6 +32,10 @@ module.exports = {
 		],
 		'bootstrap-vue/nuxt',
 		'@nuxtjs/markdownit',
+	],
+	buildModules: [
+		'@nuxtjs/dotenv',
+		'@nuxtjs/moment',
 	],
 	bootstrapVue: {
 		components: [
@@ -68,7 +63,6 @@ module.exports = {
     */
 	plugins: [
 		'~/plugins/contentful',
-		'~/plugins/vue-moment',
 	],
 	/*
     ** Customize the progress bar color
@@ -81,14 +75,15 @@ module.exports = {
 			},
 		},
 	},
-	/*
-    ** Build configuration
-    */
 	build: {
-		/*
-        ** Run ESLint on save
-        */
+		/**
+		 * Extend the given webpack configuration
+		 * @param config The webpack configuration
+		 * @param isDev Is development environment
+		 * @param isClient Is code being packed for the client
+		 */
 		extend(config, {isDev, isClient,}) {
+			//  Run ESLint on save
 			if (isDev && isClient) {
 				config.module.rules.push({
 					enforce: 'pre',

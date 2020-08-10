@@ -19,6 +19,9 @@ $ npm run dev
 
 # generate static project
 $ npm run generate
+
+# update dependencies in package.json
+$ ncu -u
 ```
 
 ## Accessing the Server

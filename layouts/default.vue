@@ -1,23 +1,16 @@
 <template>
 	<div id="app" class="container bg-white text-body">
-		<div class="row">
-			<div class="col">
-				<nav-bar />
-				<nuxt />
-				<my-footer />
-			</div>
-		</div>
+		<nuxt />
+		<my-footer />
 	</div>
 </template>
 
 <script>
-import NavBar from '~/components/NavBar.vue';
 import MyFooter from '~/components/Footer.vue';
 
 export default {
 	name: 'App',
 	components: {
-		NavBar,
 		MyFooter,
 	},
 };

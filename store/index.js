@@ -1,19 +1,4 @@
 export const state = () => ({
-	navItems: [
-		{
-			name: 'Home',
-			to: '#home',
-			exact: true,
-		},
-		{
-			name: 'About Me',
-			to: '#about',
-		},
-		{
-			name: 'Projects',
-			to: '#projects',
-		},
-	],
 	contactLinks: [
 		{
 			link: 'https://twitter.com/stanrogo',
